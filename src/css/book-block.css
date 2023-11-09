@@ -1,3 +1,38 @@
-p{
-    color: red;
+/* MOBILE VERSION BESTSELLERS */
+.book-block-title {
+  color: var(--black);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.19;
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+}
+.book-block-title-accent {
+  color: var(--violet);
+}
+.book-block {
+  background-color: var(--backgroung-white);
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+.best-category-title {
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: 0.03em;
+  margin-bottom: 18px;
+}
+.book-card-img {
+  border-radius: 8px;
+}
+.best-category-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+}
+.book-card-text {
+    color: var(--gray);
+    background-color: var(--backgroung-white);
 }
