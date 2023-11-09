@@ -10,6 +10,7 @@
 @import url('./cards-example.css');
 @import url('./support.css');
 @import url('./shopping-list.css');
+@import url('./book-block.css');
 
 @font-face {
   font-family: 'DM Sans', sans-serif;

@@ -1,2 +1,2 @@
-import "./js/requests";
+import './js/book-block.js';
 
