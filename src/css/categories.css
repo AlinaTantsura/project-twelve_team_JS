@@ -1,3 +1,81 @@
-.categories{
-    background-color:bisque;
+.categories {
+  background-color: transparent;
 }
+
+
+@media (min-width:320px) and (max-width:767px) {
+    .categories-div {
+    max-width: 335px;
+    max-height: 228px;
+    overflow-y: scroll;
+    }
+
+    .categories-list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    }
+
+    #allCategories {
+    margin-bottom: 18px;
+    }
+
+    .categories-item {
+    width: 100%;
+    height: 18px;
+    }
+
+    .categories-button {
+    background-color: transparent;
+    border: none;
+    height: 18px;
+    color: var(--black-1);
+    opacity: 60%;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 112.5% */
+    letter-spacing: -0.32px;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .categories-button:hover {
+    color: var(--violet);
+    font-family: DM Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+    letter-spacing: -0.32px;
+    text-transform: uppercase;
+    opacity: 100%;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .categories-button:focus {
+    color: var(--violet);
+    font-family: DM Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+    letter-spacing: -0.32px;
+    text-transform: uppercase;
+    opacity: 100%;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .categories-div::-webkit-scrollbar {
+    width: 8px;
+    }
+
+    .categories-div::-webkit-scrollbar-track {
+    background: transparent;
+    }
+
+    .categories-div::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+    border-radius: 12px;
+    }
+};
