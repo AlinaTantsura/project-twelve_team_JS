@@ -7,3 +7,4 @@ import './js/book-block.js';
 import './js/sing-in.js';
 import './js/support.js';
 import "./js/categories"
+import './js/books-each-category.js';

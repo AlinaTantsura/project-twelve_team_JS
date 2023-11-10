@@ -34,6 +34,7 @@ async function fetchAndDisplayCategories() {
   const categoryListElement = document.querySelector('.categories-list');
   categoryRequest.forEach((category, index) => {
     const categoryElement = createCategoryElement(category, index);
+    // @ts-ignore
     categoryListElement.appendChild(categoryElement);
   });
 }

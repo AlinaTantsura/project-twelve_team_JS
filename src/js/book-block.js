@@ -4,7 +4,7 @@ import Notiflix from "notiflix";
 const booksList = document.querySelector('.book-block-list');
 
 // FUNCTION FOR CREATE BOOK MARKUP
-function createBook(book) {
+export function createBook(book) {
     return `<li class="book-card" id="${book._id}">
     <div class="book-card-box">
     <img class="book-card-img" src="${book.book_image}" alt="Book cover ${book.title}" loading="lazy" />
@@ -15,7 +15,7 @@ function createBook(book) {
 }
 
 // FUNCTION FOR CREATE MARKUP LIST OF BESTSELLERS
-function createBestBooksMarkup(books) {
+export function createBestBooksMarkup(books) {
 const bestBooks = [];
   for (let i = 0; i < books.length; i += 1) {
    const cardMarkup = books[i].books.map((book, idx) => {
