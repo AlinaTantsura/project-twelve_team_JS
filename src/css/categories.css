@@ -30,41 +30,35 @@
     background-color: transparent;
     border: none;
     height: 18px;
-    color: var(--black-1);
     opacity: 60%;
-    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
   }
 
   .categories-label:hover {
     color: var(--violet);
-    font-family: DM Sans;
+
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
     text-transform: uppercase;
     opacity: 100%;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
   }
 
   .categories-button:checked + .categories-label {
     color: var(--violet);
-    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
     text-transform: uppercase;
     opacity: 100%;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
     outline: none;
   }
 
@@ -110,41 +104,34 @@
     background-color: transparent;
     border: none;
     height: 18px;
-    color: var(--black-1);
     opacity: 60%;
-    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
   }
 
   .categories-label:hover {
     color: var(--violet);
-    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
     text-transform: uppercase;
     opacity: 100%;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
   }
 
   .categories-button:checked + .categories-label {
     color: var(--violet);
-    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
     text-transform: uppercase;
     opacity: 100%;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
     outline: none;
   }
 
@@ -190,41 +177,34 @@
     background-color: transparent;
     border: none;
     height: 18px;
-    color: var(--black-1);
     opacity: 60%;
-    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
   }
 
   .categories-label:hover {
     color: var(--violet);
-    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
     text-transform: uppercase;
     opacity: 100%;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
   }
 
   .categories-button:checked + .categories-label {
     color: var(--violet);
-    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
-    letter-spacing: -0.32px;
     text-transform: uppercase;
     opacity: 100%;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: var(--animation);
     outline: none;
   }
 
