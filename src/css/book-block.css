@@ -11,7 +11,7 @@
   color: var(--violet);
 }
 .book-block {
-  background-color: var(--backgroung-white);
+  background-color: var(--background-white);
   padding-top: 40px;
   padding-bottom: 80px;
 }
@@ -38,7 +38,7 @@
 }
 .book-card-text {
   color: var(--gray);
-  background-color: var(--backgroung-white);
+  background-color: var(--background-white);
   font-style: italic;
   margin-bottom: 8px;
 }
