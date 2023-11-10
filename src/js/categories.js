@@ -1,5 +1,7 @@
-import axios from 'axios';
 import GetBooksFromApi from './requests';
+
+
+/* Функція створення элемента категорії */
 
 const createCategoryElement = (category, index) => {
   const categoryLi = document.createElement('li');
@@ -23,6 +25,8 @@ const createCategoryElement = (category, index) => {
 
   return categoryLi;
 };
+
+/* Функція виведення елементів на сторінку */
 
 async function fetchAndDisplayCategories() {
   const categoryRequest = await new GetBooksFromApi().getAllCategories();
