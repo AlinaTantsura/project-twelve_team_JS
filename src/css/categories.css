@@ -33,7 +33,7 @@
     opacity: 60%;
     font-size: 16px;
     line-height: 18px; /* 112.5% */
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-label:hover {
@@ -44,7 +44,7 @@
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
     opacity: 100%;
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-button:checked + .categories-label {
@@ -54,7 +54,7 @@
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
     opacity: 100%;
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
     outline: none;
   }
 
@@ -103,7 +103,7 @@
     opacity: 60%;
     font-size: 16px;
     line-height: 18px; /* 112.5% */
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-label:hover {
@@ -113,7 +113,7 @@
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
     opacity: 100%;
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-button:checked + .categories-label {
@@ -123,7 +123,7 @@
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
     opacity: 100%;
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
     outline: none;
   }
 
@@ -172,7 +172,7 @@
     opacity: 60%;
     font-size: 16px;
     line-height: 18px; /* 112.5% */
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-label:hover {
@@ -182,7 +182,7 @@
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
     opacity: 100%;
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-button:checked + .categories-label {
@@ -192,7 +192,7 @@
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
     opacity: 100%;
-    transition: var(--animation);
+    transition: color var(--animation), opacity var(--animation);
     outline: none;
   }
 
