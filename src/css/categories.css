@@ -1,3 +1,211 @@
-.categories{
-    background-color:bisque;
+.categories {
+  background-color: transparent;
+}
+
+/* Стиль Категорій під телефон */
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .categories-div {
+    max-width: 335px;
+    max-height: 228px;
+    overflow-y: scroll;
+  }
+
+  .categories-list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .categories-item {
+    width: 307px;
+    height: 18px;
+  }
+
+  .categories-button {
+    display: none;
+  }
+
+  .categories-label {
+    background-color: transparent;
+    border: none;
+    height: 18px;
+    opacity: 60%;
+    font-size: 16px;
+    line-height: 18px; /* 112.5% */
+    transition: color var(--animation), opacity var(--animation);
+  }
+
+  .categories-label:hover {
+    color: var(--violet);
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+    text-transform: uppercase;
+    opacity: 100%;
+    transition: color var(--animation), opacity var(--animation);
+  }
+
+  .categories-button:checked + .categories-label {
+    color: var(--violet);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+    text-transform: uppercase;
+    opacity: 100%;
+    transition: color var(--animation), opacity var(--animation);
+    outline: none;
+  }
+
+  .categories-div::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .categories-div::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .categories-div::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+    border-radius: 12px;
+  }
+}
+
+/* Стиль Категорій під планшет */
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .categories-div {
+    max-width: 337px;
+    max-height: 472px;
+    overflow-y: scroll;
+  }
+
+  .categories-list {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .categories-item {
+    width: 318px;
+    height: 24px;
+  }
+
+  .categories-button {
+    display: none;
+  }
+
+  .categories-label {
+    background-color: transparent;
+    border: none;
+    height: 18px;
+    opacity: 60%;
+    font-size: 16px;
+    line-height: 18px; /* 112.5% */
+    transition: color var(--animation), opacity var(--animation);
+  }
+
+  .categories-label:hover {
+    color: var(--violet);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+    text-transform: uppercase;
+    opacity: 100%;
+    transition: color var(--animation), opacity var(--animation);
+  }
+
+  .categories-button:checked + .categories-label {
+    color: var(--violet);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+    text-transform: uppercase;
+    opacity: 100%;
+    transition: color var(--animation), opacity var(--animation);
+    outline: none;
+  }
+
+  .categories-div::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .categories-div::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .categories-div::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+    border-radius: 12px;
+  }
+}
+
+/* Стиль Категорій під десктоп */
+
+@media (min-width: 1440px) {
+  .categories-div {
+    max-width: 356px;
+    max-height: 472px;
+    overflow-y: scroll;
+  }
+
+  .categories-list {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .categories-item {
+    width: 328px;
+    height: 24px;
+  }
+
+  .categories-button {
+    display: none;
+  }
+
+  .categories-label {
+    background-color: transparent;
+    border: none;
+    height: 18px;
+    opacity: 60%;
+    font-size: 16px;
+    line-height: 18px; /* 112.5% */
+    transition: color var(--animation), opacity var(--animation);
+  }
+
+  .categories-label:hover {
+    color: var(--violet);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+    text-transform: uppercase;
+    opacity: 100%;
+    transition: color var(--animation), opacity var(--animation);
+  }
+
+  .categories-button:checked + .categories-label {
+    color: var(--violet);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+    text-transform: uppercase;
+    opacity: 100%;
+    transition: color var(--animation), opacity var(--animation);
+    outline: none;
+  }
+
+  .categories-div::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .categories-div::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .categories-div::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+    border-radius: 12px;
+  }
 }
