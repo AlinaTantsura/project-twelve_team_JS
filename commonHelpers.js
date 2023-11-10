@@ -1,2 +1,2 @@
-import"./assets/index-7cb44a88.js";console.log("This is book-block");
+import"./assets/index-ad500afa.js";console.log("This is book-block");
 //# sourceMappingURL=commonHelpers.js.map
