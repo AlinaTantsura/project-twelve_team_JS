@@ -30,6 +30,7 @@ const createCategoryElement = (category, index) => {
 
 async function fetchAndDisplayCategories() {
   const categoryRequest = await new GetBooksFromApi().getAllCategories();
+  categoryRequest.sort((a, b) => a.list_name.localeCompare(b.list_name));
   const categoryListElement = document.querySelector('.categories-list');
   categoryRequest.forEach((category, index) => {
     const categoryElement = createCategoryElement(category, index);
