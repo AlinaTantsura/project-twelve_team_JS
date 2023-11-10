@@ -1,5 +1,4 @@
 import GetBooksFromApi from "./requests";
-import { createBestBooksMarkup } from "./book-block";
 import { createBook } from "./book-block";
 import Notiflix from "notiflix";
 

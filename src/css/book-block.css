@@ -72,10 +72,11 @@
   text-transform: uppercase;
   border-radius: 40px;
   border: 2px solid var(--violet);
+  background-color: inherit;
   height: 46px;
   width: 124px;
   margin-bottom: 40px;
-  transition: all 300ms ease-in-out;
+  transition: var(--animation);
 }
 @media (hover: hover) {
   .see-more-btn:hover,
