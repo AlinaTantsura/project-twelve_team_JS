@@ -32,8 +32,6 @@
     height: 18px;
     opacity: 60%;
     font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 18px; /* 112.5% */
     transition: var(--animation);
   }
@@ -42,7 +40,6 @@
     color: var(--violet);
 
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
@@ -53,7 +50,6 @@
   .categories-button:checked + .categories-label {
     color: var(--violet);
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
@@ -106,8 +102,6 @@
     height: 18px;
     opacity: 60%;
     font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 18px; /* 112.5% */
     transition: var(--animation);
   }
@@ -115,7 +109,6 @@
   .categories-label:hover {
     color: var(--violet);
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
@@ -126,7 +119,6 @@
   .categories-button:checked + .categories-label {
     color: var(--violet);
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
@@ -179,8 +171,6 @@
     height: 18px;
     opacity: 60%;
     font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 18px; /* 112.5% */
     transition: var(--animation);
   }
@@ -188,7 +178,6 @@
   .categories-label:hover {
     color: var(--violet);
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
@@ -199,7 +188,6 @@
   .categories-button:checked + .categories-label {
     color: var(--violet);
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 18px; /* 112.5% */
     text-transform: uppercase;
