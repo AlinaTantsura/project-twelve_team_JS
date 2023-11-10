@@ -41,6 +41,7 @@
   --white: #FFF;
   --gray: #B4AFAF;
   --background-white: #F6F6F6;
+  --animation: 0.3s ease-in-out;
 }
 
 /* Dark styles default*/
