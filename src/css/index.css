@@ -51,13 +51,32 @@
   padding: 0 20px;
   margin: 0 auto;
 }
+.main-container{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.left-main{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
 
 @media screen and (min-width: 768px) {
   .container{
     max-width: 768px;
     padding: 0 32px;
   }
- 
+  .main-container{
+    gap: 98px;
+  }
+  .left-main{
+    flex-direction: row;
+    gap: 32px;
+  }
+
 }
 
 @media screen and (min-width: 1440px) {
@@ -65,9 +84,19 @@
     max-width: 1440px;
     padding: 0 24px;
   }
+  .main-container{
+    flex-direction: row;
+    gap: 40px;
+  }
+  .left-main{
+    flex-direction: column;
+    gap: 86px;
+    width: 356px;
+  }
 }
 
 /* For hidden */
 .hidden{
   display: none;
 }
+
