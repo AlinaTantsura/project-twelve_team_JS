@@ -1,7 +1,6 @@
 .categories {
   background-color: transparent;
 }
-
 /* Стиль Категорій під телефон */
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -208,4 +207,13 @@
     background-color: var(--gray);
     border-radius: 12px;
   }
+}
+
+.active {
+  color: var(--violet);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.12;
+  text-transform: uppercase;
+  opacity: 1;
 }

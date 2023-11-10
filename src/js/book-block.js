@@ -37,7 +37,7 @@ booksList.innerHTML = bestBooks.join('');
 // CREATION MARKUP WHEN OPEN HOME PAGE
 
 const getBooksFromApi = new GetBooksFromApi();
-async function onLoadPage() {
+export async function onLoadPage() {
     try {
        const response = await getBooksFromApi.getBooks();
        if (response.length === 0) {
