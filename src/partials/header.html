@@ -1,5 +1,85 @@
 <header class="header">
   <div class="container">
+
+<!-- ================================================================ -->
+   <!--Контейнер з лого-svg-->
     
+    <a href="../index.html" target="_blank" class="link">
+      <div class="logo-container">
+        <svg class="icon-logo" width="24" height="24">
+          <use href="../img/InlineSprite.svg#logo-light"></use>
+        </svg>
+        <svg class="icon-logo" width="77" height="20">
+          <use href="../img/InlineSprite.svg#Bookshelf-light"></use>
+        </svg>
+      </div>
+    </a>
+    
+
+<!-- ================================================================ -->
+    <!--Контейнер з перемикачем та меню-->
+    <div class="menu-container">      
+     <!--Меню-->  
+
+    <!-- Desctop-menu-header -->
+    <nav class="header-nav">
+      <ul class="header-menu-list">
+        <li class="hm-list-item">
+          <a href="../index.html" class="header-home">Home</a>
+        </li>
+        <li class="hm-list-item">
+          <a href="../shopping.html" class="header-shoplist">
+            Shopping list
+            <!-- <svg class="icon-bag" width="20" height="20">
+                        <use href="../img/InlineSprite.svg"></use>
+                      </svg> -->
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!--Перемикач теми світла/темна-->
+    <label id="switch" class="switch">
+
+    </label>
+
+    <button class="menu-toggle js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg class="menu-toggle-icon" width="32" height="22">
+        <use href="../img/InlineSprite.svg#align-left"></use>
+      </svg>
+    </button>
+    <!--Mobile-menu-header-->
+    <div class="menu-container js-menu-container" id="mobile-menu">
+    
+      <button class="close js-close-menu">
+        <!-- <svg class="icon-modal" width="8" height="8">
+          <use href="../img/InlineSprite.svg"></use>
+        </svg> -->
+      </button>
+
+      <ul class="mobile-menu-list">
+        <li class="mm-list-item">
+          <a href="../index.html" class="header-home">Home</a>
+        </li>
+        <li class="mm-list-item">
+          <a href="../shopping.html" class="header-shoplist">
+            Shopping list
+            <!-- <svg class="icon-bag" width="20" height="20">
+              <use href="../img/InlineSprite.svg"></use>
+            </svg> -->
+          </a>
+        </li>
+      </ul>
+    
+    </div>
+
+
+
+    </div>
+
+    <!-- <div class="header-user">
+
+    </div> -->
+
   </div>
 </header>
