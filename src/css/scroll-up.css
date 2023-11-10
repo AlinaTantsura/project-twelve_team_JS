@@ -3,7 +3,7 @@ p{
 }
 
 .scroll-up{
-    transition: opacity 1s ease-out;
+    transition: opacity 0.3s ease-out;
     opacity: 0;
     visibility: hidden;
     display: flex; /* Hidden by default */
@@ -20,7 +20,7 @@ p{
 }
 
 .scroll-up-span{
-    transition: opacity 1s ease-out;
+    transition: opacity 0.3s ease-out;
     opacity: 0;
     visibility: hidden;
     background-color: #4F2EE8; /* Set a background color */
