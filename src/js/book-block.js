@@ -5,7 +5,6 @@ const booksList = document.querySelector('.book-block-list');
 
 // FUNCTION FOR CREATE BOOK MARKUP
 function createBook(book) {
-    console.log(book);
     return `<li class="book-card" id="${book._id}">
     <div class="book-card-box">
     <img class="book-card-img" src="${book.book_image}" alt="Book cover ${book.title}" loading="lazy" />
@@ -26,7 +25,8 @@ const bestBooks = [];
     }).join('');
     const markupBests = `<h2 class="best-category-title">${books[i].list_name}</h2>
     <ul class="best-category-list">${cardMarkup}</ul>
-    <button class="see-more-btn" name="${books[i].list_name}" type="button">See more</button>`;
+    <div class="see-more-btn-box">
+    <button class="see-more-btn" name="${books[i].list_name}" type="button">See more</button></div>`;
 
     bestBooks.push(markupBests);
 }

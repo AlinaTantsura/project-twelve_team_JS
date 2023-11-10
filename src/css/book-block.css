@@ -15,6 +15,7 @@
   padding-top: 40px;
   padding-bottom: 80px;
 }
+/* POPULAR BOOK CARDS */
 .best-category-title {
   color: var(--gray);
   font-size: 14px;
@@ -25,14 +26,55 @@
 }
 .book-card-img {
   border-radius: 8px;
+  margin-bottom: 14px;
+  width: 100%;
+  max-width: 335px;
 }
 .best-category-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 40px;
 }
 .book-card-text {
-    color: var(--gray);
-    background-color: var(--backgroung-white);
+  color: var(--gray);
+  background-color: var(--backgroung-white);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.book-card-title {
+  line-height: 1.12;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+}
+.see-more-btn-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.see-more-btn {
+  color: var(--black);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  border-radius: 40px;
+  border: 2px solid var(--violet);
+  height: 46px;
+  width: 124px;
+  margin-bottom: 40px;
+}
+.book-card {
+  display: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 767.98px) {
+  .book-card:first-child {
+    display: block;
+  }
 }
