@@ -30,13 +30,25 @@ categoryListItems?.addEventListener('click', onClick);
 // Callback function when we click on some category in list of categories
 function onClick(event) {
     event.preventDefault();
-    if(event.target.nodeName === 'LABEL' && event.target.textContent !== 'All Categories') {
+    const listOfLabels = document.querySelectorAll('label');
+    listOfLabels.forEach(label => {
+        if (label === event.target) {
+           label.classList.add('active')
+        }
+        label.classList.remove('active');
+    })
+    
+    const labelElem = event.target;
+    if(labelElem.nodeName === 'LABEL' && labelElem.textContent !== 'All Categories') {
+        console.log(labelElem);
+        labelElem.classList.add('active');
         // @ts-ignore
         categoryTitle.style.display = 'none';
-        renderBooksCategory(event.target.textContent);
-    } else if(event.target.textContent === 'All Categories') {
+        renderBooksCategory(labelElem.textContent);
+    } else if(labelElem.textContent === 'All Categories') {
         // @ts-ignore
         categoryTitle.style.display = 'block';
+        labelElem.classList.add('active');
         onLoadPage();
     }
 };
