@@ -17,7 +17,6 @@ bestsellerList?.addEventListener('click', onSeeMore);
 // Callback function when we click on button "See more"
 function onSeeMore(event) {
     event.preventDefault();
-
     // For make active category in categories list
     const listOfLabels = document.querySelectorAll('label');
     listOfLabels.forEach(label => {
@@ -42,7 +41,6 @@ categoryListItems?.addEventListener('click', onClick);
 // Callback function when we click on some category in list of categories
 function onClick(event) {
     event.preventDefault();
-
     // For make active the choosen category in categories list
     const listOfLabels = document.querySelectorAll('label');
     listOfLabels.forEach(label => {
