@@ -18,6 +18,9 @@ bestsellerList?.addEventListener('click', onSeeMore);
 function onSeeMore(event) {
     event.preventDefault();
 
+// If click on 'See More' and show all books of one category automatically scroll up
+    window.scrollTo(window.innerHeight, 400);
+
     // For make active category in categories list
     const listOfLabels = document.querySelectorAll('label');
     listOfLabels.forEach(label => {
@@ -42,7 +45,6 @@ categoryListItems?.addEventListener('click', onClick);
 // Callback function when we click on some category in list of categories
 function onClick(event) {
     event.preventDefault();
-
     // For make active the choosen category in categories list
     const listOfLabels = document.querySelectorAll('label');
     listOfLabels.forEach(label => {
