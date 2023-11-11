@@ -19,7 +19,13 @@ function onSeeMore(event) {
     event.preventDefault();
 
 // If click on 'See More' and show all books of one category automatically scroll up
-    window.scrollTo(window.innerHeight, 400);
+   if (window.innerWidth >= 1440) {
+    window.scrollTo(window.innerHeight, 0);
+   } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
+    window.scrollTo(window.innerHeight, 500);
+   } else {
+    window.scrollTo(window.innerHeight, 820);
+   }
 
     // For make active category in categories list
     const listOfLabels = document.querySelectorAll('label');
