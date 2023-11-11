@@ -1,3 +1,144 @@
-p{
-    color:bisque;
+.shopping-element {
+  margin: 0 auto;
+  position: relative;
+  padding: 14px;
+  display: flex;
+  gap: 14px;
+  width: 335px;
+
+  border-radius: 16px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  background: #fff;
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 768px) {
+  .shopping-element {
+    width: 704px;
+    padding: 24px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .shopping-element {
+    width: 996px;
+  }
+}
+.delete-item {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  border-radius: 50%;
+  background-color: #4f2ee8;
+  color: white;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+}
+@media only screen and (min-width: 768px) {
+  .delete-item {
+    width: 34px;
+    height: 34px;
+
+    top: 24px;
+    right: 24px;
+  }
+}
+.book-image {
+  border-radius: 8px;
+  width: 100px;
+  height: 142px;
+}
+@media only screen and (min-width: 768px) {
+  .book-image {
+    width: 116px;
+    height: 165px;
+  }
+}
+
+.book-title {
+  width: 144px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  color: #111;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.12; /* 112.5% */
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+@media only screen and (min-width: 768px) {
+  .book-title {
+    width: auto;
+  }
+}
+.book-category {
+  width: 144px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  color: #b4afaf;
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.16; /* 116.667% */
+  letter-spacing: 0.36px;
+  margin-bottom: 8px;
+}
+@media only screen and (min-width: 768px) {
+  .book-category {
+    margin-bottom: 14px;
+    width: auto;
+  }
+}
+.book-description {
+  margin: 0;
+
+  width: 144px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: #111;
+  width: 193px;
+  height: 56px;
+
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28; /* 128.571% */
+  letter-spacing: -0.56px;
+  margin-bottom: 16px;
+}
+@media only screen and (min-width: 768px) {
+  .book-description {
+    width: 508px;
+    height: 53px;
+    margin-bottom: 46px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .book-description {
+    width: auto;
+  }
+}
+.author-name {
+  margin: 0;
+  font-family: DM Sans;
+  color: #b4afaf;
+
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.16; /* 116.667% */
+  letter-spacing: -0.48px;
 }
