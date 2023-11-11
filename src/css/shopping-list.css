@@ -63,9 +63,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 0;
   color: #111;
-  font-family: DM Sans;
+  font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -84,9 +83,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 0;
   color: #b4afaf;
-  font-family: DM Sans;
+  font-family: 'DM Sans', sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -101,8 +99,6 @@
   }
 }
 .book-description {
-  margin: 0;
-
   width: 144px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -132,8 +128,7 @@
   }
 }
 .author-name {
-  margin: 0;
-  font-family: DM Sans;
+  font-family: 'DM Sans', sans-serif;
   color: #b4afaf;
 
   font-size: 12px;
