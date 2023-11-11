@@ -1,6 +1,7 @@
 import GetBooksFromApi from "./requests";
 import { createBook } from "./book-block";
 import { onLoadPage } from "./book-block";
+import { switchLoader } from "./book-block";
 import Notiflix from "notiflix";
 
 // Create new Class for take all functions from default class
@@ -81,10 +82,13 @@ function onClick(event) {
 // FUNCTION FOR RENDERING BOOKS ONE CATEGORY
 async function renderBooksCategory(category) {
     try {
+        switchLoader();
       const allBooksCategory = await getBooksFromApi.getBooksFromCategory(category);
       markupCat(allBooksCategory, category);
     } catch (error) {
         Notiflix.Notify.failure('Sorry, no books in this category');
+    } finally {
+        switchLoader();
     }
 }
 

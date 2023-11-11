@@ -1,8 +1,7 @@
 <header class="header">
   <div class="container div-header">
-
-<!-- ================================================================ -->
-   <!--Контейнер з лого-svg-->
+    <!-- ================================================================ -->
+    <!--Контейнер з лого-svg-->
 
     <a href="./index.html" class="link">
       <div class="logo-container logo-light">
@@ -23,69 +22,59 @@
         </svg>
       </div>
     </a>
-    
 
-<!-- ================================================================ -->
+    <!-- ================================================================ -->
     <!--Контейнер з перемикачем та меню-desctop-->
-    <div class="menu-container">      
-    <!--Меню-->  
+    <div class="menu-container">
+      <!--Меню-->
 
-    <!-- Desctop-menu-header -->
-    <nav class="header-nav">
-      <ul class="header-menu-list">
-        <li class="hm-list-item">
-          <a href="./index.html" class="header-home js-nav-link">Home</a>
-        </li>
-        <li class="hm-list-item">
-          <a href="./shopping.html" class="header-shoplist js-nav-link">
-            Shopping list
-            <svg class="icon-bag" width="20" height="20">
+      <!-- Desctop-menu-header -->
+      <nav class="header-nav">
+        <ul class="header-menu-list">
+          <li class="hm-list-item">
+            <a href="./index.html" class="header-home js-nav-link">Home</a>
+          </li>
+          <li class="hm-list-item">
+            <a href="./shopping.html" class="header-shoplist js-nav-link">
+              Shopping list
+              <svg class="icon-bag" width="20" height="20">
                 <use href="./img/InlineSprite.svg#cartshop-icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="div-switch-user">
+        <!--Тут має бути перемикач теми світла/темна-->
+        <label id="switch" class="switch">
+          <input type="checkbox" id="slider" />
+          <span class="slider round"></span>
+        </label>
+
+        <!--User-shopplist-->
+        <div class="header-user">
+          <div class="header-user-image">
+            <svg class="icon-user" width="12" height="16">
+              <use href="./img/InlineSprite.svg#user"></use>
             </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    
-    <div class="div-switch-user">
-       <!--Тут має бути перемикач теми світла/темна-->
-       <label id="switch" class="switch">
-      <input type="checkbox" id="slider">
-      <span class="slider round"></span>
-       </label>
-
-       <!--User-shopplist-->
-       <div class="header-user">
-      <div class="header-user-image">
-        <svg class="icon-user" width="12" height="16">
-          <use href="./img/InlineSprite.svg#user"></use>
-        </svg>
-      </div>
-      <span class="header-user-name">Stephen</span>
-      <svg class="icon-arrow-down-user" width="23" height="26">
-        <use href="./img/InlineSprite.svg#user-arrow"></use>
-      </svg>
-       </div>
-
-      <!--Тут має бути Mobile-menu-header-->
-      <div class="mobile-menu-container">
-        <!--Burger-menu-->
-        <button class="menu-toggle js-open-menu">
-          <svg class="icon-burger" width="28" heigth="28">
-            <use href="./img/InlineSprite.svg#align-left"></use>
+          </div>
+          <span class="header-user-name">Stephen</span>
+          <svg class="icon-arrow-down-user" width="23" height="26">
+            <use href="./img/InlineSprite.svg#user-arrow"></use>
           </svg>
-        </button>
-      
+        </div>
+
+        <!--Тут має бути Mobile-menu-header-->
+        <div class="mobile-menu-container">
+          <!--Burger-menu-->
+          <button class="menu-toggle js-open-menu">
+            <svg class="icon-burger" width="28" heigth="28">
+              <use href="./img/InlineSprite.svg#align-left"></use>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
-
-    
-
-    </div>
-
-    
-
   </div>
-
-  
 </header>
