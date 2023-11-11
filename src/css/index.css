@@ -43,6 +43,7 @@
   --white: #FFF;
   --gray: #B4AFAF;
   --background-white: #F6F6F6;
+  --category-label: rgba(17, 17, 17, 0.60);
   --animation: 0.3s ease-in-out;
 }
 
