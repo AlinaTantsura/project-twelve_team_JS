@@ -1,1 +1,1 @@
-{"version":3,"file":"commonHelpers2.js","sources":["../src/js/shopping-list.js"],"sourcesContent":["console.log('I am a shopping-list')"],"names":[],"mappings":"mCAAA,QAAQ,IAAI,sBAAsB"}
+{"version":3,"file":"commonHelpers2.js","sources":["../src/js/shopping-list.js"],"sourcesContent":["console.log('I am a shopping-list')"],"names":[],"mappings":"uCAAA,QAAQ,IAAI,sBAAsB"}
