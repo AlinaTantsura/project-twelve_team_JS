@@ -19,7 +19,7 @@ function onSeeMore(event) {
     event.preventDefault();
 
 // If click on 'See More' and show all books of one category automatically scroll up
-    window.scrollTo(window.innerHeight, 0);
+    window.scrollTo(window.innerHeight, 400);
 
     // For make active category in categories list
     const listOfLabels = document.querySelectorAll('label');
