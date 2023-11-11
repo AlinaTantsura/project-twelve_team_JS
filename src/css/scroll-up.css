@@ -1,10 +1,5 @@
-:root{
-    --animation: opacity 0.3s ease-out;
-    --violet: #4F2EE8;
-}
-
 .scroll-up{
-    transition: var(--animation);
+    transition: opacity var(--animation);
     opacity: 0;
     visibility: hidden;
     display: flex; /* Hidden by default */
@@ -21,7 +16,7 @@
 }
 
 .scroll-up-span{
-    transition: opacity 0.3s ease-out;
+    transition: opacity var(--animation);
     opacity: 0;
     visibility: hidden;
     background-color: var(--violet); /* Set a background color */
