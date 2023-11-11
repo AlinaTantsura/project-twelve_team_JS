@@ -17,6 +17,18 @@ bestsellerList?.addEventListener('click', onSeeMore);
 // Callback function when we click on button "See more"
 function onSeeMore(event) {
     event.preventDefault();
+
+    // For make active category in categories list
+    const listOfLabels = document.querySelectorAll('label');
+    listOfLabels.forEach(label => {
+        if(label.textContent === event.target.name) {
+            label.classList.add('active');
+        } else {
+            label.classList.remove('active');
+        }
+    })
+    // ===========================================
+    
     if(event.target.nodeName === 'BUTTON') {
         // @ts-ignore
         categoryTitle.style.display = 'none';
@@ -30,6 +42,8 @@ categoryListItems?.addEventListener('click', onClick);
 // Callback function when we click on some category in list of categories
 function onClick(event) {
     event.preventDefault();
+
+    // For make active the choosen category in categories list
     const listOfLabels = document.querySelectorAll('label');
     listOfLabels.forEach(label => {
         if (label === event.target) {
@@ -37,10 +51,10 @@ function onClick(event) {
         }
         label.classList.remove('active');
     })
-    
+    // =============================
+
     const labelElem = event.target;
     if(labelElem.nodeName === 'LABEL' && labelElem.textContent !== 'All Categories') {
-        console.log(labelElem);
         labelElem.classList.add('active');
         // @ts-ignore
         categoryTitle.style.display = 'none';
