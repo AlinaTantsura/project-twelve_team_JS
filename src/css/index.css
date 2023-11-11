@@ -15,6 +15,7 @@
 @import url('./scroll-up.css');
 @import url('./sing-in.css');
 @import url('./mobile-menu.css');
+@import url('./loader.css');
 
 @font-face {
   font-family: 'DM Sans', sans-serif;

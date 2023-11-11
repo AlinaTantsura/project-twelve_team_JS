@@ -1,6 +1,14 @@
 import GetBooksFromApi from "./requests";
 import Notiflix from "notiflix";
 
+// LOADER ===================================================
+const loader = document.querySelector('.loader-backdrop');
+
+export function switchLoader() {
+    loader?.classList.toggle('is-hidden');
+}
+// ============================================================
+
 const booksList = document.querySelector('.book-block-list');
 
 // FUNCTION FOR CREATE BOOK MARKUP
@@ -38,6 +46,7 @@ booksList.innerHTML = bestBooks.join('');
 
 const getBooksFromApi = new GetBooksFromApi();
 export async function onLoadPage() {
+    switchLoader();
     try {
        const response = await getBooksFromApi.getBooks();
        if (response.length === 0) {
@@ -46,6 +55,8 @@ export async function onLoadPage() {
        createBestBooksMarkup(response);
     } catch (error) {
         Notiflix.Notify.failure('Something went wrong!');
+    } finally {
+        switchLoader();
     }
 }
 onLoadPage();
