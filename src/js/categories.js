@@ -1,4 +1,5 @@
 import GetBooksFromApi from './requests';
+import { Notify } from 'notiflix';
 
 
 /* Функція створення элемента категорії */
@@ -29,6 +30,7 @@ const createCategoryElement = (category, index) => {
 /* Функція виведення елементів на сторінку */
 
 async function fetchAndDisplayCategories() {
+
   const categoryRequest = await new GetBooksFromApi().getAllCategories();
   categoryRequest.sort((a, b) => a.list_name.localeCompare(b.list_name));
   const categoryListElement = document.querySelector('.categories-list');
@@ -37,6 +39,19 @@ async function fetchAndDisplayCategories() {
     // @ts-ignore
     categoryListElement.appendChild(categoryElement);
   });
+
+  try {
+    const categoryRequest = await new GetBooksFromApi().getAllCategories();
+    categoryRequest.sort((a, b) => a.list_name.localeCompare(b.list_name));
+    const categoryListElement = document.querySelector('.categories-list');
+    categoryRequest.forEach((category, index) => {
+      const categoryElement = createCategoryElement(category, index);
+      categoryListElement.appendChild(categoryElement);
+    });
+  } catch (error) {
+    Notify.failure('Something went wrong!');
+  }
+
 }
 
 fetchAndDisplayCategories();
