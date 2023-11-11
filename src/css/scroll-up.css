@@ -1,9 +1,10 @@
-p{
-    color:black;
+:root{
+    --animation: opacity 0.3s ease-out;
+    --violet: #4F2EE8;
 }
 
 .scroll-up{
-    transition: opacity 0.3s ease-out;
+    transition: var(--animation);
     opacity: 0;
     visibility: hidden;
     display: flex; /* Hidden by default */
@@ -23,7 +24,7 @@ p{
     transition: opacity 0.3s ease-out;
     opacity: 0;
     visibility: hidden;
-    background-color: #4F2EE8; /* Set a background color */
+    background-color: var(--violet); /* Set a background color */
     padding: 15px; /* Some padding */
     border-radius: 50%; /* Rounded corners */
 }
