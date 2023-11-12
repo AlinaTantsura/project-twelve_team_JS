@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <script type="module" crossorigin src="/project-twelve_team_JS/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/scroll-up-de4e9628.js">
-    <link rel="stylesheet" href="/project-twelve_team_JS/assets/scroll-up-33c61edc.css">
+    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/scroll-up-188970ac.js">
+    <link rel="stylesheet" href="/project-twelve_team_JS/assets/scroll-up-b8f14f03.css">
   </head>
   <body>
     <header class="header">
@@ -102,8 +102,59 @@
 
   </section>
         <section>
-    <div class="shopping-list"></div>
+  <h1 class="shopping-header">
+    Shopping
+    <span class="shopping-span">List</span>
+  </h1>
+  <div class="no-books">
+    <p class="no-books-text">
+      This page is empty, add some books and proceed to order.
+    </p>
+    <img
+      src="../img/books-shopping-list@1x-min.png"
+      alt="stack of books"
+      class="no-books-img"
+      srcset="
+        ../img/books-shopping-list@1x-min.png 1x,
+        ../img/books-shopping-list@2x-min.png 2x
+      "
+    />
+  </div>
+  <div class="shopping-list">
+    <ul class="books-list">
+      <li class="shopping-element">
+        <img
+          src="https://storage.googleapis.com/du-prd/books/images/9780735211292.jpg"
+          alt="asfsafas"
+          class="book-image"
+        />
+        <div class="text-content">
+          <h2 class="book-title">ATOMIC HABITS</h2>
+          <p class="book-category">Advice How-To and Miscellaneous</p>
+          <p class="book-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+            veritatis tempora molestiae nostrum quasi impedit blanditiis natus
+            vero reprehenderit adipisci ab temporibus consequuntur accusantium
+            sint veniam, placeat ea quibusdam dolore assumenda maiores error
+            dolor eaque in! Praesentium, temporibus assumenda. Illum officiis
+            rerum totam, corporis explicabo, ad tempore porro facere,
+            consequuntur et sint eos! Accusamus praesentium laborum minus odit
+            labore tempora accusantium vel nobis aliquam, odio dolorem, rem,
+            quibusdam culpa deleniti consectetur fuga deserunt aliquid hic nam
+            facilis nostrum! Maiores, ipsum!
+          </p>
+          <p class="author-name">James Clear</p>
+        </div>
+        <button type="submit" class="delete-item">
+          <svg class="remove-bin" width="16" height="16">
+            <use href="../img/InlineSprite.svg#dump"></use>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
 </section>
+
         </div>
       </main>
       <button class="scroll-up">
