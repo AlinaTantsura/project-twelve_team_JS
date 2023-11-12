@@ -9,3 +9,4 @@ import './js/support.js';
 import "./js/categories"
 import './js/books-each-category.js';
 import './js/mobile-menu.js';
+import './js/dark-light-switcher.js';

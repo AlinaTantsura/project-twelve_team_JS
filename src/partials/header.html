@@ -13,7 +13,7 @@
         </svg>
       </div>
 
-      <div class="logo-container logo-dark">
+      <div class="logo-container logo-dark hidden-header">
         <svg class="icon-logo" width="24" height="24">
           <use href="./img/InlineSprite.svg#logo-dark"></use>
         </svg>
@@ -32,7 +32,7 @@
       <nav class="header-nav">
         <ul class="header-menu-list">
           <li class="hm-list-item">
-            <a href="./index.html" class="header-home js-nav-link">Home</a>
+            <a href="./index.html" class="header-home js-nav-link active-header">Home</a>
           </li>
           <li class="hm-list-item">
             <a href="./shopping.html" class="header-shoplist js-nav-link">
@@ -48,7 +48,11 @@
       <div class="div-switch-user">
         <!--Тут має бути перемикач теми світла/темна-->
         <label id="switch" class="switch">
-          <input type="checkbox" id="slider" />
+          <input 
+              type="checkbox" 
+              class="dark-mode-toggle" 
+              id="dark-mode-toggle"
+              aria-label="toggle dark mode"/>
           <span class="slider round"></span>
         </label>
 
@@ -62,6 +66,13 @@
           <span class="header-user-name">Stephen</span>
           <svg class="icon-arrow-down-user" width="23" height="26">
             <use href="./img/InlineSprite.svg#user-arrow"></use>
+          </svg>
+        </div>
+        <!--Div for user sign up-->
+        <div class="header-user log-in hidden-header">
+          <span class="header-log-in">Sign-up</span>
+          <svg class="icon-arrow-right" width="20" height="20">
+            <use href="./img/InlineSprite.svg#arrow-narrow-right"></use>
           </svg>
         </div>
 
