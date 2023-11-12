@@ -104,9 +104,8 @@ const supportArray = [
   
   let position = 0;
   let slidesToShow = 6;
-  let slidesToScroll = 1;
+  let slidesToScroll = 4;
   
-  const container = document.querySelector('.slider-container');
   const list = document.querySelector('.support-list');
   const sliderButton = document.querySelector('.slider-button');
   const itemsSupport = document.querySelectorAll('.support-link');
@@ -118,12 +117,36 @@ const supportArray = [
     item.style.minHeight = `${sliderItemHeight}px`;
   });
   
-  function handleSliderButtonClick() {
+   function handleSliderButtonClick() {
     const itemsBottom = getItemsBottom();
+    const arrowDown = document.querySelector('.arrow-down');
+    const arrowUp = document.querySelector('.arrow-up');
   
     if (itemsBottom >= slidesToScroll) {
       position -= movePosition;
+  
+      if (itemsBottom - slidesToScroll < 4) {
+        if (arrowUp) {
+          arrowUp.classList.remove('hidden');
+        }
+        if (arrowDown) {
+          arrowDown.classList.add('hidden');
+        }
+      } else {
+        if (arrowUp) {
+          arrowUp.classList.add('hidden');
+        }
+        if (arrowDown) {
+          arrowDown.classList.remove('hidden');
+        }
+      }
     } else {
+      if (arrowUp) {
+        arrowUp.classList.add('hidden');
+      }
+      if (arrowDown) {
+        arrowDown.classList.remove('hidden');
+      }
       position = 0;
     }
   
@@ -133,7 +156,7 @@ const supportArray = [
     setTimeout(() => {
       list.style.transition = '';
     }, 300);
-  };
+  }
 
   sliderButton.addEventListener('click', handleSliderButtonClick);
   
@@ -154,6 +177,6 @@ const supportArray = [
     } else if (windowWidth >= 768) {
       return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 40;
     } else {
-      return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 40;
+      return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 42;
     }
   }
