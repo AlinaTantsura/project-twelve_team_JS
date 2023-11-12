@@ -54,6 +54,7 @@ const supportArray = [
       img2x: worldVision2x,
     },
   ];
+  
   import saveTheChildren from '../img/foundations/save-the-children@1x-min.png';
   import projectHope from '../img/foundations/project-hope@1x-min.png';
   import internationalMedicalCorps from '../img/foundations/medical-corp@1x-min.png';
@@ -80,7 +81,7 @@ const supportArray = [
   supportList.addEventListener('click', onClick);
   
   function createImageCardMarkup(supportArray) {
-  
+
     return supportArray
       .map(({ title, url, img, img2x }, ind) => {
         let num = String(ind + 1).padStart(2, '0');
@@ -117,7 +118,7 @@ const supportArray = [
     item.style.minHeight = `${sliderItemHeight}px`;
   });
   
-  sliderButton.addEventListener('click', () => {
+  function handleSliderButtonClick() {
     const itemsBottom = getItemsBottom();
   
     if (itemsBottom >= slidesToScroll) {
@@ -126,13 +127,15 @@ const supportArray = [
       position = 0;
     }
   
-    list.style.transition = 'transform 0.3s ease-out';
+    list.style.transition = 'var(--transition)';
     setPosition();
   
     setTimeout(() => {
       list.style.transition = '';
     }, 300);
-  });
+  };
+
+  sliderButton.addEventListener('click', handleSliderButtonClick);
   
   window.addEventListener('resize', () => {
     itemsCount = itemsSupport.length;
@@ -147,10 +150,10 @@ const supportArray = [
     const windowWidth = window.innerWidth;
   
     if (windowWidth >= 1440) {
-      return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 39;
+      return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 40;
     } else if (windowWidth >= 768) {
       return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 40;
     } else {
-      return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 55;
+      return itemsCount - (Math.abs(position) + slidesToShow * sliderItemHeight) / 40;
     }
   }

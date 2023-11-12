@@ -1,67 +1,53 @@
-p{
-    background-color: bisque;
-}
 
 .support {
     display: grid;
-  
     max-width: 335px;
     height: 375px;
-  
     padding-top: 24px;
-  
     max-width: 335px;
     height: 352px;
-    background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+    background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, var(--violet) 18.03%, var(--white) 100%);
     box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
     border-radius: 16px;
   }
   
-  
   @media screen and (min-width:428px) {
     .support{
     max-width: 335px;
-    height: 352px;
+    height: 460px;
     }      
   }
-  
-  
   @media screen and (min-width: 768px){
     .support{
     min-width: 335px;
-    height: 472px;
-  
+    height: 474px;
   }
-  
   }
   @media screen and (min-width: 1440px){
     .support{
     max-width: 356px;
-    height: 490px;
     }
   }
   
   .support-title {
     display: flex;
     padding-left: 40px;
-    font-family: "DM Sans",sans-serif;
-    color: #FFFFFF;
+    color: var(--white);
     font-weight: 700;
     margin-top: 16px;
+    margin-bottom: 40px;
     font-size: 28px;
     line-height: 1.2;
     letter-spacing: -0.04em;
-    padding-bottom: 40px;
   }
   
   .support-list {
     padding-left: 40px;
-    
   }
   
   .support-button {
     display: flex;
-    background-color: #FFFFFF;
+    background-color:var(--white);
     border-radius: 50%;
     border: none;
     cursor: pointer;
@@ -71,27 +57,13 @@ p{
     align-items: center;
 }
 
-  @media screen and (min-width:428px) {
-    .support-button{ 
-    width: 32px;
-    height: 32px;
-    }
-      
-  }
   @media screen and (min-width: 768px) {
     .support-button{
     width: 38px;
     height: 38px;
   }
   }
-      
-  @media screen and (min-width: 1440px) {
-    .support-button{
-    width: 38px;
-    height: 38px;
-    }
-  } 
-  
+
   .support-button:focus,
   .support-button:hover {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -105,19 +77,11 @@ p{
   }
   
   .support-button-svg {
-    fill: #4F2EE8;
-    margin: 0;
+    fill: var(--violet);
+    margin: 0 4px 6px 0;
     width: 20px;
     height: 20px;
   }  
-  
-  @media screen and (min-width: 428px){
-    .support-button-svg{
-    width: 20px;
-    height: 20px;
-  
-    }
-  }
   
   @media screen and (min-width: 768px){
     .support-button-svg{
@@ -125,29 +89,20 @@ p{
     height: 22px;
     }
   }
-      
-  @media screen and (min-width: 1440px){
-    .support-button-svg{
-    width: 22px;
-    height: 22px;
-    }
-  }
-  
+    
   .support-svg {
-    fill: #FFFFFF;
-    margin-left: 12px;
+    fill: var(--white);
+    margin-left: 10px;
   }
   
   .support-img {
-    fill: #FFFFFF;
+    fill: var(--white);
     margin-left: 16px;
-  
     filter: brightness(0) invert(1); 
-  
   }
   
   .support-number {
-    color: #FFFFFF;
+    color: var(--white);
     display: flex;
     align-items: center;
     height: 32px;
