@@ -14,6 +14,8 @@
 @import url('./modal-window.css');
 @import url('./scroll-up.css');
 @import url('./sing-in.css');
+@import url('./mobile-menu.css');
+@import url('./loader.css');
 
 @font-face {
   font-family: 'DM Sans', sans-serif;
@@ -41,6 +43,7 @@
   --white: #FFF;
   --gray: #B4AFAF;
   --background-white: #F6F6F6;
+  --category-label: rgba(17, 17, 17, 0.60);
   --animation: 0.3s ease-in-out;
 }
 
