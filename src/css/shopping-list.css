@@ -49,14 +49,20 @@
   right: 14px;
 
   border-radius: 50%;
-  background-color: transparent;
+  background-color: var(--violet);
+
+  width: 28px;
+  height: 28px;
 
   border: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.remove-bin {
+  stroke: var(--white);
+}
 .book-image {
   border-radius: 8px;
   width: 100px;
@@ -143,10 +149,13 @@
   .delete-item {
     top: 24px;
     right: 24px;
-  }
-  .remove-bin {
+
     width: 34px;
     height: 34px;
+  }
+  .remove-bin {
+    width: 18px;
+    height: 18px;
   }
   .book-image {
     width: 116px;
