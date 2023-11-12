@@ -5,4 +5,4 @@
             src="${i}" alt="${I}"/></span>
           </a>
         </li>`}).join("")}function K(e){e.target.classList.contains("js-support")}let t=0,b=6,L=1;document.querySelector(".slider-container");const y=document.querySelector(".support-list"),q=document.querySelector(".slider-button"),g=document.querySelectorAll(".support-link");let s=g.length;const z=32,X=L*z;g.forEach(e=>{e.style.minHeight=`${z}px`});function W(){_()>=L?t-=X:t=0,y.style.transition="var(--transition)",d(),setTimeout(()=>{y.style.transition=""},300)}q.addEventListener("click",W);window.addEventListener("resize",()=>{s=g.length,d()});const d=()=>{y.style.transform=`translateY(${t}px)`};function _(){const e=window.innerWidth;return e>=1440||e>=768,s-(Math.abs(t)+b*z)/40}
-//# sourceMappingURL=support-bfc0101c.js.map
+//# sourceMappingURL=support-5ec7a569.js.map
