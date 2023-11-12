@@ -104,6 +104,10 @@
     gap: 86px;
     width: 356px;
   }
+  .shopping-box{
+    display: flex;
+    gap: 40px;
+  }
 }
 
 /* For hidden */
