@@ -24,12 +24,39 @@
   margin-bottom: 18px;
   text-transform: uppercase;
 }
+.book-card-box {
+  position: relative;
+  overflow: hidden;
+}
+.book-card-overlay {
+  background-color: var(--yellow);
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 0 0 8px 8px;
+  color: var(--black);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  padding: 27px 32px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+  width: 100%;
+  height: 20%;
+  transition: transform var(--animation);
+}
+.book-card:hover .book-card-overlay, .book-card:focus .book-card-overlay {
+  transform: translateY(0);
+} 
+
 .book-card-img {
   border-radius: 8px;
   margin-bottom: 14px;
   width: 335px;
   height: 485px;
 }
+.category-books-wrapper,
 .best-category-list {
   display: flex;
   flex-direction: column;
@@ -41,6 +68,9 @@
   background-color: var(--background-white);
   font-style: italic;
   margin-bottom: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .book-card-title {
   line-height: 1.12;
@@ -68,10 +98,11 @@
   text-transform: uppercase;
   border-radius: 40px;
   border: 2px solid var(--violet);
+  background-color: inherit;
   height: 46px;
   width: 124px;
   margin-bottom: 40px;
-  transition: all 300ms ease-in-out;
+  transition: var(--animation);
 }
 @media (hover: hover) {
   .see-more-btn:hover,
@@ -102,12 +133,21 @@
     width: 218px;
     height: 316px;
   }
+  .book-card-overlay {
+    font-size: 20px;
+    padding: 17px 32px;
+  }
 
   .book-card:nth-child(-n + 3) {
     display: block;
   }
   .book-card {
     width: calc((100% - 50px) / 3);
+  }
+  .category-books-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 25px;
   }
 
   .best-category-list {
@@ -127,9 +167,15 @@
   .book-block {
     max-width: 996px;
   }
+  .category-books-wrapper, 
   .best-category-list {
     column-gap: 24px;
   }
+  .book-card-overlay {
+    font-size: 16px;
+    padding: 15px 28px;
+  }
+
   .book-card {
     display: block;
     width: calc((100% - 96px) / 5);

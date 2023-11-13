@@ -19,7 +19,6 @@ export default class GetBooksFromApi {
     // FUNCTION FOR REQUEST LIST OF ALL CATEGORIES
     async getAllCategories() {
         const allCategories = await axios.get(`${this.#BASE_URL}${this.#ALL_CATEGORIES}`);
-        console.log(allCategories)
         return allCategories.data;
     }
 
