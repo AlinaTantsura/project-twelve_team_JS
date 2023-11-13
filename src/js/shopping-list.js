@@ -65,7 +65,7 @@ function shoppingMarkup(arr) {
               <li class="buy-link">
                 <a href="${buy_links[0].url}" class="amazon-link book-link ">
                   <img
-                    src="../img/amazon@1x-min.png"
+                    src="/src/amazon@1x-min.png"
                     alt="Amazon"
                     width="32"
                     height="11"
