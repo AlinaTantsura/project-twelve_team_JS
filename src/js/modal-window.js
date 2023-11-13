@@ -1,3 +1,8 @@
+import closeIcon from '../img/InlineSprite.svg';
+import imgUrlAppleBook1x from '../img/appleBook@1x-min.png';
+import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
+import imgUrlAmazon1x from '../img/amazon@1x-min.png';
+import imgUrlAmazon2x from '../img/amazon@2x-min.png';
 export function displayBookModal(book) {
     const modal = document.getElementById('bookModal');
     modal.innerHTML = '';
@@ -8,6 +13,8 @@ export function displayBookModal(book) {
         <button id="closeModal">
             <svg width="24" height="24" class="close-modal-icon">
                 <use href="/img/InlineSprite.svg#x-close"></use>
+            <svg width="24" height="24">
+                <use href="${closeIcon}#x-close"></use>
             </svg>
         </button>
 
@@ -21,11 +28,11 @@ export function displayBookModal(book) {
                 
                 <div class="book-link-wrap">
                     <a href="${book.buy_links[0].url}" target="_blank" class="book-link">
-                        <img src="/img/amazon@1x-min.png" srcset="/img/amazon@2x-min.png 2x" alt="Amazon link">
+                        <img src="${imgUrlAmazon1x}" srcset="${imgUrlAmazon2x} 2x"  alt="Amazon link">
                     </a>
                     
                     <a href="${book.buy_links[1].url}" target="_blank" class="book-link">
-                        <img src="/img/appleBook@1x-min.png" srcset="/img/appleBook@2x-min.png 2x" alt="Apple Book link">
+                        <img src="${imgUrlAppleBook1x}" srcset="${imgUrlAppleBook2x} 2x" alt="Apple Book link">
                     </a>
                 </div>
             </div>
