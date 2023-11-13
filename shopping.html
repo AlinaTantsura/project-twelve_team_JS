@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <script type="module" crossorigin src="/project-twelve_team_JS/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/mobile-menu-26a05816.js">
-    <link rel="stylesheet" href="/project-twelve_team_JS/assets/mobile-menu-d2a2d04e.css">
+    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/dark-light-switcher-4d35bf1d.js">
+    <link rel="stylesheet" href="/project-twelve_team_JS/assets/dark-light-switcher-75770777.css">
   </head>
   <body>
     <header class="header">
@@ -21,19 +21,19 @@
     <a href="./index.html" class="link">
       <div class="logo-container logo-light">
         <svg class="icon-logo" width="24" height="24">
-          <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#logo-light"></use>
+          <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#logo-light"></use>
         </svg>
         <svg class="icon-logo" width="77" height="20">
-          <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#Bookshelf-light"></use>
+          <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#Bookshelf-light"></use>
         </svg>
       </div>
 
-      <div class="logo-container logo-dark">
+      <div class="logo-container logo-dark hidden">
         <svg class="icon-logo" width="24" height="24">
-          <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#logo-dark"></use>
+          <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#logo-dark"></use>
         </svg>
         <svg class="icon-logo" width="77" height="20">
-          <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#Bookshelf-dark"></use>
+          <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#Bookshelf-dark"></use>
         </svg>
       </div>
     </a>
@@ -47,13 +47,13 @@
       <nav class="header-nav">
         <ul class="header-menu-list">
           <li class="hm-list-item">
-            <a href="./index.html" class="header-home js-nav-link">Home</a>
+            <a href="./index.html" class="header-home js-nav-link active-header">Home</a>
           </li>
           <li class="hm-list-item">
             <a href="./shopping.html" class="header-shoplist js-nav-link">
               Shopping list
               <svg class="icon-bag" width="20" height="20">
-                <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#cartshop-icon"></use>
+                <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#cartshop-icon"></use>
               </svg>
             </a>
           </li>
@@ -63,7 +63,11 @@
       <div class="div-switch-user">
         <!--Тут має бути перемикач теми світла/темна-->
         <label id="switch" class="switch">
-          <input type="checkbox" id="slider" />
+          <input 
+              type="checkbox" 
+              class="dark-mode-toggle" 
+              id="dark-mode-toggle"
+              aria-label="toggle dark mode"/>
           <span class="slider round"></span>
         </label>
 
@@ -71,12 +75,19 @@
         <div class="header-user">
           <div class="header-user-image">
             <svg class="icon-user" width="12" height="16">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#user"></use>
+              <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#user"></use>
             </svg>
           </div>
           <span class="header-user-name">Stephen</span>
           <svg class="icon-arrow-down-user" width="23" height="26">
-            <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#user-arrow"></use>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#user-arrow"></use>
+          </svg>
+        </div>
+        <!--Div for user sign up-->
+        <div class="header-user log-in hidden">
+          <span class="header-log-in">Sign-up</span>
+          <svg class="icon-arrow-right" width="20" height="20">
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#arrow-narrow-right"></use>
           </svg>
         </div>
 
@@ -84,8 +95,8 @@
         <div class="mobile-menu-container">
           <!--Burger-menu-->
           <button class="menu-toggle js-open-menu">
-            <svg class="icon-burger" width="28" heigth="28">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#align-left"></use>
+            <svg class="icon-burger" width="28">
+              <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#align-left"></use>
             </svg>
           </button>
         </div>
@@ -101,18 +112,18 @@
         <a href="./index.html" class="link">
           <div class="logo-container logo-light">
             <svg class="icon-logo" width="24" height="24">
-            <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#logo-light"></use>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#logo-light"></use>
           </svg>
           <svg class="icon-logo" width="77" height="20">
-            <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#Bookshelf-light"></use>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#Bookshelf-light"></use>
           </svg>
         </div>
         <div class="logo-container logo-dark">
           <svg class="icon-logo" width="24" height="24">
-            <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#logo-dark"></use>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#logo-dark"></use>
           </svg>
           <svg class="icon-logo" width="77" height="20">
-            <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#Bookshelf-dark"></use>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#Bookshelf-dark"></use>
           </svg>
         </div>
       </a>
@@ -128,7 +139,7 @@
           <!--Burger-menu-->
           <button class="menu-toggle js-close-menu">
             <svg class="icon-close-burger" width="28" heigth="28">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#x-close"></use>
+              <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#x-close"></use>
             </svg>
           </button>
         </div>
@@ -142,7 +153,7 @@
           <button type="button" class="sign-up-btn">
             Sign Up
             <svg class="logout-icon-arrow" width="20" height="20">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#arrow-narrow-right"></use>
+              <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#arrow-narrow-right"></use>
             </svg>
           </button>
         </div>
@@ -151,12 +162,12 @@
         <div class="burger-user visually-hidden">
           <div class="header-user-image">
             <svg class="icon-user" width="12" height="16">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#user"></use>
+              <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#user"></use>
             </svg>
           </div>
           <span class="header-user-name">Stephen</span>
           <svg class="icon-arrow-down-user" width="23" height="26">
-            <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#user-arrow"></use>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#user-arrow"></use>
           </svg>
         </div>
       
@@ -174,7 +185,7 @@
               <a href="./shopping.html" class="burger-shoplist js-nav-link">
                 Shopping list
                 <svg class="bag-burger-icon" width="20" height="20">
-                  <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#cartshop-icon"></use>
+                  <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#cartshop-icon"></use>
                 </svg>
               </a>
             </li>
@@ -186,7 +197,7 @@
         <button type="button" class="logout-btn">
           Log out
           <svg class="logout-icon-arrow" width="20" height="20">
-            <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#arrow-narrow-right"></use>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#arrow-narrow-right"></use>
           </svg>
         </button>
       </div>
@@ -199,7 +210,7 @@
     <h3 class="support-title">
     Support Ukraine
     <svg class="support-svg" width="20px" height="32px">
-      <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#Ukraine"></use>
+      <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#Ukraine"></use>
     </svg>
   </h3>
   <div class="slider-container">
@@ -210,10 +221,10 @@
   <div class="button-support slider-button">
     <button class="support-button">
       <svg class="support-button-svg arrow-down">
-        <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#arrow-down"></use>
+        <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#arrow-down"></use>
       </svg>
       <svg class="support-button-svg arrow-up hidden">
-        <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#arrow-up"></use>
+        <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#arrow-up"></use>
       </svg>
     </button>
   </div>
@@ -278,7 +289,7 @@
         </ul> -->
         <button type="submit" class="delete-item">
           <svg class="remove-bin" width="16" height="16">
-            <use href="/project-twelve_team_JS/assets/InlineSprite-70fa4aa6.svg#trash-min"></use>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-82bbc1f9.svg#trash-min"></use>
           </svg>
         </button>
       </li>
