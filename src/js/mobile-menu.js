@@ -1,30 +1,32 @@
-const mobileMenu = document.querySelector('.burger-backdrop');
-const openMenuBtn = document.querySelector('.js-open-menu');
-const closeMenuBtn = document.querySelector('.js-close-menu');
+const openBurgerBtn = document.querySelector('.js-open-menu');
+const closeBurgerBtn = document.querySelector('.js-close-menu');
+const burgerMenu = document.querySelector('.burger-backdrop');
 const cartBurgerIcon = document.querySelector('.bag-burger-icon');
 
 const currentPageBurger = window.location.pathname;
 
-// Function to open/close the mobile menu and handle scrolling
-const toggleMenu = () => {
-    mobileMenu.classList.toggle('is-hidden');
-    const isMenuOpen = mobileMenu.classList.contains('is-hidden');
-
-    if (isMenuOpen) {
+// Function what open / close burger menu and blocked scroll
+function openCloseBurger() {
+    const isMenuClose = burgerMenu?.classList.contains('is-visible');
+    if(isMenuClose) {
+        burgerMenu?.classList.remove('is-hidden');
         document.body.style.position = 'fixed';
         document.body.style.top = `-${window.scrollY}px`;
 
-        // For the mobile menu, if the open page is shopping.html, make the icon in the navigation menu black
-        if (currentPageBurger === '/shopping.html') {
+        // For burger menu if open page shopping.html icon in navigation menu should be black
+        if(currentPageBurger === '/shopping.html') {
+            // @ts-ignore
             cartBurgerIcon?.classList.add('active-burger-icon');
         }
     } else {
+        burgerMenu?.classList.add('is-hidden');
         const scrollY = document.body.style.top;
         document.body.style.position = '';
         document.body.style.top = '';
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
     }
-};
+}
 
-openMenuBtn?.addEventListener('click', toggleMenu);
-closeMenuBtn?.addEventListener('click', toggleMenu);
+openBurgerBtn?.addEventListener('click', openCloseBurger);
+closeBurgerBtn?.addEventListener('click', openCloseBurger);
+// ========================================================================================
