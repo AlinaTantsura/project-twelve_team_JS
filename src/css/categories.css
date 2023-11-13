@@ -36,13 +36,14 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-label:hover {
     color: var(--violet);
     font-weight: 700;
     text-transform: uppercase;
-    transition: all var(--animation);
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-div::-webkit-scrollbar {
@@ -81,9 +82,15 @@
   .categories-div {
     max-width: 356px;
   }
+  .categories-list{
+    gap: 24px;
+  }
   .categories-item {
     width: 328px;
-    height: 36px;
+    height: 42px;
+  }
+  .categories-label{
+    padding-top: 12px;
   }
 }
 
