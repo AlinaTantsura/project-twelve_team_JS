@@ -8,7 +8,7 @@ export function displayBookModal(book) {
     modalContent.innerHTML = `
             <button id="closeModal">
     <svg width="24" height="24">
-      <use href="./img/InlineSprite.svg#x-close"></use>
+      <use href="../img/InlineSprite.svg#x-close"></use>
     </svg>
   </button>
   
@@ -22,11 +22,11 @@ export function displayBookModal(book) {
       
       <div class="book-link-wrap">
         <a href="${book.buy_links[0].url}" target="_blank" class="book-link">
-          <img src="/img/amazon@1x-min.png" srcset="/img/amazon@2x-min.png 2x" alt="Amazon link">
+          <img src="../img/amazon@1x-min.png" srcset="../img/amazon@2x-min.png 2x" alt="Amazon link">
         </a>
         
         <a href="${book.buy_links[1].url}" target="_blank" class="book-link">
-          <img src="/img/appleBook@1x-min.png" srcset="/img/appleBook@2x-min.png 2x" alt="Apple Book link">
+          <img src="../img/appleBook@1x-min.png" srcset="../img/appleBook@2x-min.png 2x" alt="Apple Book link">
         </a>
       </div>
     </div>
