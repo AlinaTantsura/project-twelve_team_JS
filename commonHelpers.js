@@ -15,7 +15,7 @@ var I=(t,o,e)=>{if(!o.has(t))throw TypeError("Cannot "+e)};var c=(t,o,e)=>(I(t,o
                 
                 <div class="book-link-wrap">
                     <a href="${t.buy_links[0].url}" target="_blank" class="book-link">
-                        <img srcset="/img/amazon@1x-min.png 1x, /img/amazon@2x-min.png 2x" src="/img/amazon@1x-min.png"  alt="Amazon link">
+                        <img srcset="../img/amazon@1x-min.png 1x, ../img/amazon@2x-min.png 2x" src="../img/amazon@1x-min.png"  alt="Amazon link">
                     </a>
                     
                     <a href="${t.buy_links[1].url}" target="_blank" class="book-link">
