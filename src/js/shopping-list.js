@@ -1,3 +1,4 @@
+import imgUrl from '../img/appleBook@1x-min.png';
 const bookList = document.querySelector('.books-list');
 const deleteForm = document.querySelector('.delete-form');
 const noBooks = document.querySelector('.no-books');
@@ -65,7 +66,7 @@ function shoppingMarkup(arr) {
               <li class="buy-link">
                 <a href="${buy_links[0].url}" class="amazon-link book-link ">
                   <img
-                    src="/src/amazon@1x-min.png"
+                    src="../img/amazon@1x-min.png"
                     alt="Amazon"
                     width="32"
                     height="11"
@@ -76,7 +77,7 @@ function shoppingMarkup(arr) {
               <li class="buy-link">
                 <a href="${buy_links[1].url}" class="apple-book-link book-link ">
                   <img
-                    src="../img/appleBook@1x-min.png"
+                    src="${imgUrl}"
                     alt="Apple Books"
                     width="16"
                     class="buy-apple"
