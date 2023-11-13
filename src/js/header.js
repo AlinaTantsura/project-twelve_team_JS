@@ -1,4 +1,3 @@
-// Nav-links styles
 const currentPage = window.location.pathname;
 
 function setActivePage(className, currentPage) {
@@ -6,7 +5,7 @@ function setActivePage(className, currentPage) {
 
     navLinks.forEach(link => {
         const linkPath = new URL(link.href).pathname;
-        if (linkPath === currentPage) {
+        if (linkPath === currentPage || currentPage === '/' && linkPath === '/index.html') {
             link.classList.add('active-header');
         } else {
             link.classList.remove('active-header');
