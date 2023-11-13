@@ -17,6 +17,7 @@ export function createBook(book) {
     return `<li class="book-card" id="${book._id}">
         <div class="book-card-box" data-book-info='${JSON.stringify(book)}'>
             <img class="book-card-img" src="${book.book_image}" alt="Book cover ${book.title}" loading="lazy" />
+            <p class="book-card-overlay">quick view</p>
         </div>
         <h3 class="book-card-title">${book.title}</h3>
         <p class="book-card-text">${book.author}</p>
@@ -60,6 +61,7 @@ export async function onLoadPage() {
         const bookCardBoxes = document.querySelectorAll('.book-card-box');
         bookCardBoxes.forEach((box) => {
             box.addEventListener('click', () => {
+                // @ts-ignore
                 const bookInfo = JSON.parse(box.dataset.bookInfo);
                 displayBookModal(bookInfo);
             });
