@@ -17,7 +17,7 @@ import"./assets/dark-light-switcher-b7703df8.js";const n=document.querySelector(
               <li class="buy-link">
                 <a href="${l[0].url}" class="amazon-link book-link ">
                   <img
-                    src="./img/amazon@1x-min.png"
+                    src="../img/amazon@1x-min.png"
                     alt="Amazon"
                     width="32"
                     height="11"
@@ -28,7 +28,7 @@ import"./assets/dark-light-switcher-b7703df8.js";const n=document.querySelector(
               <li class="buy-link">
                 <a href="${l[1].url}" class="apple-book-link book-link ">
                   <img
-                    src="./img/appleBook@1x-min.png"
+                    src="../img/appleBook@1x-min.png"
                     alt="Apple Books"
                     width="16"
                     class="buy-apple"
