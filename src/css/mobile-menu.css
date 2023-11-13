@@ -12,6 +12,9 @@
 .icon-close-burger {
   stroke: var(--black);
 }
+.icon-logo-text {
+  fill: var(--black);
+}
 
 .burger-menu {
   position: absolute;
@@ -63,7 +66,7 @@
   row-gap: 17px;
 }
 .burger-list-item {
-  color: var(--white);
+  color: #fff;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 500;
@@ -71,7 +74,7 @@
   letter-spacing: -0.04em;
 }
 .bag-burger-icon {
-  fill: var(--white);
+  fill: #fff;
 }
 .burger-home {
   max-width: 72px;
