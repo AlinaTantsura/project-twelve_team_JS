@@ -51,7 +51,8 @@ const auth = getAuth();
 console.log(auth);
 // createUserWithEmailAndPassword(auth, email, password);
 // createUserWithEmailAndPassword(auth, "anton@ukr.net", "asdfghj");
-
+// GET Users info name
+const txtName = document.getElementById('user-name');
 // GET Users info e-mail
 const txtEmail = document.getElementById('user-email');
 // GET Users info password
