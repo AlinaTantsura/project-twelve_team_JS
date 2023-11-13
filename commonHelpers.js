@@ -1,7 +1,7 @@
 var I=(t,o,e)=>{if(!o.has(t))throw TypeError("Cannot "+e)};var c=(t,o,e)=>(I(t,o,"read from private field"),e?e.call(t):o.get(t)),p=(t,o,e)=>{if(o.has(t))throw TypeError("Cannot add the same private member more than once");o instanceof WeakSet?o.add(t):o.set(t,e)};import"./assets/mobile-menu-5b3e2d05.js";import{a as u,N as w,n as T}from"./assets/vendor-83fc1255.js";function _(t){const o=document.getElementById("bookModal");o.innerHTML="";const e=document.createElement("div");e.classList.add("modal-content"),e.innerHTML=`
             <button id="closeModal">
     <svg width="24" height="24">
-      <use href="./img/InlineSprite.svg#x-close"></use>
+      <use href="../img/InlineSprite.svg#x-close"></use>
     </svg>
   </button>
   
@@ -15,11 +15,11 @@ var I=(t,o,e)=>{if(!o.has(t))throw TypeError("Cannot "+e)};var c=(t,o,e)=>(I(t,o
       
       <div class="book-link-wrap">
         <a href="${t.buy_links[0].url}" target="_blank" class="book-link">
-          <img src="/img/amazon@1x-min.png" srcset="/img/amazon@2x-min.png 2x" alt="Amazon link">
+          <img src="../img/amazon@1x-min.png" srcset="../img/amazon@2x-min.png 2x" alt="Amazon link">
         </a>
         
         <a href="${t.buy_links[1].url}" target="_blank" class="book-link">
-          <img src="/img/appleBook@1x-min.png" srcset="/img/appleBook@2x-min.png 2x" alt="Apple Book link">
+          <img src="../img/appleBook@1x-min.png" srcset="../img/appleBook@2x-min.png 2x" alt="Apple Book link">
         </a>
       </div>
     </div>
