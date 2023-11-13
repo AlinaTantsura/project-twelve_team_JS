@@ -5,12 +5,15 @@ margin-bottom: 40px;
 
 .div-header {
   border-radius: 0px 0px 8px 8px;
-  border: 1.5px solid var(--border-header);
-  background: var(--background-header);
+  border: 1.5px solid var(--black);
+  background: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 64px;
+}
+.icon-bag {
+  fill: var(--black);
 }
 
 .logo-container {
@@ -84,7 +87,7 @@ margin-bottom: 40px;
 .active-header {
   font-weight: 700;
   line-height: 18px;
-  color: var(--black);
+  color: #111;
   background-color: var(--yellow);
   border-radius: 36px;
   padding: 8px 16px;
@@ -231,7 +234,7 @@ input:checked+.slider:before {
 }
 
 .icon-burger {
-  stroke: var(--burger-color);
+  stroke: var(--black);
 }
 
 @media screen and (min-width: 768px) {

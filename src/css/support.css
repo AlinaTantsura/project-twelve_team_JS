@@ -31,7 +31,7 @@
   .support-title {
     display: flex;
     justify-content: center;
-    color: var(--white);
+    color: #fff;
     font-weight: 700;
     margin-bottom: 40px;
     font-size: 28px;
@@ -51,7 +51,7 @@
   
   .support-button {
     display: flex;
-    background-color:var(--white);
+    background-color: #fff;
     border-radius: 50%;
     border: none;
     cursor: pointer;
@@ -106,7 +106,7 @@
   }
   
   .support-number {
-    color: var(--white);
+    color: #fff;
     display: flex;
     align-items: center;
     height: 32px;

@@ -9,6 +9,10 @@
   transition: all var(--animation);
 }
 
+.icon-close-burger {
+  stroke: var(--black);
+}
+
 .burger-menu {
   position: absolute;
   top: 50%;
@@ -144,7 +148,7 @@ margin-bottom: 8px;
   clip: rect(0 0 0 0);
 }
 .active-burger-icon {
-  fill: var(--black);
+  fill: #111;
 }
 
 @media only screen and (min-width: 320px) and (-webkit-min-device-pixel-ratio: 2), 

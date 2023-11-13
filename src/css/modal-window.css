@@ -40,6 +40,10 @@
   cursor: pointer;
 }
 
+.close-modal-icon {
+  stroke: var(--black);
+}
+
 .book-modal-img {
   width: 287px;
   height: 408px;

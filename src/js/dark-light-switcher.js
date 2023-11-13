@@ -1,6 +1,8 @@
 let darkMode = localStorage.getItem("darkMode");
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
-const logoToggle = document.querySelectorAll('.logo-container');
+const darkModeBurger = document.querySelector('#dark-mode-toggle-burger');
+const logoLight = document.querySelector('.logo-light');
+const logoDark = document.querySelector('.logo-dark');
 
 //check if dark mode is enabled:
 // if it's enabled - turn it off;
@@ -9,31 +11,55 @@ const logoToggle = document.querySelectorAll('.logo-container');
 const enabledDarkMode = () => {
     document.body.classList.add('darkmode');
     localStorage.setItem('darkMode', "enabled");
+    // @ts-ignore
     darkModeToggle.checked = true;
-    logoToggle.forEach(logo => {
-        logo.classList.toggle('hidden');
-    })
+
+    // change logo
+    logoLight?.classList.add('visually-hidden');
+    logoDark?.classList.remove('visually-hidden');
 };
 
 const disabledDarkMode = () => {
     document.body.classList.remove('darkmode');
+    // @ts-ignore
     localStorage.setItem('darkMode', null);
+    // @ts-ignore
     darkModeToggle.checked = false;
-    logoToggle.forEach(logo => {
-        logo.classList.toggle('hidden');
-    })
+
+    // change logo
+    logoLight?.classList.remove('visually-hidden');
+    logoDark?.classList.add('visually-hidden');
 };
 
-darkModeToggle.addEventListener('click', () => {
-    darkMode = localStorage.getItem('darkMode');
-    if (darkMode !== "enabled") {
-        enabledDarkMode();
-        console.log(darkMode);
-        console.log(logoToggle[0].classList, logoToggle[1].classList);
-} else {
-    disabledDarkMode();
-        console.log(darkMode);
-        console.log(logoToggle[0].classList, logoToggle[1].classList);
+if (darkMode === 'enabled') {
+    enabledDarkMode();
 }
-});
 
+// Add Event Listener for toggle in Header
+darkModeToggle?.addEventListener('click', () => {
+    darkMode = localStorage.getItem('darkMode');
+   
+    if(darkMode !== 'enabled') {
+        enabledDarkMode();
+        // @ts-ignore
+        darkModeBurger.checked = true;
+    } else {
+        disabledDarkMode();
+        // @ts-ignore
+        darkModeBurger.checked = false;
+    }
+})
+
+// Add Event Listenet for toggle in Burger menu
+darkModeBurger?.addEventListener('click', () => {
+    darkMode = localStorage.getItem('darkMode');
+    if(darkMode !== 'enabled') {
+        enabledDarkMode();
+        // @ts-ignore
+        darkModeBurger.checked = true;
+    } else {
+        disabledDarkMode();
+        // @ts-ignore
+        darkModeBurger.checked = false;
+    }
+})
