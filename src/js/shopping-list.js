@@ -63,9 +63,9 @@ function shoppingMarkup(arr) {
             <p class="author-name">${author}</p>
             <ul class="buy-links">
               <li class="buy-link">
-                <a href="${buy_links[0].url}" class="amazon-link">
+                <a href="${buy_links[0].url}" class="amazon-link book-link ">
                   <img
-                    src="../img/amazon@1x-min.png"
+                    src="./img/amazon@1x-min.png"
                     alt="Amazon"
                     width="32"
                     height="11"
@@ -74,9 +74,9 @@ function shoppingMarkup(arr) {
                 </a>
               </li>
               <li class="buy-link">
-                <a href="${buy_links[1].url}" class="apple-book-link">
+                <a href="${buy_links[1].url}" class="apple-book-link book-link ">
                   <img
-                    src="../img/appleBook@1x-min.png"
+                    src="./img/appleBook@1x-min.png"
                     alt="Apple Books"
                     width="16"
                     class="buy-apple"
