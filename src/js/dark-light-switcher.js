@@ -9,35 +9,31 @@ const logoToggle = document.querySelectorAll('.logo-container');
 const enabledDarkMode = () => {
     document.body.classList.add('darkmode');
     localStorage.setItem('darkMode', "enabled");
+    darkModeToggle.checked = true;
+    logoToggle.forEach(logo => {
+        logo.classList.toggle('hidden');
+    })
 };
 
 const disabledDarkMode = () => {
     document.body.classList.remove('darkmode');
     localStorage.setItem('darkMode', null);
+    darkModeToggle.checked = false;
+    logoToggle.forEach(logo => {
+        logo.classList.toggle('hidden');
+    })
 };
-// Розібратись з привязкою із зміною світча до зміни кольорів.
+
 darkModeToggle.addEventListener('click', () => {
     darkMode = localStorage.getItem('darkMode');
     if (darkMode !== "enabled") {
         enabledDarkMode();
         console.log(darkMode);
-        // Не вірно змінюється лого-мод.
-        logoToggle.forEach(logo => {
-            if (logo.classList.contains('logo-light')) {
-                logo.classList.toggle('hidden-header')
-            } else {
-                logo.classList.toggle('hidden-header');
-            }
-        })
-    } else {
-        disabledDarkMode();
+        console.log(logoToggle[0].classList, logoToggle[1].classList);
+} else {
+    disabledDarkMode();
         console.log(darkMode);
-        logoToggle.forEach(logo => {
-            if (logo.classList.contains('logo-dark')) {
-                logo.classList.toggle('hidden-header')
-            } else {
-                logo.classList.toggle('hidden-header');
-            }
-        })
-    }
-})
+        console.log(logoToggle[0].classList, logoToggle[1].classList);
+}
+});
+

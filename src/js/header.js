@@ -1,4 +1,3 @@
-// Nav-links styles
 const currentPage = window.location.pathname;
 
 function setActivePage(className, currentPage) {

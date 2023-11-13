@@ -42,6 +42,7 @@
   --background-white: #F6F6F6;
   --background-header: var(--white);
   --border-header: var(--black);
+  --burger-color: var(--black);
 
   color: var(--black);
   background-color: var(--background-white);
@@ -60,6 +61,7 @@
     --background-white: #F6F6F6;
     --background-header: var(--black);
     --border-header: var(--white);
+    --burger-color: var(--white);
 
     color: var(--white);
     background-color: var(--black-1);
