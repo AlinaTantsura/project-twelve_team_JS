@@ -1,3 +1,4 @@
+import './js/modal-window.js'
 import './js/book-block.js';
 import './js/categories.js';
 import './js/header.js';

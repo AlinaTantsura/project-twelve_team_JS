@@ -2,8 +2,6 @@
   background-color: transparent;
 }
 /* Стиль Категорій під телефон */
-
-@media (min-width: 320px) and (max-width: 767px) {
   .categories-div {
     max-width: 335px;
     max-height: 228px;
@@ -19,7 +17,6 @@
   .categories-item {
     display: flex;
     width: 307px;
-    height: 18px;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -29,201 +26,71 @@
   }
 
   .categories-label {
-    display: flex;
-    align-items: center;
     width: 100%;
-    background-color: transparent;
     border: none;
-    height: 100%;
-    opacity: 60%;
+    color: var(--category-label);
     font-size: 16px;
-    line-height: 18px; /* 112.5% */
-    transition: color var(--animation), opacity var(--animation);
+    line-height: 1.125;
+    transition: all var(--animation);
     cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: color var(--animation), opacity var(--animation);
   }
 
   .categories-label:hover {
     color: var(--violet);
-    font-size: 14px;
     font-weight: 700;
-    line-height: 18px; /* 112.5% */
     text-transform: uppercase;
-    opacity: 100%;
     transition: color var(--animation), opacity var(--animation);
-  }
-
-  .categories-button:checked + .categories-label {
-    color: var(--violet);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18px; /* 112.5% */
-    text-transform: uppercase;
-    opacity: 100%;
-    transition: color var(--animation), opacity var(--animation);
-    outline: none;
   }
 
   .categories-div::-webkit-scrollbar {
     width: 8px;
   }
-
   .categories-div::-webkit-scrollbar-track {
     background: transparent;
   }
-
   .categories-div::-webkit-scrollbar-thumb {
     background-color: #E0E0E0;
     border-radius: 12px;
   }
-}
 
 /* Стиль Категорій під планшет */
 
-@media (min-width: 768px) and (max-width: 1439px) {
+@media screen and (min-width: 768px) {
   .categories-div {
     max-width: 337px;
     max-height: 472px;
-    overflow-y: scroll;
   }
-
   .categories-list {
-    display: flex;
     gap: 32px;
-    flex-wrap: wrap;
   }
-
   .categories-item {
-    display: flex;
     width: 318px;
     height: 24px;
-    -webkit-tap-highlight-color: transparent;
   }
-
-  .categories-button {
-    display: none;
-  }
-
+  .categories-label:hover, 
   .categories-label {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    height: 100%;
-    opacity: 60%;
-    font-size: 16px;
-    line-height: 18px; /* 112.5% */
-    transition: color var(--animation), opacity var(--animation);
-    cursor: pointer;
-  }
-
-  .categories-label:hover {
-    color: var(--violet);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18px; /* 112.5% */
-    text-transform: uppercase;
-    opacity: 100%;
-    transition: color var(--animation), opacity var(--animation);
-  }
-
-  .categories-button:checked + .categories-label {
-    color: var(--violet);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18px; /* 112.5% */
-    text-transform: uppercase;
-    opacity: 100%;
-    transition: color var(--animation), opacity var(--animation);
-    outline: none;
-  }
-
-  .categories-div::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .categories-div::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .categories-div::-webkit-scrollbar-thumb {
-    background-color: #E0E0E0;
-    border-radius: 12px;
+    font-size: 18px;
   }
 }
-
 /* Стиль Категорій під десктоп */
 
 @media (min-width: 1440px) {
   .categories-div {
     max-width: 356px;
-    max-height: 472px;
-    overflow-y: scroll;
   }
-
-  .categories-list {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+  .categories-list{
+    gap: 24px;
   }
-
   .categories-item {
-    display: flex;
     width: 328px;
-    height: 36px;
-    -webkit-tap-highlight-color: transparent;
+    height: 42px;
   }
-
-  .categories-button {
-    display: none;
-  }
-
-  .categories-label {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    height: 100%;
-    opacity: 60%;
-    font-size: 16px;
-    line-height: 18px; /* 112.5% */
-    transition: color var(--animation), opacity var(--animation);
-    cursor: pointer;
-  }
-
-  .categories-label:hover {
-    color: var(--violet);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18px; /* 112.5% */
-    text-transform: uppercase;
-    opacity: 100%;
-    transition: color var(--animation), opacity var(--animation);
-  }
-
-  .categories-button:checked + .categories-label {
-    color: var(--violet);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18px; /* 112.5% */
-    text-transform: uppercase;
-    opacity: 100%;
-    transition: color var(--animation), opacity var(--animation);
-    outline: none;
-  }
-
-  .categories-div::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .categories-div::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .categories-div::-webkit-scrollbar-thumb {
-    background-color: #E0E0E0;
-    border-radius: 12px;
+  .categories-label{
+    padding-top: 12px;
   }
 }
 
