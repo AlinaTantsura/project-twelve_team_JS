@@ -21,7 +21,7 @@ export function displayBookModal(book) {
                 
                 <div class="book-link-wrap">
                     <a href="${book.buy_links[0].url}" target="_blank" class="book-link">
-                        <img srcset="/img/amazon@1x-min.png 1x, /img/amazon@2x-min.png 2x" src="/img/amazon@1x-min.png"  alt="Amazon link">
+                        <img srcset="../img/amazon@1x-min.png 1x, ../img/amazon@2x-min.png 2x" src="../img/amazon@1x-min.png"  alt="Amazon link">
                     </a>
                     
                     <a href="${book.buy_links[1].url}" target="_blank" class="book-link">
