@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <script type="module" crossorigin src="/project-twelve_team_JS/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/mobile-menu-d217b5c9.js">
+    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/mobile-menu-ab46302e.js">
     <link rel="stylesheet" href="/project-twelve_team_JS/assets/mobile-menu-efbb16df.css">
   </head>
   <body>
@@ -94,40 +94,38 @@
   </div>
 </header>
 
-    <!-- mobile-menu window -->
-
-<div class="burger-backdrop is-hidden">
+    <div class="burger-backdrop is-hidden">
   <div class="burger-menu">
     <div class="header-burger container">
       <!-- =======Logo=====-->
         <a href="./index.html" class="link">
           <div class="logo-container logo-light">
             <svg class="icon-logo" width="24" height="24">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#logo-light"></use>
-            </svg>
-            <svg class="icon-logo" width="77" height="20">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#Bookshelf-light"></use>
-            </svg>
-          </div>
-          <div class="logo-container logo-dark">
-            <svg class="icon-logo" width="24" height="24">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#logo-dark"></use>
-            </svg>
-            <svg class="icon-logo" width="77" height="20">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#Bookshelf-dark"></use>
-            </svg>
-          </div>
-        </a>
+            <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#logo-light"></use>
+          </svg>
+          <svg class="icon-logo" width="77" height="20">
+            <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#Bookshelf-light"></use>
+          </svg>
+        </div>
+        <div class="logo-container logo-dark">
+          <svg class="icon-logo" width="24" height="24">
+            <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#logo-dark"></use>
+          </svg>
+          <svg class="icon-logo" width="77" height="20">
+            <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#Bookshelf-dark"></use>
+          </svg>
+        </div>
+      </a>
+      <!-- ================== SWITCHER AND CLOSE BTN ================================================ -->
+      <div class="div-switch-user burger-switch-cont">
+        <!--Тут має бути перемикач теми світла/темна-->
+        <label id="switch" class="switch">
+          <input type="checkbox" id="slider" />
+          <span class="slider round"></span>
+        </label>
 
-        <!-- ================== SWITCHER AND CLOSE BTN ================================================ -->
-        <div class="div-switch-user burger-switch-cont">
-          <label id="switch" class="switch">
-            <input type="checkbox" id="slider" />
-            <span class="slider round"></span>
-          </label>
-  
-          <div class="close-burger-container"></div>
-          <!--BURGER-->
+        <div class="close-burger-container">
+          <!--Burger-menu-->
           <button class="menu-toggle js-close-menu">
             <svg class="icon-close-burger" width="28" heigth="28">
               <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#x-close"></use>
@@ -136,6 +134,7 @@
         </div>
       </div>
     </div>
+    
     <div class="burger-main-part">
       <div class="burger-upper">
         <!-- ========================== SIGN UP BUTTON ============================== -->
@@ -143,11 +142,11 @@
           <button type="button" class="sign-up-btn">
             Sign Up
             <svg class="logout-icon-arrow" width="20" height="20">
-              <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#arrow-narrow-right"></use>
+              <use href="../img/InlineSprite.svg#arrow-narrow-right"></use>
             </svg>
           </button>
         </div>
-        <!-- ================================================================================== -->
+      
         <!-- ============ USER ACCOUNT ============================================== -->
         <div class="burger-user visually-hidden">
           <div class="header-user-image">
@@ -160,38 +159,39 @@
             <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#user-arrow"></use>
           </svg>
         </div>
-    
-        <!--Navigation-->
-          <nav class="nav-burger-menu">
-        <ul class="burger-menu-list">
-          <li class="burger-list-item">
-            <a
-              class="burger-home js-nav-link active-header"
-              href="./index.html"
-              >HOME</a
-            >
-          </li>
-          <li class="burger-list-item">
-            <a href="./shopping.html" class="burger-shoplist js-nav-link">
-              Shopping list
-              <svg class="bag-burger-icon" width="20" height="20">
-                <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#cartshop-icon"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="logout-btn-container visually-hidden">
-      <button type="button" class="logout-btn">
-        Log out
-        <svg class="logout-icon-arrow" width="20" height="20">
-          <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#arrow-narrow-right"></use>
-        </svg>
-      </button>
+      
+        <!-- =============== BURGER NAV MENU ======================================== -->
+        <nav class="burger-nav">
+          <ul class="burger-menu-list">
+            <li class="burger-list-item">
+              <a
+                href="./index.html"
+                class="burger-home js-nav-link active-header"
+                >Home</a
+              >
+            </li>
+            <li class="burger-list-item">
+              <a href="./shopping.html" class="burger-shoplist js-nav-link">
+                Shopping list
+                <svg class="bag-burger-icon" width="20" height="20">
+                  <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#cartshop-icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- ======================== LOGOUT BTN ================================================ -->
+      <div class="logout-btn-container visually-hidden">
+        <button type="button" class="logout-btn">
+          Log out
+          <svg class="logout-icon-arrow" width="20" height="20">
+            <use href="/project-twelve_team_JS/assets/InlineSprite-da4c8f8d.svg#arrow-narrow-right"></use>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
-</div>
 </div>
     <main>
         <div class="container shopping-box">
