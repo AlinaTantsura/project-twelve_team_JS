@@ -54,8 +54,8 @@ async function fetchAndDisplayCategories() {
       icon: "error",
       title: "Sorry, server not answer"
     });
-  }
 
+  }
 }
 
 fetchAndDisplayCategories();

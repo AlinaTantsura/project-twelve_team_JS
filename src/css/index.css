@@ -42,8 +42,9 @@
   --gray: #b4afaf;
   --background-white: #f6f6f6;
   --category-label: rgba(17, 17, 17, 0.6);
+  --filter-for-amazon: grayscale(100%);
   --animation: 0.3s ease-in-out;
-  
+  --link-hover-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
   color: var(--black);
   background-color: var(--background-white);
 }
@@ -59,6 +60,8 @@
     --white: #111;
     --background-white: #202024;
     --category-label: rgba(255, 255, 255, 0.60);
+    --link-hover-filter:drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+    --filter-for-amazon: brightness(0) invert(1);
     color: var(--black);
     background-color: var(--background-white);
 }

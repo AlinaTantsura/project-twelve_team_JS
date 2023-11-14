@@ -31,7 +31,7 @@ export function displayBookModal(book) {
                 <p class="book-modal-description">${modalDescription}</p>
                 
                 <div class="book-link-wrap">
-                    <a href="${book.buy_links[0].url}" target="_blank" class="book-link">
+                    <a href="${book.buy_links[0].url}" target="_blank" class="book-link amazon-link">
                         <img src="${imgUrlAmazon1x}" srcset="${imgUrlAmazon2x} 2x"  alt="Amazon link">
                     </a>
                     
