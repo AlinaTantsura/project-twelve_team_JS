@@ -182,12 +182,11 @@ const supportArray = [
   }
 
   // For shopping-list hidden
-  const support = document.querySelector('.support');
-
+ const support = document.querySelector('.support');
   const currentPage = window.location.pathname;
-  if(currentPage === '/shopping.html'){
-    support.classList.add('support-for-shopping');}
-  else{
-    support.classList.remove('support-for-shopping'); 
+
+  if (currentPage.endsWith('/shopping.html')) {
+    support.classList.add('support-for-shopping');
+  } else {
+    support.classList.remove('support-for-shopping');
   }
-  
