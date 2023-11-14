@@ -96,9 +96,11 @@
 
 .book-link:hover,
 .book-link:focus {
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  filter: var(--link-hover-filter);
 }
-
+.amazon-link{
+ filter: var(--filter-for-amazon);
+}
 #addToShoppingList {
   margin-bottom: 8px;
   padding: 14px 28px;
@@ -115,7 +117,7 @@
 }
 
 #congratulationsMessage {
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--category-label);
   text-align: center;
   font-size: 10px;
   font-weight: 400;

@@ -1,4 +1,7 @@
 /* Reset styles */
+body{
+  min-height: 1300px;
+}
 h1,
 h2,
 h3,
