@@ -30,16 +30,6 @@ const createCategoryElement = (category, index) => {
 /* Функція виведення елементів на сторінку */
 
 async function fetchAndDisplayCategories() {
-
-  const categoryRequest = await new GetBooksFromApi().getAllCategories();
-  categoryRequest.sort((a, b) => a.list_name.localeCompare(b.list_name));
-  const categoryListElement = document.querySelector('.categories-list');
-  categoryRequest.forEach((category, index) => {
-    const categoryElement = createCategoryElement(category, index);
-    // @ts-ignore
-    categoryListElement.appendChild(categoryElement);
-  });
-
   try {
     const categoryRequest = await new GetBooksFromApi().getAllCategories();
     categoryRequest.sort((a, b) => a.list_name.localeCompare(b.list_name));
