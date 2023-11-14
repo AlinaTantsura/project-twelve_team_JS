@@ -1,5 +1,5 @@
 import GetBooksFromApi from "./requests";
-import Notiflix from "notiflix";
+import Swal from 'sweetalert2';
 import { displayBookModal } from "./modal-window";
 
 // LOADER ===================================================
@@ -53,24 +53,101 @@ export async function onLoadPage() {
     try {
         const response = await getBooksFromApi.getBooks();
         if (response.length === 0) {
-            Notiflix.Notify.warning('Sorry, there are no bestsellers books yet');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "error",
+                title: "Sorry, server not answer",
+              });
         }
         createBestBooksMarkup(response);
-
-        // Add event listener for each book card box
-        const bookCardBoxes = document.querySelectorAll('.book-card-box');
-        bookCardBoxes.forEach((box) => {
-            box.addEventListener('click', () => {
-                // @ts-ignore
-                const bookInfo = JSON.parse(box.dataset.bookInfo);
-                displayBookModal(bookInfo);
-            });
-        });
     } catch (error) {
-        Notiflix.Notify.failure('Something went wrong!');
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: 'Sorry, server not answer',
+          });
     } finally {
         switchLoader();
     }
 }
 onLoadPage();
 // ====================================================================================================
+// CREATE MODAL CARD BY CLICKING ON BOOK CARD
+        let currentBookId = null;
+        const bookModal = document.querySelector('.modal');
+    
+        booksList?.addEventListener('click', onCardClick);
+
+        export async function onCardClick(e) {
+            try {
+                switchLoader();
+            let bookItem = e.target.closest('li');
+            if(bookItem) {
+                currentBookId = bookItem.id;
+                await fetchBookInfo(currentBookId);
+            }
+        } catch (error) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "error",
+                title: 'Sorry, server not answer',
+              });
+        } finally {
+            switchLoader();
+        }
+        }
+
+        async function fetchBookInfo(id) {
+            try {
+            const info = await getBooksFromApi.getBookById(id);
+            displayBookModal(info);
+            bookModal?.classList.remove('is-hidden');
+            return info;
+            } catch (error) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.onmouseenter = Swal.stopTimer;
+                      toast.onmouseleave = Swal.resumeTimer;
+                    }
+                  });
+                  Toast.fire({
+                    icon: "error",
+                    title: "Sorry, server not answer",
+                  });
+            }
+        };

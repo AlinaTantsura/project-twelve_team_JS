@@ -1,10 +1,16 @@
+// @ts-nocheck
 import closeIcon from '../img/InlineSprite.svg';
 import imgUrlAppleBook1x from '../img/appleBook@1x-min.png';
 import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
 import imgUrlAmazon1x from '../img/amazon@1x-min.png';
 import imgUrlAmazon2x from '../img/amazon@2x-min.png';
+import Swal from 'sweetalert2';
+
+let bookArray = JSON.parse(localStorage.getItem('shoppingList')) || [];
+
 export function displayBookModal(book) {
     const modal = document.getElementById('bookModal');
+    const modalDescription = book.description || 'Description will be added later';
     modal.innerHTML = '';
 
     const modalContent = document.createElement('div');
@@ -22,7 +28,7 @@ export function displayBookModal(book) {
             <div>
                 <h3 class="book-modal-title">${book.title}</h3>
                 <p class="book-modal-author">${book.author}</p>
-                <p class="book-modal-description">${book.description}</p>
+                <p class="book-modal-description">${modalDescription}</p>
                 
                 <div class="book-link-wrap">
                     <a href="${book.buy_links[0].url}" target="_blank" class="book-link amazon-link">
@@ -88,11 +94,41 @@ export function displayBookModal(book) {
             shoppingList.push(book);
 
             localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Book was ADDED to Shopping list!",
+              });
         } else {
 
             const updatedShoppingList = shoppingList.filter((item) => item.title !== book.title);
 
             localStorage.setItem('shoppingList', JSON.stringify(updatedShoppingList));
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Book was REMOVED from Shopping list!",
+              });
         }
 
         updateButtonState();
@@ -115,6 +151,7 @@ export function displayBookModal(book) {
         }
     }
 }
+
 
 export function removeFromShoppingList(book) {
 
