@@ -3,14 +3,17 @@ import imgUrlAmazon from '../img/amazon@1x-min.png';
 import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
 import imgUrlAmazon2x from '../img/amazon@2x-min.png';
 import icons from '../img/InlineSprite.svg';
+
 const bookList = document.querySelector('.books-list');
 const noBooks = document.querySelector('.no-books');
 const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) ?? [];
+
 /*Creation of markup*/
+
 bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList));
+
 /*function for deliting elements*/
-const bookListElements = shoppingList.length;
-let newListElements = bookListElements;
+
 function handlerDelete(evt) {
   location.reload();
   const bookId = evt.currentTarget.dataset.bookId;
@@ -25,15 +28,16 @@ function handlerDelete(evt) {
   });
   localStorage.setItem('shoppingList', JSON.stringify(newBooks));
 }
-if (bookListElements !== newListElements) {
-  bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList));
-}
+
 /*Eventlisteners on each button*/
+
 const books = [...bookList.children];
 books.forEach(book => {
   book.children[2].addEventListener('click', handlerDelete);
 });
+
 /*Checking if I have elements in section*/
+
 if (bookList.children.length === 0) {
   noBooks.classList.remove('hidden');
 } else {
@@ -41,6 +45,7 @@ if (bookList.children.length === 0) {
 }
 
 /*Function for card markup*/
+
 function shoppingMarkup(arr) {
   const newDescription = 'Description will be added sooner';
 
