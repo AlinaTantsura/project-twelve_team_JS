@@ -1,6 +1,4 @@
 import GetBooksFromApi from './requests';
-import { Notify } from 'notiflix';
-
 
 /* Функція створення элемента категорії */
 
@@ -39,9 +37,8 @@ async function fetchAndDisplayCategories() {
       categoryListElement.appendChild(categoryElement);
     });
   } catch (error) {
-    Notify.failure('Something went wrong!');
+    alert('Something went wrong!');
   }
-
 }
 
 fetchAndDisplayCategories();
