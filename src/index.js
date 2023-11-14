@@ -5,7 +5,7 @@ import './js/header.js';
 import './js/requests.js';
 import './js/scroll-up.js';
 import './js/book-block.js';
-// import './js/sign-in.js';
+import './js/sign-in.js';
 import './js/support.js';
 import "./js/categories"
 import './js/books-each-category.js';
