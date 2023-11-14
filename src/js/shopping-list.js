@@ -3,6 +3,7 @@ import imgUrlAmazon from '../img/amazon@1x-min.png';
 import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
 import imgUrlAmazon2x from '../img/amazon@2x-min.png';
 import icons from '../img/InlineSprite.svg';
+import Swal from 'sweetalert2';
 
 const bookList = document.querySelector('.books-list');
 const noBooks = document.querySelector('.no-books');
@@ -15,7 +16,6 @@ bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList));
 /*function for deliting elements*/
 
 function handlerDelete(evt) {
-  location.reload();
   const bookId = evt.currentTarget.dataset.bookId;
   const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
 
@@ -27,6 +27,26 @@ function handlerDelete(evt) {
     }
   });
   localStorage.setItem('shoppingList', JSON.stringify(newBooks));
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: toast => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+  Toast.fire({
+    icon: 'success',
+    title: 'Book was deleted successfully',
+  });
+  localStorage.setItem('shoppingList', JSON.stringify(newBooks));
+  setTimeout(() => {
+    location.reload();
+  }, 1500);
 }
 
 /*Eventlisteners on each button*/
