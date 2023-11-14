@@ -1,24 +1,24 @@
-import{a as d,b as h,c as g,d as u,i as m}from"./assets/dark-light-switcher-48693140.js";const l=document.querySelector(".books-list");document.querySelector(".delete-form");const n=document.querySelector(".no-books"),k=JSON.parse(localStorage.getItem("shoppingList"))??[];l.insertAdjacentHTML("beforeend",f(k));const b=[...l.children];b.forEach(s=>{s.children[2].addEventListener("click",$)});function $(s){const t=s.currentTarget.dataset.bookId,i=JSON.parse(localStorage.getItem("shoppingList"))||[],o=[];i.filter(e=>{e._id!==t&&o.push(e)}),console.log(o),localStorage.setItem("shoppingList",JSON.stringify(o))}l.children.length===0?n.classList.remove("hidden"):n.classList.add("hidden");function f(s){const t="Description will be added sooner";return s.map(({_id:i,book_image:o,title:e,list_name:c,description:r,author:p,buy_links:a})=>`
+import{a as b,b as k,c as m,d as u,i as f}from"./assets/dark-light-switcher-15de1be2.js";const t=document.querySelector(".books-list"),c=document.querySelector(".no-books"),l=JSON.parse(localStorage.getItem("shoppingList"))??[];t.insertAdjacentHTML("beforeend",p(l));const r=l.length;let $=r;function L(s){location.reload();const i=s.currentTarget.dataset.bookId,n=JSON.parse(localStorage.getItem("shoppingList"))||[],e=[];n.forEach(o=>{o._id!==i&&e.push(o)}),localStorage.setItem("shoppingList",JSON.stringify(e))}r!==$&&t.insertAdjacentHTML("beforeend",p(l));const y=[...t.children];y.forEach(s=>{s.children[2].addEventListener("click",L)});t.children.length===0?c.classList.remove("hidden"):c.classList.add("hidden");function p(s){const i="Description will be added sooner";return s.map(({_id:n,book_image:e,title:o,list_name:d,description:h,author:g,buy_links:a})=>`
       <li class="shopping-element">
         <img
-          src="${o}"
-          alt="${e}"
+          src="${e}"
+          alt="${o}"
           class="book-image"
         />
         <div class="text-content">
-          <h2 class="book-title">${e}</h2>
-          <p class="book-category">${c}</p>
+          <h2 class="book-title">${o}</h2>
+          <p class="book-category">${d}</p>
           <p class="book-description">
-            ${r||t}
+            ${h||i}
           </p>
           <div class="author-buy">
-            <p class="author-name">${p}</p>
+            <p class="author-name">${g}</p>
             <ul class="buy-links">
               <li class="buy-link">
                 <a href="${a[0].url}" class="amazon-link book-link ">
                   <img
-                    src="${d}"
-                    srcset="${h} 2x"
+                    src="${b}"
+                    srcset="${k} 2x"
                     alt="Amazon"
                     width="32"
                     height="11"
@@ -29,7 +29,7 @@ import{a as d,b as h,c as g,d as u,i as m}from"./assets/dark-light-switcher-4869
               <li class="buy-link">
                 <a href="${a[1].url}" class="apple-book-link book-link ">
                   <img
-                    src="${g}"
+                    src="${m}"
                     srcset="${u} 2x"
                     alt="Apple Books"
                     width="16"
@@ -40,9 +40,9 @@ import{a as d,b as h,c as g,d as u,i as m}from"./assets/dark-light-switcher-4869
             </ul>
           </div>
         </div>
-        <button type="submit" class="delete-item" data-book-id="${i}">
+        <button type="submit" class="delete-item" data-book-id="${n}">
           <svg class="remove-bin" width="16" height="16">
-            <use href="${m}#trash"></use>
+            <use href="${f}#trash"></use>
           </svg>
         </button>
       </li>
