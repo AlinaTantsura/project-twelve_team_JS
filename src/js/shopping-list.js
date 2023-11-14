@@ -6,7 +6,7 @@ import icons from '../img/InlineSprite.svg';
 const bookList = document.querySelector('.books-list');
 const deleteForm = document.querySelector('.delete-form');
 const noBooks = document.querySelector('.no-books');
-const shoppingList = JSON.parse(localStorage.getItem('shoppingList'));
+const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) ?? [];
 /*Creation of markup*/
 bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList));
 /*Eventlisteners on each button*/
