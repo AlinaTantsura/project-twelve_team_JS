@@ -2,7 +2,7 @@ import GetBooksFromApi from "./requests";
 import { createBook } from "./book-block";
 import { onLoadPage } from "./book-block";
 import { switchLoader } from "./book-block";
-import Notiflix from "notiflix";
+import Swal from 'sweetalert2';
 
 // Create new Class for take all functions from default class
 const getBooksFromApi = new GetBooksFromApi();
@@ -86,7 +86,21 @@ async function renderBooksCategory(category) {
       const allBooksCategory = await getBooksFromApi.getBooksFromCategory(category);
       markupCat(allBooksCategory, category);
     } catch (error) {
-        Notiflix.Notify.failure('Sorry, no books in this category');
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Sorry, server not answer"
+          });
     } finally {
         switchLoader();
     }

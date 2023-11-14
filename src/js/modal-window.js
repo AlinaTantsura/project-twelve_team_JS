@@ -3,6 +3,7 @@ import imgUrlAppleBook1x from '../img/appleBook@1x-min.png';
 import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
 import imgUrlAmazon1x from '../img/amazon@1x-min.png';
 import imgUrlAmazon2x from '../img/amazon@2x-min.png';
+
 export function displayBookModal(book) {
     const modal = document.getElementById('bookModal');
     modal.innerHTML = '';

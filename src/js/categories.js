@@ -1,5 +1,5 @@
 import GetBooksFromApi from './requests';
-import { Notify } from 'notiflix';
+import Swal from 'sweetalert2';
 
 
 /* Функція створення элемента категорії */
@@ -36,10 +36,24 @@ async function fetchAndDisplayCategories() {
     const categoryListElement = document.querySelector('.categories-list');
     categoryRequest.forEach((category, index) => {
       const categoryElement = createCategoryElement(category, index);
-      categoryListElement.appendChild(categoryElement);
+      categoryListElement?.appendChild(categoryElement);
     });
   } catch (error) {
-    Notify.failure('Something went wrong!');
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Sorry, server not answer"
+    });
   }
 
 }
