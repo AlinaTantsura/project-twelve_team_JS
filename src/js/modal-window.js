@@ -85,9 +85,6 @@ export function displayBookModal(book) {
 
         const isBookInShoppingList = shoppingList.some((item) => item.title === book.title);
 
-        console.log('Existing Shopping List:', shoppingList);
-        console.log('Is Book in Shopping List?', isBookInShoppingList);
-
         if (!isBookInShoppingList) {
 
             shoppingList.push(book);
@@ -118,9 +115,6 @@ export function displayBookModal(book) {
 
             document.getElementById('congratulationsMessage').style.display = 'none';
         }
-
-        console.log('Updated Button Text:', addToShoppingListButton.innerText);
-        console.log('Is Book in Shopping List?', isBookInShoppingList);
     }
 }
 

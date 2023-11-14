@@ -14,8 +14,8 @@
   align-items: center;
 }
 .no-books-text {
-  color: rgba(0, 0, 0, 0.6);
-
+  /* color: rgba(0, 0, 0, 0.6); */
+  opacity: 0.6;
   text-align: center;
   line-height: 1.28;
   letter-spacing: -0.28px;

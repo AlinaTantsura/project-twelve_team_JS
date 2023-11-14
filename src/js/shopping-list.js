@@ -1,5 +1,8 @@
 import imgUrlAppleBook from '../img/appleBook@1x-min.png';
 import imgUrlAmazon from '../img/amazon@1x-min.png';
+import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
+import imgUrlAmazon2x from '../img/amazon@2x-min.png';
+import icons from '../img/InlineSprite.svg';
 const bookList = document.querySelector('.books-list');
 const deleteForm = document.querySelector('.delete-form');
 const noBooks = document.querySelector('.no-books');
@@ -68,6 +71,7 @@ function shoppingMarkup(arr) {
                 <a href="${buy_links[0].url}" class="amazon-link book-link ">
                   <img
                     src="${imgUrlAmazon}"
+                    srcset="${imgUrlAmazon2x} 2x"
                     alt="Amazon"
                     width="32"
                     height="11"
@@ -79,6 +83,7 @@ function shoppingMarkup(arr) {
                 <a href="${buy_links[1].url}" class="apple-book-link book-link ">
                   <img
                     src="${imgUrlAppleBook}"
+                    srcset="${imgUrlAppleBook2x} 2x"
                     alt="Apple Books"
                     width="16"
                     class="buy-apple"
@@ -90,7 +95,7 @@ function shoppingMarkup(arr) {
         </div>
         <button type="submit" class="delete-item" data-book-id="${_id}">
           <svg class="remove-bin" width="16" height="16">
-            <use href="./img/InlineSprite.svg#trash-min"></use>
+            <use href="${icons}#trash"></use>
           </svg>
         </button>
       </li>

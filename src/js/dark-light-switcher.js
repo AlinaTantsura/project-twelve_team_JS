@@ -9,15 +9,12 @@ const darkModeBurger = document.querySelector('#dark-mode-toggle-burger');
 const enabledDarkMode = () => {
     document.body.classList.add('darkmode');
     localStorage.setItem('darkMode', "enabled");
-    // @ts-ignore
     darkModeToggle.checked = true;
 };
 
 const disabledDarkMode = () => {
     document.body.classList.remove('darkmode');
-    // @ts-ignore
     localStorage.setItem('darkMode', null);
-    // @ts-ignore
     darkModeToggle.checked = false;
 };
 
@@ -31,11 +28,9 @@ darkModeToggle?.addEventListener('click', () => {
    
     if(darkMode !== 'enabled') {
         enabledDarkMode();
-        // @ts-ignore
         darkModeBurger.checked = true;
     } else {
         disabledDarkMode();
-        // @ts-ignore
         darkModeBurger.checked = false;
     }
 })
@@ -45,11 +40,9 @@ darkModeBurger?.addEventListener('click', () => {
     darkMode = localStorage.getItem('darkMode');
     if(darkMode !== 'enabled') {
         enabledDarkMode();
-        // @ts-ignore
         darkModeBurger.checked = true;
     } else {
         disabledDarkMode();
-        // @ts-ignore
         darkModeBurger.checked = false;
     }
 })

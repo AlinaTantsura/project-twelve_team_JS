@@ -185,7 +185,6 @@ const supportArray = [
   const support = document.querySelector('.support');
 
   const currentPage = window.location.pathname;
-  console.log(currentPage);
   if(currentPage === '/shopping.html'){
     support.classList.add('support-for-shopping');}
   else{
