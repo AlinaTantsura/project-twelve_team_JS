@@ -41,9 +41,6 @@
   --white: #fff;
   --gray: #b4afaf;
   --background-white: #f6f6f6;
-  --background-header: var(--white);
-  --border-header: var(--black);
-  --burger-color: var(--black);
   --category-label: rgba(17, 17, 17, 0.6);
   --animation: 0.3s ease-in-out;
   
@@ -57,21 +54,15 @@
 
 /* Dark styles default*/
 .darkmode{
-    --black: #111;
-    --black-1: #202024;
-    --violet: #4F2EE8;
-    --yellow: #EAC645;
-    --white: #FFF;
-    --gray: #B4AFAF;
-    --background-white: #F6F6F6;
-    --background-header: var(--black);
-    --border-header: var(--white);
-    --burger-color: var(--white);
-
-    color: var(--white);
-    background-color: var(--black-1);
-
+    --black: #FFF;
+    --black-1: #f6f6f6;
+    --white: #111;
+    --background-white: #202024;
+    --category-label: rgba(255, 255, 255, 0.60);
+    color: var(--black);
+    background-color: var(--background-white);
 }
+
 .container {
   min-width: 320px;
   max-width: 375px;

@@ -2,21 +2,13 @@
   <div class="burger-menu">
     <div class="header-burger container">
       <!-- =======Logo=====-->
-        <a href="./index.html" class="link">
-          <div class="logo-container logo-light">
-            <svg class="icon-logo" width="24" height="24">
+      <a href="./index.html" class="link">
+        <div class="logo-container logo-light">
+          <svg class="icon-logo" width="24" height="24">
             <use href="./img/InlineSprite.svg#logo-light"></use>
           </svg>
-          <svg class="icon-logo" width="77" height="20">
+          <svg class="icon-logo-text" width="77" height="20">
             <use href="./img/InlineSprite.svg#Bookshelf-light"></use>
-          </svg>
-        </div>
-        <div class="logo-container logo-dark">
-          <svg class="icon-logo" width="24" height="24">
-            <use href="./img/InlineSprite.svg#logo-dark"></use>
-          </svg>
-          <svg class="icon-logo" width="77" height="20">
-            <use href="./img/InlineSprite.svg#Bookshelf-dark"></use>
           </svg>
         </div>
       </a>
@@ -24,7 +16,12 @@
       <div class="div-switch-user burger-switch-cont">
         <!--Тут має бути перемикач теми світла/темна-->
         <label id="switch" class="switch">
-          <input type="checkbox" id="slider" />
+          <input
+            type="checkbox"
+            class="dark-mode-toggle-burger"
+            id="dark-mode-toggle-burger"
+            aria-label="toggle dark mode"
+          />
           <span class="slider round"></span>
         </label>
 
@@ -38,7 +35,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="burger-main-part">
       <div class="burger-upper">
         <!-- ========================== SIGN UP BUTTON ============================== -->
@@ -50,7 +47,7 @@
             </svg>
           </button>
         </div>
-      
+
         <!-- ============ USER ACCOUNT ============================================== -->
         <div class="burger-user visually-hidden">
           <div class="header-user-image">
@@ -63,7 +60,7 @@
             <use href="./img/InlineSprite.svg#user-arrow"></use>
           </svg>
         </div>
-      
+
         <!-- =============== BURGER NAV MENU ======================================== -->
         <nav class="burger-nav">
           <ul class="burger-menu-list">

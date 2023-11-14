@@ -11,6 +11,8 @@ export function displayBookModal(book) {
     modalContent.classList.add('modal-content');
     modalContent.innerHTML = `
         <button id="closeModal">
+            <svg width="24" height="24" class="close-modal-icon">
+                <use href="/img/InlineSprite.svg#x-close"></use>
             <svg width="24" height="24">
                 <use href="${closeIcon}#x-close"></use>
             </svg>

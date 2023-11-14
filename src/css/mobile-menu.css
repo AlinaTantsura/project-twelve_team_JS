@@ -9,6 +9,13 @@
   transition: all var(--animation);
 }
 
+.icon-close-burger {
+  stroke: var(--black);
+}
+.icon-logo-text {
+  fill: var(--black);
+}
+
 .burger-menu {
   position: absolute;
   top: 50%;
@@ -59,7 +66,7 @@
   row-gap: 17px;
 }
 .burger-list-item {
-  color: var(--white);
+  color: #fff;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 500;
@@ -67,7 +74,7 @@
   letter-spacing: -0.04em;
 }
 .bag-burger-icon {
-  fill: var(--white);
+  fill: #fff;
 }
 .burger-home {
   max-width: 72px;
@@ -144,7 +151,7 @@ margin-bottom: 8px;
   clip: rect(0 0 0 0);
 }
 .active-burger-icon {
-  fill: var(--black);
+  fill: #111;
 }
 
 @media only screen and (min-width: 320px) and (-webkit-min-device-pixel-ratio: 2), 

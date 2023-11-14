@@ -40,6 +40,10 @@
   cursor: pointer;
 }
 
+.close-modal-icon {
+  stroke: var(--black);
+}
+
 .book-modal-img {
   width: 287px;
   height: 408px;
@@ -101,6 +105,7 @@
 
   border-radius: 40px;
   border: 2px solid var(--violet);
+  color: var(--black);
   background: var(--white);
   font-size: 14px;
   font-weight: 700;
