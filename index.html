@@ -14,9 +14,10 @@
     />
     
     <script type="module" crossorigin src="/project-twelve_team_JS/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/dark-light-switcher-2a87ab5d.js">
-    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/vendor-4589f348.js">
-    <link rel="stylesheet" href="/project-twelve_team_JS/assets/dark-light-switcher-99b44124.css">
+    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/vendor-a366a4fe.js">
+    <link rel="modulepreload" crossorigin href="/project-twelve_team_JS/assets/dark-light-switcher-7f4728ed.js">
+    <link rel="stylesheet" href="/project-twelve_team_JS/assets/dark-light-switcher-0e2a0e3b.css">
+    <link rel="stylesheet" href="/project-twelve_team_JS/assets/index-fda79eda.css">
   </head>
   <body>
     <header class="header">
@@ -201,6 +202,8 @@
 </div>
 
     <main>
+      <a href="./shopping.html">Page-2-link</a>
+
       <div class="container main-container">
         <div class="left-main">
           <section class="categories">
@@ -259,7 +262,90 @@
     <div class="modal" id="bookModal"></div>
 
 
+    <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Smart Media Compaing</title>
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css"
+    />
     
+  </head>
+  <body>
+    <button class="hero-button" type="button" data-modal-open>
+      Order Service
+    </button>
+
+    <!-- Modal window-->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-btn" type="button" data-modal-close>
+          <svg class="modal-icon" width="8" height="8">
+            <use href="/project-twelve_team_JS/assets/icons-05bc597c.svg#close-black"></use>
+          </svg>
+        </button>
+
+        <form>
+          <div class="modal-form">
+            <label class="modal-form-field" for="user-name">
+              <span class="modal-form-label">Name</span>
+            </label>
+            <div class="input-field">
+              <input
+                type="text"
+                name="user-name"
+                class="modal-input"
+                id="user-name"
+              />
+              <svg class="modal-user-icons" width="18" height="24">
+                <use href="/project-twelve_team_JS/assets/icons-05bc597c.svg#person"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="modal-form">
+            <label class="modal-form-field" for="user-email">
+              <span class="modal-form-label">Email</span>
+            </label>
+            <div class="input-field">
+              <input
+                type="email"
+                name="user-email"
+                class="modal-input"
+                id="user-email"
+              />
+              <svg class="modal-user-icons" width="18" height="24">
+                <use href="/project-twelve_team_JS/assets/icons-05bc597c.svg#email"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="modal-form">
+            <label class="modal-form-field" for="user-password">
+              <span class="modal-form-label">Password</span>
+            </label>
+            <div class="input-field">
+              <input
+                type="password"
+                name="user-password"
+                class="modal-input"
+                id="user-password"
+              />
+              <svg class="modal-user-icons" width="18" height="24">
+                <use href="/project-twelve_team_JS/assets/icons-05bc597c.svg#email"></use>
+              </svg>
+            </div>
+          </div>
+
+          <button type="submit" class="send-btn" id="btnLogin">Login</button>
+        </form>
+      </div>
+    </div>
+    <script src="./js/sing-in.js"></script>
+  </body>
+</html>
+
     <button class="scroll-up">
     <span class="scroll-up-span">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
