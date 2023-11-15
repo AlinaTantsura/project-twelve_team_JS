@@ -97,7 +97,7 @@ function shoppingMarkup(arr) {
             <p class="author-name">${author}</p>
             <ul class="buy-links">
               <li class="buy-link">
-                <a href="${buy_links[0].url}" class="amazon-link book-link ">
+                <a href="${buy_links[0].url}" target="_blank" class="amazon-link book-link ">
                   <img
                     src="${imgUrlAmazon}"
                     srcset="${imgUrlAmazon2x} 2x"
@@ -111,7 +111,7 @@ function shoppingMarkup(arr) {
               <li class="buy-link">
                 <a href="${
                   buy_links[1].url
-                }" class="apple-book-link book-link ">
+                }" target="_blank" class="apple-book-link book-link ">
                   <img
                     src="${imgUrlAppleBook}"
                     srcset="${imgUrlAppleBook2x} 2x"
