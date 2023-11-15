@@ -8,10 +8,13 @@ import Swal from 'sweetalert2';
 const bookList = document.querySelector('.books-list');
 const noBooks = document.querySelector('.no-books');
 const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) ?? [];
+const loader = document.querySelector('.loader-backdrop');
 
 /*Creation of markup*/
 
-bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList));
+loader?.classList.toggle('is-hidden');
+
+bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList) || '');
 
 /*function for deliting elements*/
 
@@ -49,6 +52,12 @@ function handlerDelete(evt) {
   }, 1500);
 }
 
+/*Loader Function*/
+
+function switchLoader() {
+  loader?.classList.toggle('is-hidden');
+}
+
 /*Eventlisteners on each button*/
 
 const books = [...bookList.children];
@@ -60,8 +69,14 @@ books.forEach(book => {
 
 if (bookList.children.length === 0) {
   noBooks.classList.remove('hidden');
+  setTimeout(() => {
+    switchLoader();
+  }, 1000);
 } else {
   noBooks.classList.add('hidden');
+  setTimeout(() => {
+    switchLoader();
+  }, 1000);
 }
 
 /*Function for card markup*/
@@ -69,7 +84,7 @@ if (bookList.children.length === 0) {
 function shoppingMarkup(arr) {
   const newDescription = 'Description will be added sooner';
 
-  return arr
+  const markup = arr
     .map(
       ({
         _id,
@@ -97,7 +112,9 @@ function shoppingMarkup(arr) {
             <p class="author-name">${author}</p>
             <ul class="buy-links">
               <li class="buy-link">
-                <a href="${buy_links[0].url}" target="_blank" class="amazon-link book-link ">
+                <a href="${
+                  buy_links[0].url
+                }" target="_blank" class="amazon-link book-link ">
                   <img
                     src="${imgUrlAmazon}"
                     srcset="${imgUrlAmazon2x} 2x"
@@ -134,4 +151,5 @@ function shoppingMarkup(arr) {
       }
     )
     .join('');
+  return markup;
 }
