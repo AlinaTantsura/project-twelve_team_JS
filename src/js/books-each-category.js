@@ -27,22 +27,23 @@ function onSeeMore(event) {
    } else {
     window.scrollTo(window.innerHeight, 820);
    }
-
+    // ===========================================
+  
+    
+    if(event.target.nodeName === 'BUTTON') {
+        // @ts-ignore
+        categoryTitle.style.display = 'none';
+        renderBooksCategory(event.target.name);
+        
     // For make active category in categories list
-    const listOfLabels = document.querySelectorAll('label');
-    listOfLabels.forEach(label => {
+        const listOfLabels = document.querySelectorAll('label');
+        listOfLabels.forEach(label => {
         if(label.textContent === event.target.name) {
             label.classList.add('active');
         } else {
             label.classList.remove('active');
         }
     })
-    // ===========================================
-    
-    if(event.target.nodeName === 'BUTTON') {
-        // @ts-ignore
-        categoryTitle.style.display = 'none';
-        renderBooksCategory(event.target.name);
     }
 };
 // ==========================================================================================
@@ -73,6 +74,8 @@ function onClick(event) {
         categoryTitle.style.display = 'block';
         labelElem.classList.add('active');
         onLoadPage();
+    } else {
+        return;
     }
 };
 

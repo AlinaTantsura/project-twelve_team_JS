@@ -1,3 +1,5 @@
+// @ts-nocheck
+export function switcherDarklLight() {
 let darkMode = localStorage.getItem("darkMode");
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
 const darkModeBurger = document.querySelector('#dark-mode-toggle-burger');
@@ -10,12 +12,14 @@ const enabledDarkMode = () => {
     document.body.classList.add('darkmode');
     localStorage.setItem('darkMode', "enabled");
     darkModeToggle.checked = true;
+    darkModeBurger.checked = true;
 };
 
 const disabledDarkMode = () => {
     document.body.classList.remove('darkmode');
     localStorage.setItem('darkMode', null);
     darkModeToggle.checked = false;
+    darkModeBurger.checked = false;
 };
 
 if (darkMode === 'enabled') {
@@ -28,10 +32,8 @@ darkModeToggle?.addEventListener('click', () => {
    
     if(darkMode !== 'enabled') {
         enabledDarkMode();
-        darkModeBurger.checked = true;
     } else {
         disabledDarkMode();
-        darkModeBurger.checked = false;
     }
 })
 
@@ -46,3 +48,5 @@ darkModeBurger?.addEventListener('click', () => {
         darkModeBurger.checked = false;
     }
 })
+};
+switcherDarklLight();
