@@ -14,7 +14,7 @@ function openCloseBurger() {
         // document.body.style.top = `-${window.scrollY}px`;
 
         // For burger menu if open page shopping.html icon in navigation menu should be black
-        if(currentPageBurger === '/shopping.html') {
+        if(currentPageBurger.endsWith('/shopping.html')) {
             cartBurgerIcon?.classList.add('active-burger-icon');
         }
     } else {
