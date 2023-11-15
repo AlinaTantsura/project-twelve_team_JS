@@ -6,7 +6,6 @@ function setActivePage(className, currentPage) {
 
     navLinks.forEach(link => {
         const linkPath = new URL(link.href).pathname;
-        console.log(currentPage.endsWith('/'))
     if (currentPage.endsWith(linkPath) || currentPage.endsWith('/') && linkPath === '/index.html') { 
         link.classList.add('active-header');
             if (currentPage.endsWith('/shopping.html')) {
