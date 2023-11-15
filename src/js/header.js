@@ -7,7 +7,7 @@ function setActivePage(className, currentPage) {
     navLinks.forEach(link => {
         const linkPath = new URL(link.href).pathname;
         // if (linkPath === currentPage || currentPage === '/' && linkPath === '/index.html') {
-        if (linkPath === currentPage || currentPage.endsWith('/') && linkPath === '/index.html') {
+        if (currentPage.endsWith(linkPath) || currentPage.endsWith('/') && linkPath === '/index.html') {
             link.classList.add('active-header');
             if (currentPage === '/shopping.html') {
                 iconBag?.classList.add('active-burger-icon');
