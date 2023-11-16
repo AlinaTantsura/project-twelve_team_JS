@@ -22,6 +22,12 @@ const options = {
 const container = document.getElementById('tui-pagination-container');
 const pagination = new Pagination(container, options);
 
+if (shoppingListArray.length <= 3) {
+  container.classList.add('hidden');
+} else {
+  container.classList.remove('hidden');
+}
+
 pagination.on('beforeMove', event => {
   const currentPage = event.page;
   shoppingMarkup(
@@ -50,10 +56,11 @@ function reloadPage() {
     noBooks.classList.add('hidden');
   }
 
+
   let currentPage = pagination.getCurrentPage();
   pagination.reset(shoppingListArray.length);
   pagination.movePageTo(currentPage);
-  if (shoppingListArray.length / itemsPerPage <= 1) {
+  if (shoppingListArray.length / itemsPerPage <= 1 || shoppingListArray.length <= 3) {
     container.classList.add('hidden');
   }
 };
