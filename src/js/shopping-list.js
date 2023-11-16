@@ -1,3 +1,4 @@
+// @ts-nocheck
 import imgUrlAppleBook from '../img/appleBook@1x-min.png';
 import imgUrlAmazon from '../img/amazon@1x-min.png';
 import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
@@ -7,18 +8,17 @@ import Swal from 'sweetalert2';
 
 const bookList = document.querySelector('.books-list');
 const noBooks = document.querySelector('.no-books');
-const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) ?? [];
 const loader = document.querySelector('.loader-backdrop');
 
 /*Creation of markup*/
 
 loader?.classList.toggle('is-hidden');
 
-bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList) || '');
+// bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList) || '');
 
 /*function for deliting elements*/
 
-function handlerDelete(evt) {
+export function handlerDelete(evt) {
   const bookId = evt.currentTarget.dataset.bookId;
   const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
 
@@ -81,7 +81,7 @@ if (bookList.children.length === 0) {
 
 /*Function for card markup*/
 
-function shoppingMarkup(arr) {
+export function shoppingMarkup(arr) {
   const newDescription = 'Description will be added sooner';
 
   const markup = arr
@@ -147,9 +147,6 @@ function shoppingMarkup(arr) {
           </svg>
         </button>
       </li>
-    `;
-      }
-    )
-    .join('');
-  return markup;
+    `;}).join('');
+  bookList.insertAdjacentHTML('beforeend', markup);
 }

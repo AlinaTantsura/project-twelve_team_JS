@@ -17,6 +17,7 @@
 @import url('./mobile-menu.css');
 @import url('./loader.css');
 @import url('./modal-window.css');
+@import url('./pagination.css');
 
 @font-face {
   font-family: 'DM Sans', sans-serif;
