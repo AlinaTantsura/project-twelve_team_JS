@@ -9,75 +9,10 @@ import Swal from 'sweetalert2';
 const bookList = document.querySelector('.books-list');
 const noBooks = document.querySelector('.no-books');
 const loader = document.querySelector('.loader-backdrop');
+let localStorageKey = 'shoppingList';
 
-/*Creation of markup*/
-
-loader?.classList.toggle('is-hidden');
-
-// bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList) || '');
-
-/*function for deliting elements*/
-
-export function handlerDelete(evt) {
-  const bookId = evt.currentTarget.dataset.bookId;
-  const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
-
-  const newBooks = [];
-
-  shoppingList.forEach(elem => {
-    if (elem._id !== bookId) {
-      newBooks.push(elem);
-    }
-  });
-  localStorage.setItem('shoppingList', JSON.stringify(newBooks));
-
-  const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 1500,
-    timerProgressBar: true,
-    didOpen: toast => {
-      toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
-    },
-  });
-  Toast.fire({
-    icon: 'success',
-    title: 'Book was deleted successfully',
-  });
-  localStorage.setItem('shoppingList', JSON.stringify(newBooks));
-  setTimeout(() => {
-    location.reload();
-  }, 1500);
-}
-
-/*Loader Function*/
-
-function switchLoader() {
-  loader?.classList.toggle('is-hidden');
-}
-
-/*Eventlisteners on each button*/
-
-const books = [...bookList.children];
-books.forEach(book => {
-  book.children[2].addEventListener('click', handlerDelete);
-});
-
-/*Checking if I have elements in section*/
-
-if (bookList.children.length === 0) {
-  noBooks.classList.remove('hidden');
-  setTimeout(() => {
-    switchLoader();
-  }, 1000);
-} else {
-  noBooks.classList.add('hidden');
-  setTimeout(() => {
-    switchLoader();
-  }, 1000);
-}
+const dataFromStorage = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+shoppingMarkup(dataFromStorage);
 
 /*Function for card markup*/
 
@@ -96,7 +31,7 @@ export function shoppingMarkup(arr) {
         buy_links,
       }) => {
         return `
-      <li class="shopping-element">
+      <li class="shopping-element" data-book-id="${_id}" id="${_id}">
         <img
           src="${book_image}"
           alt="${title}"
@@ -148,5 +83,103 @@ export function shoppingMarkup(arr) {
         </button>
       </li>
     `;}).join('');
-  bookList.insertAdjacentHTML('beforeend', markup);
+  bookList.innerHTML = markup;
+  removeBooks();
 }
+
+/*function for deliting elements*/
+function removeBooks() {
+  const removeButtons = document.querySelectorAll('.delete-item');
+  removeButtons.forEach(button => button.addEventListener('click', removeFromShopping));
+}
+
+function removeFromShopping(event) {
+   switchLoader();
+  const bookId = event.target.closest('li').id;
+  let dataFromStorage = JSON.parse(localStorage.getItem('shoppingList')) || [];
+
+  dataFromStorage = dataFromStorage.filter(book => book._id !== bookId);
+  localStorage.setItem(localStorageKey, JSON.stringify(dataFromStorage));
+
+  const cardBookEl = document.getElementById(bookId);
+
+  if(cardBookEl) {
+    cardBookEl.remove();
+  }
+ shoppingMarkup(dataFromStorage);
+ switchLoader();
+}
+
+/*Loader Function*/
+
+function switchLoader() {
+  loader?.classList.toggle('is-hidden');
+}
+
+if (bookList.children.length === 0 || dataFromStorage.length === 0 || dataFromStorage === []) {
+  noBooks.classList.remove('hidden');
+} else {
+  noBooks.classList.add('hidden');
+}
+
+
+
+// export function handlerDelete(evt) {
+//   const bookId = evt.currentTarget.dataset.bookId;
+//   const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
+
+
+//   shoppingList.forEach(elem => {
+//     if (elem._id !== bookId) {
+//       newBooks.push(elem);
+//     }
+//   });
+//   localStorage.setItem('shoppingList', JSON.stringify(newBooks));
+
+//   const Toast = Swal.mixin({
+//     toast: true,
+//     position: 'top-end',
+//     showConfirmButton: false,
+//     timer: 1500,
+//     timerProgressBar: true,
+//     didOpen: toast => {
+//       toast.onmouseenter = Swal.stopTimer;
+//       toast.onmouseleave = Swal.resumeTimer;
+//     },
+//   });
+//   Toast.fire({
+//     icon: 'success',
+//     title: 'Book was deleted successfully',
+//   });
+
+//   setTimeout(location.reload(), 1500);
+// }
+
+// /*Loader Function*/
+
+// function switchLoader() {
+//   loader?.classList.toggle('is-hidden');
+// }
+
+// /*Eventlisteners on each button*/
+
+// const books = [...bookList.children];
+// console.log(books);
+// books.forEach(book => {
+//   book.children[2].addEventListener('click', handlerDelete);
+// });
+
+// /*Checking if I have elements in section*/
+
+// if (bookList.children.length === 0) {
+//   noBooks.classList.remove('hidden');
+//   setTimeout(() => {
+//     switchLoader();
+//   }, 1000);
+// } else {
+//   noBooks.classList.add('hidden');
+//   setTimeout(() => {
+//     switchLoader();
+//   }, 1000);
+// }
+

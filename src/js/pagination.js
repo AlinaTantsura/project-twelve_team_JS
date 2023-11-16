@@ -2,62 +2,59 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { shoppingMarkup } from './shopping-list';
-import { handlerDelete } from './shopping-list';
 
-const paginationContainer = document.getElementById('tui-pagination-container');
+let shoppingList = localStorage.getItem('shoppingList');
+let shoppingListArray = JSON.parse(shoppingList);
 const noBooks = document.querySelector('.no-books');
-const localStorageKey = 'shoppingList';
-const shoppingBooksList = document.querySelector('.books-list');
 
-const booksPerPage = 3;
-const storageDataBooks = JSON.parse(localStorage.getItem(localStorageKey));
-
-if (storageDataBooks.length === 0) {
-  noBooks.classList.remove('hidden');
-} else {
-  noBooks.classList.add('hidden');
+let visiblePages = 2;
+let itemsPerPage = 4;
+if (window.innerWidth >= 768) {
+  visiblePages = 3;
+  itemsPerPage = 3;
 }
-
 const options = {
-  totalItems: storageDataBooks.length,
-  itemsPerPage: booksPerPage,
-  visiblePages: 3,
-  centerAlign: true,
+  totalItems: shoppingListArray.length,
+  itemsPerPage,
+  visiblePages,
 };
 
-let pagination;
+const container = document.getElementById('tui-pagination-container');
+const pagination = new Pagination(container, options);
 
-if (storageDataBooks && storageDataBooks.length > 3) {
-  pagination = new Pagination(paginationContainer, options);
-  pagination.on('beforeMove', event => {
-    if (storageDataBooks && storageDataBooks.length > 0) {
-      shoppingBooksList.innerHTML = '';
-      const start = (event.page - 1) * booksPerPage;
-      const pageItems = storageDataBooks.slice(start, start + booksPerPage);
-      shoppingMarkup(pageItems);
-      const deleteBtns = document.querySelectorAll('.delete-item');
-      deleteBtns.forEach(button => {
-        button.addEventListener('click', updatePagination);
-      });
-    }
-  });
-}
+pagination.on('beforeMove', event => {
+  const currentPage = event.page;
+  shoppingMarkup(
+    shoppingListArray.slice(
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+    )
+  );
+  deleteBooksFrom();
+});
 
-function showFirstPage() {
-  if (storageDataBooks && storageDataBooks.length > 0) {
-    shoppingMarkup(storageDataBooks.slice(0, 3));
+pagination.movePageTo(1);
+
+function deleteBooksFrom() {
+  const removeButtons = document.querySelectorAll('.delete-item');
+  removeButtons.forEach(button => button.addEventListener('click', reloadPage));
+};
+
+function reloadPage() {
+  shoppingList = localStorage.getItem('shoppingList');
+  shoppingListArray = JSON.parse(shoppingList);
+
+  if (shoppingListArray.length === 0 || shoppingListArray === []) {
+    noBooks.classList.remove('hidden');
+  } else {
+    noBooks.classList.add('hidden');
   }
-}
-showFirstPage();
-// =====================================================================================
-// WHEN DELETE BOOK FROM SHOPPING LIST
 
-function updatePagination(book) {
-  handlerDelete(book);
-  if (!storageDataBooks || storageDataBooks.length < 3) {
-    paginationContainer.innerHTML = '';
-  } else if (storageDataBooks.length % 3 === 0) {
-    pagination.reset(storageDataBooks.length);
-    pagination.movePageTo(Math.ceil(storageDataBooks.length - 1) / 3);
+  let currentPage = pagination.getCurrentPage();
+  pagination.reset(shoppingListArray.length);
+  pagination.movePageTo(currentPage);
+  if (shoppingListArray.length / itemsPerPage <= 1) {
+    container.classList.add('hidden');
   }
-}
+};
+
