@@ -31,7 +31,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border-bottom: 4px solid #FF3D00;
+    border-bottom: 4px solid var(--violet);
     border-left: 4px solid transparent;
   }
   @keyframes rotation {
