@@ -37,9 +37,15 @@
     font-size: 18px!important;
     font-weight: 700!important;
     line-height: 1.22!important;
+    color: var(--black)!important;
     text-decoration: none;
     border-radius: 50%;
-    border: 1px solid #111;
+    border-right: 1px solid var(--black)!important;
+    border-left:  1px solid var(--black)!important;
+    border-top: 1px solid var(--black)!important;
+    border-bottom: 1px solid var(--black)!important;
+    margin-right: 3px!important;
+    margin-left: 3px!important;
   
   
     @media screen and (min-width: 768px) {
@@ -65,6 +71,10 @@
   .tui-pagination .tui-first-child,
   .tui-pagination strong.tui-first-child {
     margin-left: 0;
+    border-right: 1px solid var(--black)!important;
+    border-left:  1px solid var(--black)!important;
+    border-top: 1px solid var(--black)!important;
+    border-bottom: 1px solid var(--black)!important;
   }
   
   .tui-pagination .tui-first,
@@ -106,20 +116,10 @@
     line-height: 1;
   }
   
-  .tui-pagination .tui-prev {
-    margin: 0 14px 0 0;
-    color: var(--gray);
-    background-color: #111111;
-  
-  
-    @media screen and (min-width: 768px) {
-      margin: 0 24px 0 0;
-    }
-  }
   
   .tui-pagination .tui-first {
     margin: 0 8px 0 0;
-    color: var(--gray);
+    color: var(--white);
     background-color: #111111;
   
   
@@ -129,13 +129,13 @@
   }
   
   .tui-pagination .tui-next {
-    margin-left: 14px;
+    margin-left: 5px;
     margin-right: 5px;
     background-color: #EAC645;
   
   
     @media screen and (min-width: 768px) {
-      margin-left: 24px;
+      margin-left: 24px!important;
       margin-right: 8px;
     }
   }
@@ -149,6 +149,10 @@
     width: 11px;
     height: 10px;
     background-position: -13px 0px;
+  }
+  .tui-pagination:hover .tui-ico-first, 
+  .tui-pagination:focus .tui-ico-first {
+    color: #fff!important;
   }
   
   .tui-pagination .tui-ico-prev {
@@ -220,3 +224,25 @@
     padding: 8px 0 6px;
     vertical-align: top;
   }
+
+  
+
+.tui-pagination .tui-is-selected, .tui-pagination strong {
+  background-color: var(--violet)!important;
+  color: #fff!important;
+  border-color: var(--violet)!important;
+}
+
+.tui-pagination .tui-prev {
+  margin-right: 14px;
+  color: var(--white);
+  background-color: #111111;
+
+
+  @media screen and (min-width: 768px) {
+    margin-right: 24px!important;
+  }
+}
+.tui-ico-prev, .tui-ico-first {
+  color: #FFF!important;
+}
