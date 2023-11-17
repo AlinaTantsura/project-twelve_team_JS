@@ -1,4 +1,4 @@
-import{a as w,b as P,c as A,d as I,i as E}from"./assets/dark-light-switcher-70b2fc00.js";import{S as c,P as T}from"./assets/vendor-13e289f0.js";const v=document.querySelector(".books-list"),k=document.querySelector(".no-books"),d=document.querySelector(".loader-backdrop");let S="shoppingList";const m=JSON.parse(localStorage.getItem(S))||[];p(m);function p(o){const e="Description will be added sooner",i=o.map(({_id:n,book_image:u,title:s,list_name:L,description:B,author:$,buy_links:h})=>`
+import{a as w,b as P,c as A,d as I,i as E}from"./assets/dark-light-switcher-50fd0751.js";import{S as c,P as T}from"./assets/vendor-13e289f0.js";const v=document.querySelector(".books-list"),k=document.querySelector(".no-books"),d=document.querySelector(".loader-backdrop");let S="shoppingList";const m=JSON.parse(localStorage.getItem(S))||[];p(m);function p(o){const e="Description will be added sooner",i=o.map(({_id:n,book_image:u,title:s,list_name:L,description:B,author:$,buy_links:h})=>`
       <li class="shopping-element" data-book-id="${n}" id="${n}">
         <img
           src="${u}"
