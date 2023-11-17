@@ -1,3 +1,4 @@
+// @ts-nocheck
 import imgUrlAppleBook from '../img/appleBook@1x-min.png';
 import imgUrlAmazon from '../img/amazon@1x-min.png';
 import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
@@ -7,81 +8,15 @@ import Swal from 'sweetalert2';
 
 const bookList = document.querySelector('.books-list');
 const noBooks = document.querySelector('.no-books');
-const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) ?? [];
 const loader = document.querySelector('.loader-backdrop');
+let localStorageKey = 'shoppingList';
 
-/*Creation of markup*/
-
-loader?.classList.toggle('is-hidden');
-
-bookList.insertAdjacentHTML('beforeend', shoppingMarkup(shoppingList) || '');
-
-/*function for deliting elements*/
-
-function handlerDelete(evt) {
-  const bookId = evt.currentTarget.dataset.bookId;
-  const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
-
-  const newBooks = [];
-
-  shoppingList.forEach(elem => {
-    if (elem._id !== bookId) {
-      newBooks.push(elem);
-    }
-  });
-  localStorage.setItem('shoppingList', JSON.stringify(newBooks));
-
-  const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 1500,
-    timerProgressBar: true,
-    didOpen: toast => {
-      toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
-    },
-  });
-  Toast.fire({
-    icon: 'success',
-    title: 'Book was deleted successfully',
-  });
-  localStorage.setItem('shoppingList', JSON.stringify(newBooks));
-  setTimeout(() => {
-    location.reload();
-  }, 1500);
-}
-
-/*Loader Function*/
-
-function switchLoader() {
-  loader?.classList.toggle('is-hidden');
-}
-
-/*Eventlisteners on each button*/
-
-const books = [...bookList.children];
-books.forEach(book => {
-  book.children[2].addEventListener('click', handlerDelete);
-});
-
-/*Checking if I have elements in section*/
-
-if (bookList.children.length === 0) {
-  noBooks.classList.remove('hidden');
-  setTimeout(() => {
-    switchLoader();
-  }, 1000);
-} else {
-  noBooks.classList.add('hidden');
-  setTimeout(() => {
-    switchLoader();
-  }, 1000);
-}
+const dataFromStorage = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+shoppingMarkup(dataFromStorage);
 
 /*Function for card markup*/
 
-function shoppingMarkup(arr) {
+export function shoppingMarkup(arr) {
   const newDescription = 'Description will be added sooner';
 
   const markup = arr
@@ -96,7 +31,7 @@ function shoppingMarkup(arr) {
         buy_links,
       }) => {
         return `
-      <li class="shopping-element">
+      <li class="shopping-element" data-book-id="${_id}" id="${_id}">
         <img
           src="${book_image}"
           alt="${title}"
@@ -147,9 +82,57 @@ function shoppingMarkup(arr) {
           </svg>
         </button>
       </li>
-    `;
-      }
-    )
-    .join('');
-  return markup;
+    `;}).join('');
+  bookList.innerHTML = markup;
+  removeBooks();
+}
+
+/*function for deliting elements*/
+function removeBooks() {
+  const removeButtons = document.querySelectorAll('.delete-item');
+  removeButtons.forEach(button => button.addEventListener('click', removeFromShopping));
+}
+
+function removeFromShopping(event) {
+   switchLoader();
+  const bookId = event.target.closest('li').id;
+  let dataFromStorage = JSON.parse(localStorage.getItem('shoppingList')) || [];
+
+  dataFromStorage = dataFromStorage.filter(book => book._id !== bookId);
+  localStorage.setItem(localStorageKey, JSON.stringify(dataFromStorage));
+
+  const cardBookEl = document.getElementById(bookId);
+
+  if(cardBookEl) {
+    cardBookEl.remove();
+  }
+ shoppingMarkup(dataFromStorage);
+ switchLoader();
+   const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: toast => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+  Toast.fire({
+    icon: 'success',
+    title: 'Book was deleted successfully',
+  });
+}
+
+/*Loader Function*/
+
+function switchLoader() {
+  loader?.classList.toggle('is-hidden');
+}
+
+if (bookList.children.length === 0 || dataFromStorage.length === 0 || dataFromStorage === []) {
+  noBooks.classList.remove('hidden');
+} else {
+  noBooks.classList.add('hidden');
 }

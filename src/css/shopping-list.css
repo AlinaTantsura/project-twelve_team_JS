@@ -1,3 +1,8 @@
+.shopping-section {
+  padding-bottom: 20px;
+}
+
+
 .shopping-header {
   font-size: 32px;
   font-weight: 700;
@@ -14,7 +19,6 @@
   align-items: center;
 }
 .no-books-text {
-  /* color: rgba(0, 0, 0, 0.6); */
   opacity: 0.6;
   text-align: center;
   line-height: 1.28;
@@ -45,17 +49,13 @@
 
 .delete-item {
   cursor: pointer;
-
   position: absolute;
   top: 14px;
   right: 14px;
-
   border-radius: 50%;
   background-color: var(--violet);
-
   width: 28px;
   height: 28px;
-
   border: 0;
   padding: 0;
   display: flex;
