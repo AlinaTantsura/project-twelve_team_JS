@@ -42,7 +42,7 @@ export function displayBookModal(book) {
             </div>
         </div>
 
-        <button id="addToShoppingList">Add to Shopping List</button>
+        <button id="addToShoppingList" class="add-shopping-button">Add to Shopping List</button>
 
         <p id="congratulationsMessage" style="display: none;">
             Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.

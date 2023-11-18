@@ -1,9 +1,13 @@
+import { app } from './firebase';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+import Swal from 'sweetalert2';
 
-import { app } from "./firebase";
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import Swal from "sweetalert2";
-
-// // import firebase from "firebase/compat/app"; 
+// // import firebase from "firebase/compat/app";
 // import 'firebase/database';
 // import 'firebase/storage';
 // import 'firebase/messaging';
@@ -25,89 +29,152 @@ const formSignUp = document.querySelector('.container-signup');
 const formSignIn = document.querySelector('.container-signin');
 
 
+
 openSignForm?.addEventListener('click', toggleForm);
 closeSignForm?.addEventListener('click', toggleForm);
 
 function toggleForm() {
-    signInForm?.classList.toggle('is-hidden');
+  signInForm?.classList.toggle('is-hidden');
 }
 
 // SWITCH BETWEEN SIGN UP AND SIGN IN FORMS
 
-signUpButtonLink?.addEventListener('click', (event) => {
-    event.preventDefault();
-    formSignUp?.classList.remove('visually-hidden');
-    formSignIn?.classList.add('visually-hidden');
-    // @ts-ignore
-    event.currentTarget.classList.add('active-btn');
-    signInButtonLink?.classList.remove('active-btn');
+signUpButtonLink?.addEventListener('click', event => {
+  event.preventDefault();
+  formSignUp?.classList.remove('visually-hidden');
+  formSignIn?.classList.add('visually-hidden');
+  // @ts-ignore
+  event.currentTarget.classList.add('active-btn');
+  signInButtonLink?.classList.remove('active-btn');
+});
 
-})
-
-signInButtonLink?.addEventListener('click', (event) => {
-    event.preventDefault();
-    formSignUp?.classList.add('visually-hidden');
-    formSignIn?.classList.remove('visually-hidden');
-     // @ts-ignore
-     event.currentTarget.classList.add('active-btn');
-     signUpButtonLink?.classList.remove('active-btn');
-})
+signInButtonLink?.addEventListener('click', event => {
+  event.preventDefault();
+  formSignUp?.classList.add('visually-hidden');
+  formSignIn?.classList.remove('visually-hidden');
+  // @ts-ignore
+  event.currentTarget.classList.add('active-btn');
+  signUpButtonLink?.classList.remove('active-btn');
+});
 // ========================================================================================
 // GET USERS DATA FOR SIGN UP ============================================================
 const userProfile = document.querySelector('.user-profile');
 const userNameText = document.querySelector('.header-user-name');
+const navigationHeader = document.querySelector('.header-nav');
 
 formSignUp?.addEventListener('submit', signUpSubmit);
+formSignIn?.addEventListener('submit', signInSumbit);
 
 // get new user data from Sign Up form
 function signUpSubmit(event) {
-    event.preventDefault();
-    const formElements = event.target.elements;
-    const data = {};
-    for (let i = 0; i <= formElements.length - 2; i++) {
-        let value = formElements[i].value;
-        let key = formElements[i].name;
-        data[key] = value;
-    }
-    const makeName = data.name.trim();
+  event.preventDefault();
+  const formElements = event.target.elements;
+  const data = {};
+  for (let i = 0; i <= formElements.length - 2; i++) {
+    let value = formElements[i].value;
+    let key = formElements[i].name;
+    data[key] = value;
+  }
+  const makeName = data.name.trim();
 
-    whenUserSignUp(makeName, data.email, data.password);
+  whenUserSignUp(makeName, data.email, data.password);
 }
 
 function whenUserSignUp(name, email, password) {
-    createUserWithEmailAndPassword(auth, email, password).then(() => {
-   // @ts-ignore
-   updateProfile(auth.currentUser, {displayName: name});
-   openSignForm?.classList.add('visually-hidden');
-   userProfile?.classList.remove('visually-hidden');
-   // @ts-ignore
-   userNameText.textContent = `${name}`;
-   toggleForm();
+  createUserWithEmailAndPassword(auth, email, password).then(() => {
+    // @ts-ignore
+    updateProfile(auth.currentUser, { displayName: name });
 
-// Notification for User Sign Up
-   const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
-    }
+    openSignForm?.classList.add('visually-hidden');
+    userProfile?.classList.remove('visually-hidden');
+    navigationHeader?.classList.remove('is-hidden');
+
+    // @ts-ignore
+    userNameText.textContent = `${name}`;
+    toggleForm();
+
+    // Notification for User Sign Up
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'success',
+      title: `Welcome, ${name}!`,
+    });
   });
-  Toast.fire({
-    icon: "success",
-    title: `Welcome, ${name}!`,
-  });
-})
+}
+// ========================================================================
+// ========== FUNCTIONS FOR SIGN IN ========================================
+function signInSumbit(event) {
+  event.preventDefault();
+  const formElements = event.target.elements;
+  const data = {};
+  for (let i = 0; i <= formElements.length - 2; i++) {
+    let value = formElements[i].value;
+    let key = formElements[i].name;
+    data[key] = value;
+  }
+  whenUserSignIn(data.email, data.password);
 }
 
+function whenUserSignIn(email, password) {
+  signInWithEmailAndPassword(auth, email, password).then(userCredentials => {
+    const user = userCredentials.user;
+    // @ts-ignore
+    userNameText.textContent = `${user.displayName}`;
 
-// //  Отримання посилання на базу данних 
+    openSignForm?.classList.add('visually-hidden');
+    userProfile?.classList.remove('visually-hidden');
+    navigationHeader?.classList.remove('is-hidden');
+
+    toggleForm();
+    // Notification for User Sign Up
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'success',
+      title: `Welcome, ${user.displayName}!`,
+    });
+  }).catch (() => {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: toast => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: 'error',
+        title: `Email or password not found`,
+      });
+  })
+}
+
+// //  Отримання посилання на базу данних
 // const database = getDatabase(app);
 
-// // Отримання посилання на відкриту сесію 
+// // Отримання посилання на відкриту сесію
 // const auth = getAuth();
 // console.log(auth);
 // // createUserWithEmailAndPassword(auth, email, password);
@@ -131,32 +198,31 @@ function whenUserSignUp(name, email, password) {
 //      // Sign in
 //     const promise = signInWithEmailAndPassword(auth, email, pass)
 //         .then((userCredential) => {
-//     // Signed in 
+//     // Signed in
 //             const user = userCredential.user;
-//     //  Посилання на об'єкт клієнта       
+//     //  Посилання на об'єкт клієнта
 //             currentUser = user;
-//     //  Унікальний код клієнта в базі Firebase       
+//     //  Унікальний код клієнта в базі Firebase
 //             currentUserId = user.uid;
 //             alert(`Успіх. Код клієнта ${currentUserId}`)
 //             // console.log(user);
 //             // console.log(user.uid);
 //             // console.log(currentUserId);
-//     // Функція відключення видимості модального вікна        
+//     // Функція відключення видимості модального вікна
 //          toggleModal();
 
 //     // ...
 //   });
-      
+
 //   promise.catch(e => alert(e.message));  //  console.log(e.message)
 
 // });
-
 
 // // Реєстрація нового користувача
 // async function registration(auth, email, password) {
 //     const data = await createUserWithEmailAndPassword(auth, email, password)
 //             .then((userCredential) => {
-//                 // Signed up 
+//                 // Signed up
 //                 const user = userCredential.user;
 //                 // ...
 //             })
@@ -164,7 +230,7 @@ function whenUserSignUp(name, email, password) {
 //                 const errorCode = error.code;
 //                 const errorMessage = error.message;
 //                 alert(errorMessage);
-            
+
 //             })
 //     };
 
