@@ -11,3 +11,4 @@ import './js/books-each-category.js';
 import './js/mobile-menu.js';
 import './js/dark-light-switcher.js';
 import './js/sign-in.js';
+import './js/firebase.js';
