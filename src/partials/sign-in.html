@@ -1,66 +1,107 @@
 <!-- Modal window-->
-    <div class="sign-in-backdrop is-hidden js-signin-form">
-      <div class="sign-in-modal">
-        <button class="sign-in-close-btn js-close-signin" type="button">
-          <svg class="signin-close-icon" width="28" height="28">
-            <use href="../img/InlineSprite.svg#x-close"></use>
-          </svg>
+<div class="sign-in-backdrop is-hidden js-signin-form">
+  <div class="sign-in-modal">
+    <button class="sign-in-close-btn js-close-signin" type="button">
+      <svg class="signin-close-icon" width="28" height="28">
+        <use href="../img/InlineSprite.svg#x-close"></use>
+      </svg>
+    </button>
+<!-- ========================== SIGN UP CONTAINER ===================================== -->
+    <div class="container-signup">
+      <form class="inputs-container-form">
+        <div class="sign-in-form">
+            <input
+              type="text"
+              name="user-name"
+              class="modal-input"
+              id="user-name"
+              placeholder="name"
+              required
+            />
+        </div>
+        <div class="modal-form">
+          <div class="input-field">
+            <input
+              type="email"
+              name="user-email"
+              class="modal-input"
+              id="user-email"
+              placeholder="email"
+              required
+            />
+            <svg class="modal-user-icons" width="28" height="28">
+              <use href="../img/InlineSprite.svg#icon-mail"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="modal-form">
+          <div class="input-field">
+            <input
+              type="password"
+              name="user-password"
+              class="modal-input"
+              id="user-password"
+              placeholder="password"
+              required
+            />
+            <svg class="modal-user-icons" width="28" height="28">
+              <use href="../img/InlineSprite.svg#icon-lock"></use>
+            </svg>
+          </div>
+        </div>
+        <button type="submit" class="send-user-data" id="btnLogin">
+          <p class="btn-send-par">Sign up</p>
         </button>
-
-        <form class="inputs-container-form">
-          <div class="sign-in-form">
-            <label class="modal-form-field" for="user-name">
-            </label>
-            <div class="input-field input-name">
-              <input
-                type="text"
-                name="user-name"
-                class="modal-input"
-                id="user-name"
-                placeholder="name" required
-              />
-            </div>
-          </div>
-          <div class="modal-form">
-            <label class="modal-form-field" for="user-email">
-            </label>
-            <div class="input-field">
-              <input
-                type="email"
-                name="user-email"
-                class="modal-input"
-                id="user-email"
-                placeholder="email" required
-              />
-              <svg class="modal-user-icons" width="28" height="28">
-                <use href="../img/InlineSprite.svg#icon-mail"></use>
-              </svg>
-            </div>
-          </div>
-          <div class="modal-form">
-            <label class="modal-form-field" for="user-password">
-            </label>
-            <div class="input-field">
-              <input
-                type="password"
-                name="user-password"
-                class="modal-input"
-                id="user-password"
-                placeholder="password" required
-              />
-              <svg class="modal-user-icons" width="28" height="28">
-                <use href="../img/InlineSprite.svg#icon-lock"></use>
-              </svg>
-            </div>
-          </div>
-
-          <button type="submit" class="send-user-data" id="btnLogin"><p class="btn-send-par">Sign up</p></button>
-          <div class="login-buttons-container">
-           <ul class="form-btn-list">
-            <li><p class="form-btn-link active-btn js-sign-up-btn-form">sign up</p></li>
-            <li><p class="form-btn-link js-sign-in-btn-form">sign in</p></li>
-           </ul>
-          </div>
-        </form>
-      </div>
+      </form>
     </div>
+    <!-- ============================================================================================= -->
+    <!-- ====================== SIGN IN CONTAINER ==================================================== -->
+    <div class="container-signin visually-hidden">
+      <form class="signin-container-form">
+        <div class="modal-form">
+          <div class="input-field">
+            <input
+              type="email"
+              name="user-email"
+              class="modal-input"
+              id="user-email"
+              placeholder="email"
+              required
+            />
+            <svg class="modal-user-icons" width="28" height="28">
+              <use href="../img/InlineSprite.svg#icon-mail"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="modal-form">
+          <div class="input-field">
+            <input
+              type="password"
+              name="user-password"
+              class="modal-input"
+              id="user-password"
+              placeholder="password"
+              required
+            />
+            <svg class="modal-user-icons" width="28" height="28">
+              <use href="../img/InlineSprite.svg#icon-lock"></use>
+            </svg>
+          </div>
+        </div>
+        <button type="submit" class="send-user-data" id="btnLogin">
+          <p class="btn-send-par">Sign in</p>
+        </button>
+      </form>
+    </div>
+    <!-- =============================================================================== -->
+
+    <div class="login-buttons-container">
+      <ul class="form-btn-list">
+        <li>
+          <p class="form-btn-link active-btn js-sign-up-btn-form">sign up</p>
+        </li>
+        <li><p class="form-btn-link js-sign-in-btn-form">sign in</p></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,8 @@
 
 // import { initializeApp } from "firebase/app";
+import { app } from "./firebase";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 // // import firebase from "firebase/compat/app"; 
 // import 'firebase/auth';
 // import 'firebase/database';
@@ -12,51 +15,58 @@
 // var currentUser = "";
 // // Посилання на унікальний id клієнта в базі
 // var currentUserId = "";
+const auth = getAuth();
 
 const openSignForm = document.querySelector('.js-open-signin');
 const closeSignForm = document.querySelector('.js-close-signin');
 const signInForm = document.querySelector('.js-signin-form');
 const signUpButtonLink = document.querySelector('.js-sign-up-btn-form');
 const signInButtonLink = document.querySelector('.js-sign-in-btn-form');
-const inputName = document.querySelector('.input-name');
-const submitBtnText = document.querySelector('.btn-send-par');
+const formSignUp = document.querySelector('.container-signup');
+const formSignIn = document.querySelector('.container-signin');
+
 
 openSignForm?.addEventListener('click', () => signInForm?.classList.remove('is-hidden'));
 closeSignForm?.addEventListener('click', () => signInForm?.classList.add('is-hidden'));
 
+// SWITCH BETWEEN SIGN UP AND SIGN IN FORMS
+
 signUpButtonLink?.addEventListener('click', (event) => {
     event.preventDefault();
-    inputName?.classList.remove('visually-hidden');
+    formSignUp?.classList.remove('visually-hidden');
+    formSignIn?.classList.add('visually-hidden');
     // @ts-ignore
     event.currentTarget.classList.add('active-btn');
     signInButtonLink?.classList.remove('active-btn');
-    // @ts-ignore
-    submitBtnText.textContent = "sign up";
+
 })
 
 signInButtonLink?.addEventListener('click', (event) => {
     event.preventDefault();
-    inputName?.classList.add('visually-hidden');
+    formSignUp?.classList.add('visually-hidden');
+    formSignIn?.classList.remove('visually-hidden');
      // @ts-ignore
      event.currentTarget.classList.add('active-btn');
      signUpButtonLink?.classList.remove('active-btn');
-     submitBtnText.textContent = "sign in";
 })
+// ========================================================================================
+// GET USERS DATA FOR SIGN UP ============================================================
+formSignUp?.addEventListener('submit', signUpSubmit);
 
-// // Об'єкт параметрів для ініціалізації Firebase
-// const firebaseConfig = {
-//     apiKey: "AIzaSyCIWoWX3xYdjXi4GE7U7N6BsSjhJuVC8VQ",
-//     authDomain: "project-twelve-team-js.firebaseapp.com",
-//     databaseURL: "https://project-twelve-team-js-default-rtdb.firebaseio.com",
-//     projectId: "project-twelve-team-js",
-//     storageBucket: "project-twelve-team-js.appspot.com",
-//     messagingSenderId: "971706024036",
-//     appId: "1:971706024036:web:abe28a9d8a8aa3aac65f71",
-//     measurementId: "G-KM0428PPE7"
-//   };
+function signUpSubmit(event) {
+    event.preventDefault();
+    const formElements = event.target.elements;
+    const data = {};
+    for (let i = 0; i <= formElements.length - 2; i++) {
+        let value = formElements[i].value;
+        let key = formElements[i].name;
+        data[key] = value;
+    }
 
-// // Initialize Firebase  
-// const app = initializeApp(firebaseConfig);
+    console.log(data); 
+}
+
+
 // //  Отримання посилання на базу данних 
 // const database = getDatabase(app);
 
