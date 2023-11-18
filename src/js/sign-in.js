@@ -1,10 +1,9 @@
 
-// import { initializeApp } from "firebase/app";
 import { app } from "./firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 // // import firebase from "firebase/compat/app"; 
-// import 'firebase/auth';
 // import 'firebase/database';
 // import 'firebase/storage';
 // import 'firebase/messaging';
@@ -26,8 +25,12 @@ const formSignUp = document.querySelector('.container-signup');
 const formSignIn = document.querySelector('.container-signin');
 
 
-openSignForm?.addEventListener('click', () => signInForm?.classList.remove('is-hidden'));
-closeSignForm?.addEventListener('click', () => signInForm?.classList.add('is-hidden'));
+openSignForm?.addEventListener('click', toggleForm);
+closeSignForm?.addEventListener('click', toggleForm);
+
+function toggleForm() {
+    signInForm?.classList.toggle('is-hidden');
+}
 
 // SWITCH BETWEEN SIGN UP AND SIGN IN FORMS
 
@@ -51,8 +54,12 @@ signInButtonLink?.addEventListener('click', (event) => {
 })
 // ========================================================================================
 // GET USERS DATA FOR SIGN UP ============================================================
+const userProfile = document.querySelector('.user-profile');
+const userNameText = document.querySelector('.header-user-name');
+
 formSignUp?.addEventListener('submit', signUpSubmit);
 
+// get new user data from Sign Up form
 function signUpSubmit(event) {
     event.preventDefault();
     const formElements = event.target.elements;
@@ -62,8 +69,38 @@ function signUpSubmit(event) {
         let key = formElements[i].name;
         data[key] = value;
     }
+    const makeName = data.name.trim();
 
-    console.log(data); 
+    whenUserSignUp(makeName, data.email, data.password);
+}
+
+function whenUserSignUp(name, email, password) {
+    createUserWithEmailAndPassword(auth, email, password).then(() => {
+   // @ts-ignore
+   updateProfile(auth.currentUser, {displayName: name});
+   openSignForm?.classList.add('visually-hidden');
+   userProfile?.classList.remove('visually-hidden');
+   // @ts-ignore
+   userNameText.textContent = `${name}`;
+   toggleForm();
+
+// Notification for User Sign Up
+   const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: `Welcome, ${name}!`,
+  });
+})
 }
 
 

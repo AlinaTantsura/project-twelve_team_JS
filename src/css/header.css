@@ -112,9 +112,10 @@ margin-bottom: 40px;
   border: 1px solid var(--black);
   outline: none;
   transition: all var(--animation);
+  cursor: pointer;
 }
 .header-user:hover, .header-user:focus {
-  background: #fff;
+  background: var(--black);
 }
 .header-user:hover .header-log-in, .header-user:focus .header-log-in {
   color: var(--black);
