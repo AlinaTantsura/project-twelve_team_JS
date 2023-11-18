@@ -13,21 +13,35 @@
 // // Посилання на унікальний id клієнта в базі
 // var currentUserId = "";
 
-// const refs = {
-//       // кнопка відкриття модального вікна
-//     openModalBtn: document.querySelector("[data-modal-open]"), 
-//     // Кнопка закриття модального вікна (хрестик)
-//     closeModalBtn: document.querySelector("[data-modal-close]"),
-//     modal: document.querySelector("[data-modal]"),
-//   };
-// // Прослуховувач на відкриття модалки
-// refs.openModalBtn.addEventListener("click", toggleModal);
-//   // Прослуховувач на закриття модалки
-//   refs.closeModalBtn.addEventListener("click", toggleModal);
-//     // Функція переключення режимів видимості/невидимості модального вікна  
-//   function toggleModal() {
-//     refs.modal.classList.toggle("is-hidden");
-//   }
+const openSignForm = document.querySelector('.js-open-signin');
+const closeSignForm = document.querySelector('.js-close-signin');
+const signInForm = document.querySelector('.js-signin-form');
+const signUpButtonLink = document.querySelector('.js-sign-up-btn-form');
+const signInButtonLink = document.querySelector('.js-sign-in-btn-form');
+const inputName = document.querySelector('.input-name');
+const submitBtnText = document.querySelector('.btn-send-par');
+
+openSignForm?.addEventListener('click', () => signInForm?.classList.remove('is-hidden'));
+closeSignForm?.addEventListener('click', () => signInForm?.classList.add('is-hidden'));
+
+signUpButtonLink?.addEventListener('click', (event) => {
+    event.preventDefault();
+    inputName?.classList.remove('visually-hidden');
+    // @ts-ignore
+    event.currentTarget.classList.add('active-btn');
+    signInButtonLink?.classList.remove('active-btn');
+    // @ts-ignore
+    submitBtnText.textContent = "sign up";
+})
+
+signInButtonLink?.addEventListener('click', (event) => {
+    event.preventDefault();
+    inputName?.classList.add('visually-hidden');
+     // @ts-ignore
+     event.currentTarget.classList.add('active-btn');
+     signUpButtonLink?.classList.remove('active-btn');
+     submitBtnText.textContent = "sign in";
+})
 
 // // Об'єкт параметрів для ініціалізації Firebase
 // const firebaseConfig = {

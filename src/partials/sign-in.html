@@ -1,37 +1,28 @@
-<!-- <button class="hero-button" type="button" data-modal-open>
-      Order Service
-    </button> -->
-
-
- <!-- Modal window-->
-    <!-- <div class="backdrop is-hidden" data-modal>
-      <div class="modal">
-        <button class="modal-btn" type="button" data-modal-close>
-          <svg class="modal-icon" width="8" height="8">
-            <use href="./img/icons.svg#close-black"></use>
+<!-- Modal window-->
+    <div class="sign-in-backdrop is-hidden js-signin-form">
+      <div class="sign-in-modal">
+        <button class="sign-in-close-btn js-close-signin" type="button">
+          <svg class="signin-close-icon" width="28" height="28">
+            <use href="../img/InlineSprite.svg#x-close"></use>
           </svg>
         </button>
 
-        <form>
-          <div class="modal-form">
+        <form class="inputs-container-form">
+          <div class="sign-in-form">
             <label class="modal-form-field" for="user-name">
-              <span class="modal-form-label">Name</span>
             </label>
-            <div class="input-field">
+            <div class="input-field input-name">
               <input
                 type="text"
                 name="user-name"
                 class="modal-input"
                 id="user-name"
+                placeholder="name" required
               />
-              <svg class="modal-user-icons" width="18" height="24">
-                <use href="./img/icons.svg#person"></use>
-              </svg>
             </div>
           </div>
           <div class="modal-form">
             <label class="modal-form-field" for="user-email">
-              <span class="modal-form-label">Email</span>
             </label>
             <div class="input-field">
               <input
@@ -39,15 +30,15 @@
                 name="user-email"
                 class="modal-input"
                 id="user-email"
+                placeholder="email" required
               />
-              <svg class="modal-user-icons" width="18" height="24">
-                <use href="./img/icons.svg#email"></use>
+              <svg class="modal-user-icons" width="28" height="28">
+                <use href="../img/InlineSprite.svg#icon-mail"></use>
               </svg>
             </div>
           </div>
           <div class="modal-form">
             <label class="modal-form-field" for="user-password">
-              <span class="modal-form-label">Password</span>
             </label>
             <div class="input-field">
               <input
@@ -55,14 +46,21 @@
                 name="user-password"
                 class="modal-input"
                 id="user-password"
+                placeholder="password" required
               />
-              <svg class="modal-user-icons" width="18" height="24">
-                <use href="./img/icons.svg#email"></use>
+              <svg class="modal-user-icons" width="28" height="28">
+                <use href="../img/InlineSprite.svg#icon-lock"></use>
               </svg>
             </div>
           </div>
 
-          <button type="submit" class="send-btn" id="btnLogin">Login</button>
+          <button type="submit" class="send-user-data" id="btnLogin"><p class="btn-send-par">Sign up</p></button>
+          <div class="login-buttons-container">
+           <ul class="form-btn-list">
+            <li><p class="form-btn-link active-btn js-sign-up-btn-form">sign up</p></li>
+            <li><p class="form-btn-link js-sign-in-btn-form">sign in</p></li>
+           </ul>
+          </div>
         </form>
       </div>
-    </div> -->
+    </div>
