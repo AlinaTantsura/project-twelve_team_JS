@@ -39,33 +39,38 @@
       <div class="div-switch-user">
         <!--Тут має бути перемикач теми світла/темна-->
         <label id="switch" class="switch">
-          <input 
-              type="checkbox" 
-              class="dark-mode-toggle" 
-              id="dark-mode-toggle"
-              aria-label="toggle dark mode"/>
+          <input
+            type="checkbox"
+            class="dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="toggle dark mode"
+          />
           <span class="slider round"></span>
         </label>
 
         <!--User-shopplist-->
         <div class="header-user visually-hidden user-profile">
-          <div class="header-user-image">
-            <svg class="icon-user" width="12" height="16">
-              <use href="./img/InlineSprite.svg#user"></use>
+          <button type="button" class="show-logout">
+            <div class="header-user-image">
+              <svg class="icon-user" width="12" height="16">
+                <use href="./img/InlineSprite.svg#user"></use>
+              </svg>
+            </div>
+            <span class="header-user-name">Stephen</span>
+            <svg class="icon-arrow-down-user" width="23" height="26">
+              <use href="./img/InlineSprite.svg#user-arrow"></use>
             </svg>
-          </div>
-          <span class="header-user-name">Stephen</span>
-          <svg class="icon-arrow-down-user" width="23" height="26">
-            <use href="./img/InlineSprite.svg#user-arrow"></use>
-          </svg>
+          </button>
+          <button type="button" class="logout-button-overlay">log out</button>
         </div>
-        
+
         <!--Div for user sign up-->
-          <button class="header-user js-open-signin" type="button">
+        <button class="header-user js-open-signin show-logout" type="button">
           <span class="header-log-in">Sign-up</span>
           <svg class="icon-arrow-right" width="20" height="20">
             <use href="./img/InlineSprite.svg#arrow-narrow-right"></use>
-          </svg></button>
+          </svg>
+        </button>
 
         <!--Тут має бути Mobile-menu-header-->
         <div class="mobile-menu-container">
