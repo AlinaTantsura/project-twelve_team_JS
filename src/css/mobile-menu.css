@@ -102,6 +102,7 @@
 .sign-up-btn, 
 .logout-btn {
   background-color: var(--white);
+  color: var(--black);
   width: 118px;
   height: 48px;
   display: flex;
