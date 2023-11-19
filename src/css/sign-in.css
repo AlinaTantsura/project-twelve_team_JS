@@ -1,138 +1,174 @@
 .sign-in-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #4F2EE8;
-    transition: all var(--animation);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4f2ee8;
+  z-index: 951;
+  transition: all var(--animation);
 }
 
- .sign-in-modal {
-    width: 579px;   
-    position: absolute;
-    padding: 72px 40px 40px 40px;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    border: 2px solid #111;;
-    border-radius: 18px;
-    background-color: var(--background-white);
-    box-shadow: 0px 2px 1px 0px #00000033, 0px 1px 3px 0px #0000001f, 0px 1px 1px 0px #00000024;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.sign-in-modal {
+  width: 305px;
+  position: absolute;
+  padding: 60px 20px 40px 20px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: 2px solid #111;
+  border-radius: 18px;
+  background-color: var(--background-white);
+  box-shadow: 0px 2px 1px 0px #00000033, 0px 1px 3px 0px #0000001f,
+    0px 1px 1px 0px #00000024;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .signin-close-icon {
-    stroke: var(--black);
+  stroke: var(--black);
 }
 
 .sign-in-close-btn {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    border-color: #e7e9fc;
-    border-radius: 50% 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    background-color: inherit;
-    border: none;
-    cursor: pointer;
-    transition: all var(--animation);
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border-color: #e7e9fc;
+  border-radius: 50% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  transition: all var(--animation);
 }
-.sign-in-close-btn:hover .signin-close-icon, .sign-in-close-btn:focus .signin-close-icon {
-    stroke: #4F2EE8;
+.sign-in-close-btn:hover .signin-close-icon,
+.sign-in-close-btn:focus .signin-close-icon {
+  stroke: #4f2ee8;
 }
 
 .modal-input {
-    width: 100%;
-    height: 64px;
-    padding: 20px 40px;
-    border: 2px solid var(--black);
-    border-radius: 40px;
-    background-color: transparent;
-    outline: transparent;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 18px;
+  width: 100%;
+  height: 50px;
+  padding: 16px 24px;
+  border: 2px solid var(--black);
+  color: var(--black);
+  border-radius: 40px;
+  background-color: transparent;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
 }
 
 .modal-input:focus {
-    border-color: #4D5AE5;
+  border-color: #4d5ae5;
 }
 
 .modal-input::placeholder {
-    color: var(--black);
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.33;
-    letter-spacing: -0.01em;
+  color: var(--black);
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.125;
+  letter-spacing: -0.01em;
 }
 
 .send-user-data {
-    background-color: var(--black);
-    border: 2px solid var(--black);
-    color: var(--white);
-    text-transform: uppercase;
-    font-size: 18px;
-    line-height: 1.33;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    height: 64px;
-    border-radius: 40px;
-    outline: none;
-    width: 100%;
-    transition: all var(--animation);
-    margin-top: 12px;
+  background-color: var(--black);
+  border: 2px solid var(--black);
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1.125;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  height: 50px;
+  border-radius: 40px;
+  outline: none;
+  width: 100%;
+  transition: all var(--animation);
 }
 
-.send-user-data:hover, .send-user-data:focus {
+.send-user-data:hover,
+.send-user-data:focus {
   background-color: var(--white);
   color: var(--black);
 }
 
 .input-field {
-    position: relative;
+  position: relative;
 }
 
 .modal-user-icons {
-   stroke: var(--black);
-   fill: var(--white);
-   position: absolute;
-   top: 24%;
-   right: 10%;
-   transition: all var(--animation);
+  stroke: var(--black);
+  fill: var(--white);
+  position: absolute;
+  top: 24%;
+  right: 10%;
+  transition: all var(--animation);
 }
 .modal-input:focus-within + .modal-user-icons {
-    stroke: var(--violet);
-  }
+  stroke: var(--violet);
+}
 
-.signin-container-form, 
+.signin-container-form,
 .inputs-container-form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 28px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 28px;
 }
 .form-btn-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 20px;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  margin-top: 14px;
 }
 
 .form-btn-link {
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.33;
-    letter-spacing: -0.01em;
-    color: var(--category-label);
-    cursor: pointer;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.125;
+  letter-spacing: -0.01em;
+  color: var(--category-label);
+  cursor: pointer;
 }
 .active-btn {
-    color: var(--violet);
-    text-decoration: underline;
+  color: var(--violet);
+  text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  .sign-in-modal {
+    width: 579px;
+    padding: 72px 40px 40px 40px;
+  }
+  .signin-close-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .modal-input {
+    height: 64px;
+    padding: 20px 40px;
+    font-size: 18px;
+  }
+  .modal-input::placeholder {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .send-user-data {
+    font-size: 18px;
+    line-height: 1.33;
+    height: 64px;
+    margin-top: 12px;
+  }
+  .form-btn-link {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .form-btn-list {
+    margin-top: 20px;
+  }
 }

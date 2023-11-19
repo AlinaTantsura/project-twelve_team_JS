@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 const auth = getAuth(app);
 
 const openSignForm = document.querySelector('.js-open-signin');
+const openSignFormBurger = document.querySelector('.sign-up-btn');
 const closeSignForm = document.querySelector('.js-close-signin');
 const signInForm = document.querySelector('.js-signin-form');
 const signUpButtonLink = document.querySelector('.js-sign-up-btn-form');
@@ -23,6 +24,7 @@ const formSignIn = document.querySelector('.container-signin');
 
 
 openSignForm?.addEventListener('click', toggleForm);
+openSignFormBurger?.addEventListener('click', toggleForm);
 closeSignForm?.addEventListener('click', toggleForm);
 
 function toggleForm() {
@@ -52,13 +54,16 @@ signInButtonLink?.addEventListener('click', event => {
 // GET USERS DATA FOR SIGN UP ============================================================
 const userProfile = document.querySelector('.user-profile');
 const userNameText = document.querySelector('.header-user-name');
+const burgerUserTextName = document.querySelector('.burger-us-name');
 const navigationHeader = document.querySelector('.header-nav');
 const logOutBtn = document.querySelector('.logout-button-overlay');
+const logOutBurger = document.querySelector('.logout-btn');
 
 formSignUp?.addEventListener('submit', signUpSubmit);
 formSignIn?.addEventListener('submit', signInSumbit);
 userProfile?.addEventListener('click', () => logOutBtn?.classList.add('show-logout'));
 logOutBtn?.addEventListener('click', onLogOut);
+logOutBurger?.addEventListener('click', onLogOut);
 
 // get new user data from Sign Up form
 function signUpSubmit(event) {
@@ -86,6 +91,8 @@ function whenUserSignUp(name, email, password) {
 
     // @ts-ignore
     userNameText.textContent = `${name}`;
+    // @ts-ignore
+    burgerUserTextName.textContent = `${name}`;
     toggleForm();
 
     // Notification for User Sign Up
@@ -125,6 +132,8 @@ function whenUserSignIn(email, password) {
     const user = userCredentials.user;
     // @ts-ignore
     userNameText.textContent = `${user.displayName}`;
+    // @ts-ignore
+    burgerUserTextName.textContent = `${user.displayName}`;
 
     openSignForm?.classList.add('visually-hidden');
     userProfile?.classList.remove('visually-hidden');
@@ -307,6 +316,10 @@ onAuthStateChanged(auth, user => {
       photo: user.photoURL,
       uid: user.uid,
     };
+    // @ts-ignore
+    userNameText.textContent = `${userData.name}`;
+    // @ts-ignore
+    burgerUserTextName.textContent = `${userData.name}`;
     onSignIn(userData);
   } else {
     onLogOutUser();
