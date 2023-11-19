@@ -1,16 +1,16 @@
-import { app } from './firebase';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
-  signOut,
+  signOut, onAuthStateChanged
 } from 'firebase/auth';
-import { getFirestore } from "firebase/firestore";
+import { getDatabase, ref, set, child, get } from "firebase/database";
+import { onSignIn, onLogOutUser } from './for-authorisation';
+import { app } from './firebase';
 import Swal from 'sweetalert2';
 
-const auth = getAuth();
-const db = getFirestore(app);
+const auth = getAuth(app);
 
 const openSignForm = document.querySelector('.js-open-signin');
 const closeSignForm = document.querySelector('.js-close-signin');
@@ -204,3 +204,111 @@ function onLogOut() {
   });
   location.href = './index.html';
 };
+// ======================================================================================
+function getUserData() {
+  const user = auth.currentUser;
+  if (user !== null) {
+    const userData = {
+      name: user.displayName,
+      email: user.email,
+      photo: user.photoURL,
+      uid: user.uid,
+    }
+    return userData;
+  }
+};
+// ==========================================================================================
+// Write users books from shopping list to firebase database
+export function writeUserShoppingListToDatabase(booksArray) {
+  if(!booksArray) {
+       const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'error',
+      title: `Unknown User!`,
+    });
+    return;
+  }
+  const userData = getUserData();
+  if(!userData) {
+         const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'error',
+      title: `Unknown User!`,
+    });
+    return;
+  }
+  const userId = userData.uid;
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    books: booksArray,
+  })
+}
+// ========================================================================
+export function getUsersShoppListFromDatabase() {
+  const localStorageKey = 'shoppingList';
+  const userData = getUserData();
+   if(!userData) {
+     return;
+   }
+   const userId = userData.uid;
+   const dbRef = ref(getDatabase());
+   get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      const { books: booksArr } = snapshot.val();
+      localStorage.setItem(localStorageKey, JSON.stringify(booksArr));
+} else {
+  const booksArr = [];
+  localStorage.setItem(localStorageKey, JSON.stringify(booksArr));
+}
+}).catch(() => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: toast => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+  Toast.fire({
+    icon: 'error',
+    title: `Error, Error, server not answer!`,
+  });
+})
+}
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    const userData = {
+      name: user.displayName,
+      email: user.email,
+      photo: user.photoURL,
+      uid: user.uid,
+    };
+    onSignIn(userData);
+  } else {
+    onLogOutUser();
+  }
+})

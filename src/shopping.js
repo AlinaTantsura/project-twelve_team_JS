@@ -6,3 +6,5 @@ import './js/header.js';
 import './js/dark-light-switcher.js'
 import './js/pagination.js'
 import './js/sign-in.js';
+import './js/for-authorisation.js';
+import './js/firebase.js';
