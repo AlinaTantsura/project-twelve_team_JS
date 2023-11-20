@@ -4,6 +4,7 @@ import imgUrlAmazon from '../img/amazon@1x-min.png';
 import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
 import imgUrlAmazon2x from '../img/amazon@2x-min.png';
 import icons from '../img/InlineSprite.svg';
+import { writeUserShoppingListToDatabase } from './sign-in';
 import Swal from 'sweetalert2';
 
 const bookList = document.querySelector('.books-list');
@@ -100,6 +101,7 @@ function removeFromShopping(event) {
 
   dataFromStorage = dataFromStorage.filter(book => book._id !== bookId);
   localStorage.setItem(localStorageKey, JSON.stringify(dataFromStorage));
+  writeUserShoppingListToDatabase(dataFromStorage);
 
   const cardBookEl = document.getElementById(bookId);
 

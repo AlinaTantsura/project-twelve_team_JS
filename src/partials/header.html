@@ -15,12 +15,12 @@
     </a>
 
     <!-- ================================================================ -->
-    <!--Контейнер з перемикачем та меню-desctop-->
+    <!--Контейнер з перемикачем та меню-desktop-->
     <div class="menu-container">
       <!--Меню-->
 
-      <!-- Desctop-menu-header -->
-      <nav class="header-nav">
+      <!-- Desktop-menu-header -->
+      <nav class="header-nav is-hidden">
         <ul class="header-menu-list">
           <li class="hm-list-item">
             <a href="./index.html" class="header-home js-nav-link">Home</a>
@@ -39,33 +39,38 @@
       <div class="div-switch-user">
         <!--Тут має бути перемикач теми світла/темна-->
         <label id="switch" class="switch">
-          <input 
-              type="checkbox" 
-              class="dark-mode-toggle" 
-              id="dark-mode-toggle"
-              aria-label="toggle dark mode"/>
+          <input
+            type="checkbox"
+            class="dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="toggle dark mode"
+          />
           <span class="slider round"></span>
         </label>
 
         <!--User-shopplist-->
-        <div class="header-user visually-hidden">
-          <div class="header-user-image">
-            <svg class="icon-user" width="12" height="16">
-              <use href="./img/InlineSprite.svg#user"></use>
+        <div class="header-user visually-hidden user-profile">
+          <button type="button" class="show-logout">
+            <div class="header-user-image">
+              <svg class="icon-user" width="12" height="16">
+                <use href="./img/InlineSprite.svg#user"></use>
+              </svg>
+            </div>
+            <span class="header-user-name">Stephen</span>
+            <svg class="icon-arrow-down-user" width="23" height="26">
+              <use href="./img/InlineSprite.svg#user-arrow"></use>
             </svg>
-          </div>
-          <span class="header-user-name">Stephen</span>
-          <svg class="icon-arrow-down-user" width="23" height="26">
-            <use href="./img/InlineSprite.svg#user-arrow"></use>
-          </svg>
+          </button>
+          <button type="button" class="logout-button-overlay">log out</button>
         </div>
+
         <!--Div for user sign up-->
-        <div class="header-user log-in">
+        <button class="header-user js-open-signin show-logout" type="button">
           <span class="header-log-in">Sign-up</span>
           <svg class="icon-arrow-right" width="20" height="20">
             <use href="./img/InlineSprite.svg#arrow-narrow-right"></use>
           </svg>
-        </div>
+        </button>
 
         <!--Тут має бути Mobile-menu-header-->
         <div class="mobile-menu-container">

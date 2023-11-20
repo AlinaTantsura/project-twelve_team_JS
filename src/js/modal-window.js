@@ -5,6 +5,7 @@ import imgUrlAppleBook2x from '../img/appleBook@2x-min.png';
 import imgUrlAmazon1x from '../img/amazon@1x-min.png';
 import imgUrlAmazon2x from '../img/amazon@2x-min.png';
 import Swal from 'sweetalert2';
+import { writeUserShoppingListToDatabase } from './sign-in';
 
 let bookArray = JSON.parse(localStorage.getItem('shoppingList')) || [];
 
@@ -42,7 +43,7 @@ export function displayBookModal(book) {
             </div>
         </div>
 
-        <button id="addToShoppingList">Add to Shopping List</button>
+        <button id="addToShoppingList" class="add-shopping-button">Add to Shopping List</button>
 
         <p id="congratulationsMessage" style="display: none;">
             Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.
@@ -94,6 +95,7 @@ export function displayBookModal(book) {
             shoppingList.push(book);
 
             localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+            writeUserShoppingListToDatabase(shoppingList);
             const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",
@@ -114,6 +116,7 @@ export function displayBookModal(book) {
             const updatedShoppingList = shoppingList.filter((item) => item.title !== book.title);
 
             localStorage.setItem('shoppingList', JSON.stringify(updatedShoppingList));
+            writeUserShoppingListToDatabase(updatedShoppingList);
             const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",

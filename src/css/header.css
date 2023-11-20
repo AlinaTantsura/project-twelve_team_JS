@@ -99,28 +99,27 @@ margin-bottom: 40px;
   align-items: center;
 }
 
-.header-user {
-  width: 184px;
-  height: 45px;
-  background: var(--violet);
-  border-radius: 36px;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 12px;
-  margin-left: 24px;
-}
-
-.log-in {
-  display: none;
-  padding: 0 14px;
+.show-logout {
   width: 184px;
   height: 48px;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 18px;
-  border: 1.5px solid var(--black);
   background: var(--violet);
+  border-radius: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  margin-left: 24px;
+  border: 1px solid var(--black);
+  outline: none;
+  transition: all var(--animation);
+  cursor: pointer;
+}
+
+.show-logout:hover, .show-logout:focus {
+  background: var(--black);
+}
+.show-logout:hover .header-log-in, .show-logout:focus .header-log-in {
+  color: var(--white);
 }
 
 .header-log-in {
@@ -128,10 +127,45 @@ margin-bottom: 40px;
     line-height: 18px;
     font-size: 14px;
     color: var(--white);
+    transition: all var(--animation);
 }
 
+.user-profile {
+  position: relative;
+  overflow: hidden;
+}
+
+.logout-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 184px;
+  height: 48px;
+  border: 1px solid var(--black);
+  border-radius: 36px;
+  text-transform: uppercase;
+  background-color: var(--background-white);
+  color: var(--black);
+  font-weight: 700;
+  transform: translateY(100%);
+  transition: all var(--animation);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-button-overlay:hover, .logout-button-overlay:focus {
+  background-color: var(--violet);
+  color: var(--yellow);
+}
+
+.show-logout {
+  transform: translateY(0);
+}
+
+
 @media screen and (min-width: 768px) {
-  .header-user, .log-in  {
+  .h, .log-in  {
     display: flex;
   }
 }
@@ -255,4 +289,9 @@ input:checked+.slider:before {
   opacity: 0;
   width: 0;
   height: 0;
+}
+@media screen and (min-width: 320px) and (max-width: 767.98px) {
+  .header-user {
+    display: none;
+  }
 }

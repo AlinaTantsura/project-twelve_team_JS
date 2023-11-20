@@ -1,130 +1,327 @@
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithEmailAndPassword,
+  signOut, onAuthStateChanged
+} from 'firebase/auth';
+import { getDatabase, ref, set, child, get } from "firebase/database";
+import { onSignIn, onLogOutUser } from './for-authorisation';
+import { app } from './firebase';
+import Swal from 'sweetalert2';
 
-// import { initializeApp } from "firebase/app";
-// // import firebase from "firebase/compat/app"; 
-// import 'firebase/auth';
-// import 'firebase/database';
-// import 'firebase/storage';
-// import 'firebase/messaging';
+const auth = getAuth(app);
 
-// import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-// import { getDatabase } from "firebase/database";
-// // Посилання на об'єкт клієнта
-// var currentUser = "";
-// // Посилання на унікальний id клієнта в базі
-// var currentUserId = "";
-
-// const refs = {
-//       // кнопка відкриття модального вікна
-//     openModalBtn: document.querySelector("[data-modal-open]"), 
-//     // Кнопка закриття модального вікна (хрестик)
-//     closeModalBtn: document.querySelector("[data-modal-close]"),
-//     modal: document.querySelector("[data-modal]"),
-//   };
-// // Прослуховувач на відкриття модалки
-// refs.openModalBtn.addEventListener("click", toggleModal);
-//   // Прослуховувач на закриття модалки
-//   refs.closeModalBtn.addEventListener("click", toggleModal);
-//     // Функція переключення режимів видимості/невидимості модального вікна  
-//   function toggleModal() {
-//     refs.modal.classList.toggle("is-hidden");
-//   }
-
-// // Об'єкт параметрів для ініціалізації Firebase
-// const firebaseConfig = {
-//     apiKey: "AIzaSyCIWoWX3xYdjXi4GE7U7N6BsSjhJuVC8VQ",
-//     authDomain: "project-twelve-team-js.firebaseapp.com",
-//     databaseURL: "https://project-twelve-team-js-default-rtdb.firebaseio.com",
-//     projectId: "project-twelve-team-js",
-//     storageBucket: "project-twelve-team-js.appspot.com",
-//     messagingSenderId: "971706024036",
-//     appId: "1:971706024036:web:abe28a9d8a8aa3aac65f71",
-//     measurementId: "G-KM0428PPE7"
-//   };
-
-// // Initialize Firebase  
-// const app = initializeApp(firebaseConfig);
-// //  Отримання посилання на базу данних 
-// const database = getDatabase(app);
-
-// // Отримання посилання на відкриту сесію 
-// const auth = getAuth();
-// console.log(auth);
-// // createUserWithEmailAndPassword(auth, email, password);
-// // createUserWithEmailAndPassword(auth, "anton@ukr.net", "asdfghj");
-// // GET Users info name
-// const txtName = document.getElementById('user-name');
-// // GET Users info e-mail
-// const txtEmail = document.getElementById('user-email');
-// // GET Users info password
-// const txtPassword = document.getElementById('user-password');
-// // Посилання на кнопку Login
-// const btnLogin    = document.getElementById('btnLogin');
-// // const btnSignUp   = document.getElementById('btnSignUp');
-// // const btnLogout   = document.getElementById('btnLogout');
-
-// //Add login event
-// btnLogin.addEventListener('click', e =>{
-//   "use strict";
-//     const email = txtEmail.value;
-//     const pass = txtPassword.value;
-//      // Sign in
-//     const promise = signInWithEmailAndPassword(auth, email, pass)
-//         .then((userCredential) => {
-//     // Signed in 
-//             const user = userCredential.user;
-//     //  Посилання на об'єкт клієнта       
-//             currentUser = user;
-//     //  Унікальний код клієнта в базі Firebase       
-//             currentUserId = user.uid;
-//             alert(`Успіх. Код клієнта ${currentUserId}`)
-//             // console.log(user);
-//             // console.log(user.uid);
-//             // console.log(currentUserId);
-//     // Функція відключення видимості модального вікна        
-//          toggleModal();
-
-//     // ...
-//   });
-      
-//   promise.catch(e => alert(e.message));  //  console.log(e.message)
-
-// });
+const openSignForm = document.querySelector('.js-open-signin');
+const openSignFormBurger = document.querySelector('.sign-up-btn');
+const closeSignForm = document.querySelector('.js-close-signin');
+const signInForm = document.querySelector('.js-signin-form');
+const signUpButtonLink = document.querySelector('.js-sign-up-btn-form');
+const signInButtonLink = document.querySelector('.js-sign-in-btn-form');
+const formSignUp = document.querySelector('.container-signup');
+const formSignIn = document.querySelector('.container-signin');
 
 
-// // Реєстрація нового користувача
-// async function registration(auth, email, password) {
-//     const data = await createUserWithEmailAndPassword(auth, email, password)
-//             .then((userCredential) => {
-//                 // Signed up 
-//                 const user = userCredential.user;
-//                 // ...
-//             })
-//             .catch((error) => {
-//                 const errorCode = error.code;
-//                 const errorMessage = error.message;
-//                 alert(errorMessage);
-            
-//             })
-//     };
 
-// // // Вхід в свій аккаунт
-// // async function login(auth, email, password) {
-// //            try {
-// //                const data = await signInWithEmailAndPassword(auth, email, password);
-// //                console.log(data.user.uid);
-// //            } catch (error) {
-// //                console.log(error.message);
-// //                throw error;
-// //            }
-// // };
+openSignForm?.addEventListener('click', toggleForm);
+openSignFormBurger?.addEventListener('click', toggleForm);
+closeSignForm?.addEventListener('click', toggleForm);
 
-// // // Запис інформації користувача в базу
-// // async function newClient(newClinet) {
-// //            try {
-// //                const addClient = await firebase.database().ref('clients').push(newClinet);
-// //                console.log(addClient);
-// //            } catch (error) {
-// //                console.log(error.message);
-// //                throw error;
-// //            }
-// // };
+function toggleForm() {
+  signInForm?.classList.toggle('is-hidden');
+}
+
+// SWITCH BETWEEN SIGN UP AND SIGN IN FORMS
+
+signUpButtonLink?.addEventListener('click', event => {
+  event.preventDefault();
+  formSignUp?.classList.remove('visually-hidden');
+  formSignIn?.classList.add('visually-hidden');
+  // @ts-ignore
+  event.currentTarget.classList.add('active-btn');
+  signInButtonLink?.classList.remove('active-btn');
+});
+
+signInButtonLink?.addEventListener('click', event => {
+  event.preventDefault();
+  formSignUp?.classList.add('visually-hidden');
+  formSignIn?.classList.remove('visually-hidden');
+  // @ts-ignore
+  event.currentTarget.classList.add('active-btn');
+  signUpButtonLink?.classList.remove('active-btn');
+});
+// ========================================================================================
+// GET USERS DATA FOR SIGN UP ============================================================
+const userProfile = document.querySelector('.user-profile');
+const userNameText = document.querySelector('.header-user-name');
+const burgerUserTextName = document.querySelector('.burger-us-name');
+const navigationHeader = document.querySelector('.header-nav');
+const logOutBtn = document.querySelector('.logout-button-overlay');
+const logOutBurger = document.querySelector('.logout-btn');
+
+formSignUp?.addEventListener('submit', signUpSubmit);
+formSignIn?.addEventListener('submit', signInSumbit);
+userProfile?.addEventListener('click', () => logOutBtn?.classList.add('show-logout'));
+logOutBtn?.addEventListener('click', onLogOut);
+logOutBurger?.addEventListener('click', onLogOut);
+
+// get new user data from Sign Up form
+function signUpSubmit(event) {
+  event.preventDefault();
+  const formElements = event.target.elements;
+  const data = {};
+  for (let i = 0; i <= formElements.length - 2; i++) {
+    let value = formElements[i].value;
+    let key = formElements[i].name;
+    data[key] = value;
+  }
+  const makeName = data.name.trim();
+
+  whenUserSignUp(makeName, data.email, data.password);
+}
+
+function whenUserSignUp(name, email, password) {
+  createUserWithEmailAndPassword(auth, email, password).then(() => {
+    // @ts-ignore
+    updateProfile(auth.currentUser, { displayName: name });
+
+    openSignForm?.classList.add('visually-hidden');
+    userProfile?.classList.remove('visually-hidden');
+    navigationHeader?.classList.remove('is-hidden');
+
+    // @ts-ignore
+    userNameText.textContent = `${name}`;
+    // @ts-ignore
+    burgerUserTextName.textContent = `${name}`;
+    toggleForm();
+
+    // Notification for User Sign Up
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'success',
+      title: `Welcome, ${name}!`,
+    });
+  });
+}
+// ========================================================================
+// ========== FUNCTIONS FOR SIGN IN ========================================
+function signInSumbit(event) {
+  event.preventDefault();
+  const formElements = event.target.elements;
+  const data = {};
+  for (let i = 0; i <= formElements.length - 2; i++) {
+    let value = formElements[i].value;
+    let key = formElements[i].name;
+    data[key] = value;
+  }
+  whenUserSignIn(data.email, data.password);
+}
+
+function whenUserSignIn(email, password) {
+  signInWithEmailAndPassword(auth, email, password).then(userCredentials => {
+    const user = userCredentials.user;
+    // @ts-ignore
+    userNameText.textContent = `${user.displayName}`;
+    // @ts-ignore
+    burgerUserTextName.textContent = `${user.displayName}`;
+
+    openSignForm?.classList.add('visually-hidden');
+    userProfile?.classList.remove('visually-hidden');
+    navigationHeader?.classList.remove('is-hidden');
+
+    toggleForm();
+    // Notification for User Sign Up
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'success',
+      title: `Welcome, ${user.displayName}!`,
+    });
+  }).catch (() => {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: toast => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: 'error',
+        title: `Email or password not found`,
+      });
+  })
+}
+// ==================================================================================
+// FUNCTION WHEN USER LOG OUT ======================================================
+
+function onLogOut() {
+  signOut(auth).then(() => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'success',
+      title: `Log Out was successfull`,
+    });
+  }).catch(() => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'error',
+      title: `Ooops, Something go wrong!`,
+    });
+  });
+  location.href = './index.html';
+};
+// ======================================================================================
+function getUserData() {
+  const user = auth.currentUser;
+  if (user !== null) {
+    const userData = {
+      name: user.displayName,
+      email: user.email,
+      photo: user.photoURL,
+      uid: user.uid,
+    }
+    return userData;
+  }
+};
+// ==========================================================================================
+// Write users books from shopping list to firebase database
+export function writeUserShoppingListToDatabase(booksArray) {
+  if(!booksArray) {
+       const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'error',
+      title: `Unknown User!`,
+    });
+    return;
+  }
+  const userData = getUserData();
+  if(!userData) {
+         const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'error',
+      title: `Unknown User!`,
+    });
+    return;
+  }
+  const userId = userData.uid;
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    books: booksArray,
+  })
+}
+// ========================================================================
+export function getUsersShoppListFromDatabase() {
+  const localStorageKey = 'shoppingList';
+  const userData = getUserData();
+   if(!userData) {
+     return;
+   }
+   const userId = userData.uid;
+   const dbRef = ref(getDatabase());
+   get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      const { books: booksArr } = snapshot.val();
+      localStorage.setItem(localStorageKey, JSON.stringify(booksArr));
+} else {
+  const booksArr = [];
+  localStorage.setItem(localStorageKey, JSON.stringify(booksArr));
+}
+}).catch(() => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: toast => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+  Toast.fire({
+    icon: 'error',
+    title: `Error, Error, server not answer!`,
+  });
+})
+}
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    const userData = {
+      name: user.displayName,
+      email: user.email,
+      photo: user.photoURL,
+      uid: user.uid,
+    };
+    // @ts-ignore
+    userNameText.textContent = `${userData.name}`;
+    // @ts-ignore
+    burgerUserTextName.textContent = `${userData.name}`;
+    onSignIn(userData);
+  } else {
+    onLogOutUser();
+  }
+})
