@@ -1,4 +1,4 @@
-import{a as w,b as P,c as A,d as I,i as T,w as E}from"./assets/dark-light-switcher-03c03f45.js";import{S as c,P as q}from"./assets/vendor-dacd7886.js";const v=document.querySelector(".books-list"),k=document.querySelector(".no-books"),d=document.querySelector(".loader-backdrop");let S="shoppingList";const m=JSON.parse(localStorage.getItem(S))||[];p(m);function p(o){const e="Description will be added sooner",s=o.map(({_id:n,book_image:u,title:i,list_name:y,description:B,author:$,buy_links:h})=>`
+import{a as w,b as P,c as A,d as I,i as T,w as E}from"./assets/dark-light-switcher-2d277773.js";import{S as c,P as q}from"./assets/vendor-dacd7886.js";const v=document.querySelector(".books-list"),k=document.querySelector(".no-books"),d=document.querySelector(".loader-backdrop");let S="shoppingList";const m=JSON.parse(localStorage.getItem(S))||[];p(m);function p(o){const e="Description will be added sooner",s=o.map(({_id:n,book_image:u,title:i,list_name:y,description:B,author:$,buy_links:h})=>`
       <li class="shopping-element" data-book-id="${n}" id="${n}">
         <img
           src="${u}"
@@ -42,7 +42,7 @@ import{a as w,b as P,c as A,d as I,i as T,w as E}from"./assets/dark-light-switch
         </div>
         <button type="submit" class="delete-item" data-book-id="${n}">
           <svg class="remove-bin" width="16" height="16">
-            <use href="${T}#trash"></use>
+            <use href="${T}#trash-last"></use>
           </svg>
         </button>
       </li>
