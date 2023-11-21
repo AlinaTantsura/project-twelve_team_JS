@@ -80,9 +80,12 @@
   
   .support-button-svg {
     fill: var(--violet);
-    margin: 0 4px 6px 0;
+    /* margin: 0 4px 6px 0; */
     width: 20px;
     height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }  
   
   @media screen and (min-width: 768px){

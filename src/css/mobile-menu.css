@@ -117,7 +117,10 @@
   outline: none;
 }
 .logout-icon-arrow {
-margin-bottom: 8px;
+/* margin-bottom: 8px; */
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .burger-main-part {
   height: calc(100% - 64px);
